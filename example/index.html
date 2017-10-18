@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .wrap {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 400px;
+      box-sizing: border-box;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>1、空数据页</h2>
+  <div class="wrap">
+    <div class="bma_empty">
+      <i class="bma_empty-img"></i>
+      <span>暂无页面标题数据</span>
+      <span class="bma_empty-link">点击刷新</span>
+    </div>
+  </div>
+  <h2>4、app端-webview页面加载进度条</h2>
+  <div class="wrap">
+    <div class="bma_loading">
+      <i class="bma_loading-rate" style="width: 50%"></i>
+    </div>
+  </div>
+  <h2>5、web-搜索框</h2>
+  <div class="wrap">
+    <form class="bma_search">
+      <input class="bma_search-input" required type="text">
+      <button class="bma_search-submit" type="submit">确 定</button>
+      <button class="bma_search-reset" type="reset">取 消</button>
+      <i class="bma_search-line"></i>
+    </form>
+    <i class="bma_search-empty">查找不到结果</i>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>
