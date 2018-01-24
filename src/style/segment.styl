@@ -1,0 +1,66 @@
+$NAME = "segment"
+
+$HEIGHT = 34px
+$COUNT = 4
+
+.{$PREFIX}-{$NAME}
+  $box_sizing()
+  color: #fff
+  font-size: 15px
+  height: $HEIGHT
+  display: flex
+  overflow-x: auto
+  background-color: $color_theme1
+  &-item
+    color: rgba(255, 255, 255, 0.5)
+    flex-shrink: 0
+    min-width: 25%
+    max-width: 100%
+    &:first-child:last-child
+      width: 100%
+    for i in 2..$COUNT
+      &:first-child:nth-last-child({i}), &:first-child:nth-last-child({i}) ~ &
+        width: (100% / i)
+    display: flex
+    justify-content: center
+    overflow: hidden
+  &-wrap
+    position: relative
+    display: flex
+    align-items: center
+    max-width: 100%
+    padding-left: 10px
+    padding-right: 10px
+  &-active
+    color: #fff
+  &-active &-wrap:after
+    content: ""
+    position: absolute
+    bottom: 2px
+    left: 10px
+    right: 10px
+    height: 2px
+    background-color: #fff
+  &-box
+    display: block
+    position: relative
+    max-width: 100%
+  &-text
+    $reset_ctrl()
+    display: block
+    white-space: nowrap
+    max-width: 100%
+    text-overflow: ellipsis
+    overflow: hidden
+  &-mark
+    font-style: inherit
+    position: absolute
+    top: 0
+    right: 0
+    padding: 2px 3px
+    border-radius: 6px / 50%
+    border-radius: calc(1ch + 3px) / 50%
+    transform: translate(50%, -40%)
+    background-color: $color_theme2
+    color: #fff
+    font-size: 10px

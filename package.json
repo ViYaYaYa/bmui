@@ -1,32 +1,39 @@
 {
-  "name": "bma",
-  "version": "1.0.0",
-  "description": "Bluemoon Moon Angel CSS Components",
-  "main": "index.js",
+  "name": "bmui",
+  "version": "0.0.1",
+  "description": "Bluemoon Moon Components",
+  "main": "dist",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
     "build": "webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ViYaYaYa/BMA.git"
-  },
   "keywords": [],
-  "author": "",
+  "author": "ViYaYaYa",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ViYaYaYa/BMA/issues"
-  },
-  "homepage": "https://github.com/ViYaYaYa/BMA#readme",
   "devDependencies": {
-    "clean-webpack-plugin": "^0.1.16",
-    "css-loader": "^0.28.7",
-    "file-loader": "^0.11.2",
-    "style-loader": "^0.18.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.16.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.2.0",
+    "file-loader": "^1.1.6",
+    "style-loader": "^0.19.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
-    "webpack": "^3.5.6",
-    "webpack-dev-server": "^2.8.1"
+    "vue-loader": "^13.7.0",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "vue": "^2.5.13"
   }
 }

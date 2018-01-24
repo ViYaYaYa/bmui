@@ -1,0 +1,55 @@
+$PREFIX = 'bmui'
+
+// UI组命名空间
+angelkit_brandcolor_1 = #1fb8ff
+angelkit_brandcolor_2 = #ff6c47
+angelkit_brandcolor_3 = #ffca23
+angelkit_brandcolor_4 = #0dd66f
+
+angelkit_subcolor_1 = #0a85cc
+angelkit_subcolor_2 = #d7d7d7
+angelkit_subcolor_3 = #e5e5e5
+
+angelkit_textcolor_1 = #333
+angelkit_textcolor_2 = #666
+angelkit_textcolor_3 = #999
+
+angelkit_fontsize_1 = 20px
+angelkit_fontsize_2 = 17px
+angelkit_fontsize_3 = 15px
+angelkit_fontsize_4 = 14px
+angelkit_fontsize_5 = 12px
+angelkit_fontsize_6 = 11px
+
+// web组命名空间
+$color_theme1 = angelkit_brandcolor_1 // #1fb8ff
+$color_theme2 = angelkit_brandcolor_2 // #ff6c47
+$color_theme3 = angelkit_brandcolor_3 // #ffca23
+$color_theme4 = angelkit_brandcolor_4 // #0dd66f
+
+$color_sub1 = angelkit_subcolor_1 // #0a85cc
+$color_sub2 = angelkit_subcolor_2 // #d7d7d7
+$color_sub3 = angelkit_subcolor_3 // #e5e5e5
+
+$color_text1 = angelkit_textcolor_1 // #333
+$color_text2 = angelkit_textcolor_2 // #666
+$color_text3 = angelkit_textcolor_3 // #999
+
+$size1 = angelkit_fontsize_1 // 20px
+$size2 = angelkit_fontsize_2 // 17px
+$size3 = angelkit_fontsize_3 // 15px
+$size4 = angelkit_fontsize_4 // 14px
+$size5 = angelkit_fontsize_5 // 12px
+$size6 = angelkit_fontsize_6 // 11px
+
+$get_asset(path, ext = '.png')
+  return '../assets/' + path + ext
+$box_sizing()
+  *, *:before, *:after
+    box-sizing: border-box
+
+$icon(path, ext = '.png')
+  display: inline-block
+  vertical-align: middle
+  background: url($get_asset(path)) center no-repeat
+  background-size: contain
