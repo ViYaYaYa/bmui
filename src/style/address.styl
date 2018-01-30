@@ -19,10 +19,10 @@ $HEIGHT_TAB = 40px
     overflow: hidden
     overflow-x: auto
     font-size: 12px
-    color: $color_text1
+    color: $color_t1
     padding-left: 8px
     padding-right: 8px
-    border-bottom: 1px solid $color_sub3
+    border-bottom: 1px solid $color_b1
     &-tab
       $reset_ctrl()
       flex-shrink: 0
@@ -35,9 +35,9 @@ $HEIGHT_TAB = 40px
       text-overflow: ellipsis
       white-space: nowrap
     &-waiting
-      color: $color_text3
+      color: $color_t3
     &-active
-      color: $color_theme1
+      color: $color_main1
       &:after
         content: ""
         position: absolute
@@ -45,13 +45,13 @@ $HEIGHT_TAB = 40px
         left: 12px
         right: 12px
         height: 2px
-        background-color: $color_theme1
+        background-color: $color_main1
   &-main
     height: $HEIGHT - $HEIGHT_TAB
     position: relative
     overflow: hidden
     font-size: 14px
-    color: $color_text1
+    color: $color_t1
     &-list
       $rest_ul()
       position: absolute
@@ -70,7 +70,7 @@ $HEIGHT_TAB = 40px
       display: flex
       align-items: center
     &-active
-      color: $color_theme1
+      color: $color_main1
     &-text
       white-space: nowrap
       text-overflow: ellipsis

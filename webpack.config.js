@@ -7,6 +7,7 @@ module.exports = {
     filename: 'vue-example.js'
   },
   devServer: {
+    contentBase: Path.resolve(__dirname, 'example'),
     overlay: true
   },
   module: {

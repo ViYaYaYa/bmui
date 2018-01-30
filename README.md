@@ -1,2 +1,2 @@
 # BMA
-Bluemoon Moon Angel CSS Components
+Bluemoon Moon Angel Components
