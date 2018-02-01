@@ -1,0 +1,142 @@
+$NAME = 'choice'
+
+$NAME_RADIO = 'radio'
+$NAME_RADIO_LIST = 'radio_list'
+$NAME_CHECK_LIST_LEFT = 'check_list_left'
+$NAME_CHECK_LIST_RIGHT = 'check_list_right'
+$NAME_SELECTOR = 'selector'
+
+.{$PREFIX}-{$NAME_RADIO}
+  $box_sizing()
+  min-height: 50px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  background-color: #fff
+  border-bottom: 1px solid $color_b1
+  padding-left: 12px
+  padding-right: 12px
+  &-title
+    flex-shrink: 0
+    color: $color_t2
+    font-size: $size6
+    margin-right: 12px
+  &-ctrls
+    text-align: right
+    line-height: 1
+  &-ctrl
+    display: inline-block
+    color: $color_t1
+    font-size: $size4
+    margin-left: 8px
+  &-input
+    $reset_ctrl()
+    $icon('radio_normal', '.svg')
+    width: 30px
+    height: 30px
+    &:checked
+      background-image: url(($get_asset('radio_selected', '.svg')))
+    &:disabled
+      background-image: url(($get_asset('radio_disable', '.svg')))
+  &-disabled
+    color: $color_t3
+
+.{$PREFIX}-{$NAME_RADIO_LIST}
+  $box_sizing()
+  $reset_ul()
+  &-item
+    display: flex
+    align-items: center
+    min-height: 50px
+    border-bottom: 1px solid $color_b1
+    background-color: #fff
+    padding: 12px
+    padding-left: 8px
+    font-size: $size4
+    color: $color_t1
+  &-disabled
+    color: $color_t3
+  &-input
+    $reset_ctrl()
+    flex-shrink: 0
+    $icon('radio_normal', '.svg')
+    width: 30px
+    height: 30px
+    margin-right: 8px
+    &:checked
+      background-image: url(($get_asset('radio_selected', '.svg')))
+    &:disabled
+      background-image: url(($get_asset('radio_disable', '.svg')))
+.{$PREFIX}-{$NAME_CHECK_LIST_LEFT}
+  $box_sizing()
+  $reset_ul()
+  &-item
+    display: flex
+    align-items: center
+    min-height: 50px
+    border-bottom: 1px solid $color_b1
+    background-color: #fff
+    padding: 12px
+    padding-left: 8px
+    font-size: $size4
+    color: $color_t1
+  &-disabled
+    color: $color_t3
+  &-input
+    $reset_ctrl()
+    flex-shrink: 0
+    $icon('checkbox_normal', '.svg')
+    width: 30px
+    height: 30px
+    margin-right: 8px
+    &:checked
+      background-image: url(($get_asset('checkbox_selected', '.svg')))
+    &:disabled
+      background-image: url(($get_asset('checkbox_disable', '.svg')))
+.{$PREFIX}-{$NAME_CHECK_LIST_RIGHT}
+  $box_sizing()
+  $reset_ul()
+  &-item
+    display: flex
+    align-items: center
+    justify-content: space-between
+    min-height: 50px
+    border-bottom: 1px solid $color_b1
+    background-color: #fff
+    padding: 12px
+    padding-left: 8px
+    font-size: $size4
+    color: $color_t1
+  &-disabled
+    color: $color_t3
+  &-input
+    $reset_ctrl()
+    flex-shrink: 0
+    $icon('checkbox_normal', '.svg')
+    width: 30px
+    height: 30px
+    margin-left: 8px
+    &:checked
+      background-image: url(($get_asset('checkbox_selected', '.svg')))
+    &:disabled
+      background-image: url(($get_asset('checkbox_disable', '.svg')))
+.{$PREFIX}-{$NAME_SELECTOR}
+  $box_sizing()
+  $reset_ctrl()
+  display: inline-block
+  border: 1px solid $color_sub2
+  background-color: #fff
+  font-size: 12px
+  color: $color_t2
+  min-height: 30px
+  padding-left: 8px
+  padding-right: 8px
+  border-radius: 2px
+  &-checked
+    color: #fff
+    border-color: $color_main2
+    background-color: $color_main2
+  &-disabled
+    color: $color_t3
+    border-color: $color_b2
+    background-color: $color_bg2

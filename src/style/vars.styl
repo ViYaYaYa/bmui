@@ -9,7 +9,11 @@ angelkit_brandcolor_4 = #0dd66f
 angelkit_subcolor_1 = #0a85cc
 angelkit_subcolor_2 = #d7d7d7
 
-angelkit_linecolor_3 = #e5e5e5
+angelkit_linecolor_1 = #e5e5e5
+angelkit_linecolor_2 = #ebebeb
+
+angelkit_bgcolor_1 = #f2f2f2
+angelkit_bgcolor_2 = #f8f8f8
 
 angelkit_textcolor_1 = #333
 angelkit_textcolor_2 = #666
@@ -35,7 +39,11 @@ $color_main4 = angelkit_brandcolor_4
 $color_sub1 = angelkit_subcolor_1
 $color_sub2 = angelkit_subcolor_2
 
-$color_b1 = angelkit_linecolor_3
+$color_b1 = angelkit_linecolor_1
+$color_b2 = angelkit_linecolor_2
+
+$color_bg1 = angelkit_bgcolor_1
+$color_bg2 = angelkit_bgcolor_2
 
 $color_t1 = angelkit_textcolor_1
 $color_t2 = angelkit_textcolor_2
@@ -52,13 +60,39 @@ $offset1 = angelkit_gap_1
 $offset2 = angelkit_gap_2
 $offset3 = angelkit_gap_3
 
-$get_asset(path, ext = '.png')
-  return '../assets/' + path + ext
+$normalize_lh = 1.15
+
+// 公共方法
 $box_sizing()
   &, *, *:before, *:after
     box-sizing: border-box
+
+$get_asset(path, ext = '.png')
+  return '../assets/' + path + ext
+
 $icon(path, ext = '.png')
   display: inline-block
   vertical-align: middle
-  background: url($get_asset(path)) center no-repeat
+  background: url($get_asset(path, ext)) center no-repeat
   background-size: contain
+
+$reset()
+  margin: 0
+  padding: 0
+
+$reset_ctrl()
+  $reset()
+  font-size: inherit
+  font-weight: inherit
+  color: inherit
+  border: none
+  line-height: inherit
+  background-color: transparent
+  appearance: none
+
+$reset_ul()
+  $reset()
+  list-style: none
+
+$reset_lh()
+  line-height: $normalize_lh

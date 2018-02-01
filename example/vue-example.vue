@@ -7,6 +7,15 @@
       <bmui-cell-text title="cell-text" content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur aut debitis nihil distinctio dolorum repudiandae laborum aliquid sapiente, totam culpa sint reiciendis modi dolor quasi dolorem iusto atque error qui." />
       <bmui-cell-paragraph title="cell-paragraph" content="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit commodi corporis repellendus ipsum aliquid asperiores rerum quos. Aliquam, non nam alias eveniet, voluptate, maxime facere dolor provident rem recusandae excepturi." />
     </div>
+    <h2>choice</h2>
+    <div class="wrap">
+      <bmui-radio :title="radioModel || 'radio'" :items="radio" v-model="radioModel" />
+      <bmui-radio-list :items="radioList" v-model="radioListModel" />
+      <bmui-check-list-left :items="checkListLeft" v-model="checkListLeftModel" />
+      <bmui-check-list-right :items="checkListRight" v-model="checkListRightModel" />
+      <bmui-selector :item="selector1" @change="selectorChange" />
+      <bmui-selector :item="selector2" :disabled="selector2Disabled" @change="selectorChange" />
+    </div>
     <h2>segment</h2>
     <div class="wrap">
       <bmui-segment />
@@ -17,7 +26,23 @@
 export default {
   data () {
     return {
-      segment: ['标题1', '标题2', { name: '标题3带值', value: '333', mark: 999 }]
+      radio: ['111', { name: '选项2', value: '222' }, { name: '禁用选项', value: '333', disabled: true }, '444', '555'],
+      radioModel: '',
+      radioList: ['radio-list', { name: '选项', value: '222', disabled: true }, '选项很长很长很长很长很长很长很长很长很长很长很长很长很长'],
+      radioListModel: '',
+      checkListLeft: ['check-list-left', '222', { name: '选项名称', value: '333', disabled: true }],
+      checkListLeftModel: [],
+      checkListRight: ['check-list-right', '222', { name: '选项名称超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长', value: '333', disabled: true }],
+      checkListRightModel: [],
+      selector1: '选项1',
+      selector2: { name: '选项2的名称', value: '222' },
+      selector2Disabled: true,
+      segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3']
+    }
+  },
+  methods: {
+    selectorChange (res) {
+      console.log(res)
     }
   }
 }

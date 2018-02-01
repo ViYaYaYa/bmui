@@ -1,7 +1,7 @@
 <template>
-  <div class="bmui-cell-arrow2">
-    <p class="bmui-cell-arrow2-title">{{ title || 'TITLE' }}</p>
-    <i class="bmui-cell-arrow2-icon" />
+  <div class="bmui-cell_arrow2">
+    <p class="bmui-cell_arrow2-title">{{ title || 'TITLE' }}</p>
+    <i class="bmui-cell_arrow2-icon" />
   </div>
 </template>
 <script>

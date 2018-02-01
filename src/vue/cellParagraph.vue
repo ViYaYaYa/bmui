@@ -1,7 +1,7 @@
 <template>
-  <div class="bmui-cell-paragraph">
-    <p class="bmui-cell-paragraph-title">{{ title || 'TITLE' }}</p>
-    <p class="bmui-cell-paragraph-content">{{ content }}</p>
+  <div class="bmui-cell_paragraph">
+    <p class="bmui-cell_paragraph-title">{{ title || 'TITLE' }}</p>
+    <p class="bmui-cell_paragraph-content">{{ content }}</p>
   </div>
 </template>
 <script>

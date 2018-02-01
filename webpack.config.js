@@ -40,13 +40,20 @@ module.exports = {
           }
         ]
       },
-      // Stylus使用stylus-loader，css-loader，style-loader，option的resolve url是官方的漏洞，应该过后会修复
+      // Stylus使用stylus-loader，postcss-loader，css-loader，style-loader
       {
         test: /\.styl$/,
         exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader',
+          {
+            loader: 'postcss-loader',
+            // https://github.com/postcss/postcss-loader#sourcemap 不提供的会有一个不友好的warning
+            options: {
+              sourceMap: true
+            }
+          },
           {
             loader: 'stylus-loader',
             // https://github.com/shama/stylus-loader/issues/102 这难道就不算bug吗我的天
