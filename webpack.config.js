@@ -8,7 +8,9 @@ module.exports = {
   },
   devServer: {
     contentBase: Path.resolve(__dirname, 'example'),
-    overlay: true
+    overlay: true,
+    // 允许外部IP访问
+    host: '0.0.0.0'
   },
   module: {
     rules: [

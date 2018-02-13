@@ -16,6 +16,14 @@
       <bmui-selector :item="selector1" @change="selectorChange" />
       <bmui-selector :item="selector2" :disabled="selector2Disabled" @change="selectorChange" />
     </div>
+    <h2>field</h2>
+    <div class="wrap">
+      <bmui-field-arrow1 title="field-arrow1"/>
+      <bmui-field-arrow2 title="field-arrow2" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed veritatis eveniet magnam animi atque natus dolorum ex a tenetur commodi earum ducimus, voluptatibus corrupti amet, ad autem praesentium optio tempora?" />
+      <bmui-field-text1 title="field-text1" v-model="fieldText1Model" />
+      <bmui-field-text2 title="field-text2" v-model="fieldText2Model" />
+      <bmui-field-paragraph maxlength="100" v-model="fieldParagraph" />
+    </div>
     <h2>segment</h2>
     <div class="wrap">
       <bmui-segment />
@@ -37,6 +45,9 @@ export default {
       selector1: '选项1',
       selector2: { name: '选项2的名称', value: '222' },
       selector2Disabled: true,
+      fieldText1Model: '',
+      fieldText2Model: '',
+      fieldParagraph: '',
       segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3']
     }
   },

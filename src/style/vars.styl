@@ -64,8 +64,9 @@ $normalize_lh = 1.15
 
 // 公共方法
 $box_sizing()
-  &, *, *:before, *:after
-    box-sizing: border-box
+  &, *
+    &, &:before, &:after
+      box-sizing: border-box
 
 $get_asset(path, ext = '.png')
   return '../assets/' + path + ext
@@ -89,6 +90,10 @@ $reset_ctrl()
   line-height: inherit
   background-color: transparent
   appearance: none
+  textarea&
+    width: 100%
+  &::placeholder
+    color: $color_t3
 
 $reset_ul()
   $reset()
