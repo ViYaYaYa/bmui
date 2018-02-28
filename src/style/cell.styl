@@ -1,0 +1,97 @@
+$NAME = 'cell'
+
+$NAME_ARROW1 = 'arrow1'
+$NAME_ARROW2 = 'arrow2'
+$NAME_TEXT = 'text'
+$NAME_PARAGRAPH = 'paragraph'
+
+$HEIGHT_ARROW1 = 50px
+$HEIGHT_ARROW2 = 50px
+$HEIGHT_TEXT = 50px
+$HEIGHT_PARAGRAPH = 50px
+
+.{$PREFIX}-{$NAME}
+  &_{$NAME_ARROW1}
+    min-height: $HEIGHT_ARROW1
+    background-color: #fff
+    border-bottom: 1px solid $color_b1
+    display: flex
+    align-items: center
+    padding-left: 12px
+    padding-right: 8px
+    &-title
+      $reset()
+      flex-shrink: 0
+      color: $color_t2
+      font-size: $size6
+      margin-right: 12px
+    &-content
+      $reset()
+      color: $color_t1
+      font-size: $size4
+      flex-grow: 1
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+      text-align: right
+    &-icon
+      $icon("component_arrow_right@3x")
+      width: 30px
+      height: 30px
+      flex-shrink: 0
+      margin-left: 8px
+  &_{$NAME_ARROW2}
+    min-height: $HEIGHT_ARROW1
+    background-color: #fff
+    border-bottom: 1px solid $color_b1
+    display: flex
+    align-items: center
+    padding-left: 12px
+    padding-right: 8px
+    &-title
+      $reset()
+      color: $color_t1
+      font-size: $size4
+      flex-grow: 1
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+    &-icon
+      $icon("component_arrow_right@3x")
+      width: 30px
+      height: 30px
+      flex-shrink: 0
+      margin-left: 8px
+  &_{$NAME_TEXT}
+    min-height: $HEIGHT_ARROW1
+    background-color: #fff
+    border-bottom: 1px solid $color_b1
+    display: flex
+    align-items: center
+    padding: 12px
+    &-title
+      $reset()
+      flex-shrink: 0
+      color: $color_t2
+      font-size: $size6
+      margin-right: 12px
+    &-content
+      $reset()
+      color: $color_t1
+      font-size: $size4
+      flex-grow: 1
+      text-align: right
+  &_{$NAME_PARAGRAPH}
+    min-height: $HEIGHT_PARAGRAPH
+    background-color: #fff
+    border-bottom: 1px solid $color_b1
+    padding: 12px
+    &-title
+      $reset()
+      color: $color_t2
+      font-size: $size6
+      margin-bottom: 8px
+    &-content
+      $reset()
+      color: $color_t1
+      font-size: $size4

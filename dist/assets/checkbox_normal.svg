@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>icon30/checkbox_normal</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon30/checkbox_normal" fill-rule="nonzero" fill="#D7D7D7">
+            <path d="M6,6.99079514 L6,23.0092049 C6,23.5524218 6.44650875,24 6.99079514,24 L23.0092049,24 C23.5524218,24 24,23.5534913 24,23.0092049 L24,6.99079514 C24,6.4475782 23.5534913,6 23.0092049,6 L6.99079514,6 C6.4475782,6 6,6.44650875 6,6.99079514 Z M5,6.99079514 C5,5.89130934 5.89821238,5 6.99079514,5 L23.0092049,5 C24.1086907,5 25,5.89821238 25,6.99079514 L25,23.0092049 C25,24.1086907 24.1017876,25 23.0092049,25 L6.99079514,25 C5.89130934,25 5,24.1017876 5,23.0092049 L5,6.99079514 Z" id="Rectangle-7"></path>
+        </g>
+    </g>
+</svg>

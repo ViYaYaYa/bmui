@@ -1,0 +1,25 @@
+$NAME = 'empty-page'
+
+.{$PREFIX}-{$NAME}
+  position: absolute
+  left: 0
+  bottom: 50%
+  width: 100%
+  text-align: center
+  color: #b3b3b3
+  font-size: 16px
+  &-img
+    display: block
+    width: 174px
+    height: 115px
+    margin-left: auto
+    margin-right: auto
+    background: url("../assets/empty_page.png") center no-repeat
+    background-size: contain
+    margin-bottom: 14px
+  &-link
+    $reset_ctrl()
+    font-size: 14px
+    color: $color_main1
+    text-decoration: underline
+    margin-top: 10px

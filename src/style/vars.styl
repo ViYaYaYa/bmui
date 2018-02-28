@@ -1,0 +1,107 @@
+$PREFIX = 'bmui'
+
+// UI组命名空间
+angelkit_brandcolor_1 = #1fb8ff
+angelkit_brandcolor_2 = #ff6c47
+angelkit_brandcolor_3 = #ffca23
+angelkit_brandcolor_4 = #0dd66f
+
+angelkit_subcolor_1 = #0a85cc
+angelkit_subcolor_2 = #d7d7d7
+
+angelkit_linecolor_1 = #e5e5e5
+angelkit_linecolor_2 = #ebebeb
+
+angelkit_bgcolor_1 = #f2f2f2
+angelkit_bgcolor_2 = #f8f8f8
+
+angelkit_textcolor_1 = #333
+angelkit_textcolor_2 = #666
+angelkit_textcolor_3 = #999
+
+angelkit_fontsize_1 = 20px
+angelkit_fontsize_2 = 17px
+angelkit_fontsize_3 = 15px
+angelkit_fontsize_4 = 14px
+angelkit_fontsize_5 = 12px
+angelkit_fontsize_6 = 11px
+
+angelkit_gap_1 = 12px
+angelkit_gap_2 = 8px
+angelkit_gap_3 = 4px
+
+// web组命名空间
+$color_main1 = angelkit_brandcolor_1
+$color_main2 = angelkit_brandcolor_2
+$color_main3 = angelkit_brandcolor_3
+$color_main4 = angelkit_brandcolor_4
+
+$color_sub1 = angelkit_subcolor_1
+$color_sub2 = angelkit_subcolor_2
+
+$color_b1 = angelkit_linecolor_1
+$color_b2 = angelkit_linecolor_2
+
+$color_bg1 = angelkit_bgcolor_1
+$color_bg2 = angelkit_bgcolor_2
+
+$color_t1 = angelkit_textcolor_1
+$color_t2 = angelkit_textcolor_2
+$color_t3 = angelkit_textcolor_3
+
+$size1 = angelkit_fontsize_1
+$size2 = angelkit_fontsize_2
+$size3 = angelkit_fontsize_3
+$size4 = angelkit_fontsize_4
+$size5 = angelkit_fontsize_5
+$size6 = angelkit_fontsize_6
+
+$offset1 = angelkit_gap_1
+$offset2 = angelkit_gap_2
+$offset3 = angelkit_gap_3
+
+$normalize_lh = 1.15
+
+// 公共方法
+$box_sizing()
+  &, *
+    &, &:before, &:after
+      box-sizing: border-box
+
+$get_asset(path, ext = '.png')
+  return '../assets/' + path + ext
+
+$icon(path, ext = '.png')
+  display: inline-block
+  vertical-align: middle
+  background: url($get_asset(path, ext)) center no-repeat
+  background-size: contain
+
+$reset()
+  margin: 0
+  padding: 0
+
+$reset_ctrl()
+  $reset()
+  font-size: inherit
+  font-weight: inherit
+  color: inherit
+  border: none
+  line-height: inherit
+  background-color: transparent
+  appearance: none
+  textarea&
+    width: 100%
+  &::placeholder
+    color: $color_t3
+
+$reset_ul()
+  $reset()
+  list-style: none
+
+$reset_lh()
+  line-height: $normalize_lh
+
+// 全局覆盖
+[class|="bmui"]
+  $box_sizing()
