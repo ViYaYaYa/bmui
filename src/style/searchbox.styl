@@ -1,0 +1,42 @@
+.{$PREFIX}-searchbox
+  display: flex
+  margin: 0 12px
+  align-items: center
+  min-height: 50px
+  font-size: $size4
+  color: $color_t1
+  border-bottom: 1px solid $color_t3
+  &-icon
+    flex-shrink: 0
+    $icon('search', '.svg')
+    fill: $color_t3
+    width: 30px
+    height: 30px
+  &-content
+    $reset_ctrl()
+    flex-grow: 1
+    &::placeholder
+      color: $color_t3
+  &-del
+    $reset_ctrl()
+    flex-shrink: 0
+    width: 30px
+    height: 30px
+    $icon('component_textfield_delete@3x')
+  &-submit
+    $reset_ctrl()
+    flex-shrink: 0
+    color: $color_main1
+  &-active
+    border-bottom-color: $color_main1
+    &-icon
+      fill: $color_main1
+      
+.{$PREFIX}-searchbox_empty
+  color: $color_t3
+  font-size: $size4
+  text-align: center
+  background: url($get_asset('empty@3x')) top no-repeat;
+  background-size: 120px
+  padding-top: 128px
+  margin-top: 44px

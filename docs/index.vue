@@ -25,9 +25,14 @@
       <bmui-field-paragraph maxlength="100" v-model="fieldParagraph" />
       <bmui-field-btn title="field-btn" @submit="fieldBtn" :status="fieldStatus" />
     </div>
+    <h2>searchbox</h2>
+    <div class="wrap">
+      <bmui-searchbox @submit="searchboxEmpty = true" />
+      <bmui-searchbox-empty v-if="searchboxEmpty" />
+    </div>
     <h2>segment</h2>
     <div class="wrap">
-      <bmui-segment />
+      <bmui-segment :items="segment" :index="segmentIndex" @change="segmentChange" />
     </div>
   </div>
 </template>
@@ -50,7 +55,9 @@ export default {
       fieldText2Model: '',
       fieldParagraph: '',
       fieldStatus: '',
-      segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3']
+      searchboxEmpty: false,
+      segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3'],
+      segmentIndex: null
     }
   },
   methods: {
@@ -71,6 +78,9 @@ export default {
       setTimeout(() => {
         this.fieldStatus = ''
       }, 4000)
+    },
+    segmentChange (index) {
+      this.segmentIndex = index
     }
   }
 }

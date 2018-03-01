@@ -29,9 +29,9 @@ module.exports = {
           "css-loader",
           {
             loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
+            // options: {
+            //   sourceMap: true
+            // }
           },
           {
             loader: 'stylus-loader',
@@ -55,6 +55,7 @@ module.exports = {
       'src': Path.resolve(__dirname, 'src')
     }
   },
+  devtool: 'source-map',
   externals: {
     'vue': 'Vue',
   },

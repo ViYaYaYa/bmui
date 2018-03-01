@@ -6,8 +6,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
   entry: {
     'bmui.css': './src/bmui.styl',
-    'vue/index.js': './src/vue/index.js',
-    'docs/index.build.js': './docs/index.js'
+    'vue/index.js': './src/vue/index.js'
   },
   output: {
     path: Path.resolve(__dirname, 'dist'),
@@ -34,9 +33,9 @@ module.exports = {
             "css-loader",
             {
               loader: 'postcss-loader',
-              options: {
-                sourceMap: true
-              }
+              // options: {
+              //   sourceMap: true
+              // }
             },
             {
               loader: 'stylus-loader',
