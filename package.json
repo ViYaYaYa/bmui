@@ -4,8 +4,8 @@
   "description": "Bluemoon Moon Components",
   "main": "dist",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.config.js --open",
-    "build": "webpack --config webpack.prod.config.js"
+    "dev": "webpack-dev-server --config webpack.dev.config.js",
+    "build": "webpack --config webpack.prod.config.js && webpack --config webpack.docs.config.js"
   },
   "keywords": [],
   "author": "ViYaYaYa",
@@ -27,6 +27,7 @@
     "eslint-plugin-vue": "^4.2.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.30.1",
     "postcss-loader": "^2.0.10",
     "style-loader": "^0.19.1",
     "stylus": "^0.54.5",
@@ -34,8 +35,7 @@
     "vue-loader": "^13.7.0",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1",
-    "webpack-merge": "^4.1.2"
+    "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",

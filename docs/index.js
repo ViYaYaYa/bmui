@@ -1,11 +1,9 @@
-// 垫片
-import 'babel-polyfill'
 // 样式表
-import '../src/bmui.styl?development'
-// 组件库
-import Bmui from '../src/vue'
+import '../src/bmui.styl'
 // Vue
 import Vue from 'vue'
+// 组件库
+import Bmui from '../src/vue'
 // 页面模型
 import App from './index.vue'
 
