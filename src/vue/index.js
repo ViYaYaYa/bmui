@@ -12,6 +12,7 @@ import FieldArrow2 from './fieldArrow2.vue'
 import FieldText1 from './fieldText1.vue'
 import FieldText2 from './fieldText2.vue'
 import FieldParagraph from './fieldParagraph.vue'
+import FieldBtn from './fieldBtn.vue'
 // import EmptyPage from './emptyPage'
 import Segment from './segment.vue'
 
@@ -31,4 +32,5 @@ export default function install (Vue, options) {
   Vue.component(FieldText1.name, FieldText1)
   Vue.component(FieldText2.name, FieldText2)
   Vue.component(FieldParagraph.name, FieldParagraph)
+  Vue.component(FieldBtn.name, FieldBtn)
 }
