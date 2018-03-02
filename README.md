@@ -1,6 +1,9 @@
 # BMUI
 Bluemoon Moon UI (currently based on Vue)
 
+# Demo
+[here](https://viyayaya.github.io/bmui)
+
 # Development
 ```
   npm run dev
@@ -23,7 +26,7 @@ Bluemoon Moon UI (currently based on Vue)
 ```
 
 # Example
-## Cell
+## cell
 ``` html
   <bmui-cell-arrow1 title="左边标题" content="右边一行内容" />
   <bmui-cell-arrow2 title="左边标题" />
