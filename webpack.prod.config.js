@@ -11,6 +11,8 @@ module.exports = {
   output: {
     path: Path.resolve(__dirname, 'dist'),
     filename: '[name]',
+    library: 'bmui',
+    libraryTarget: 'umd',
     publicPath: './'
   },
   module: {
