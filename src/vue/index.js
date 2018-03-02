@@ -15,7 +15,6 @@ import FieldParagraph from './fieldParagraph.vue'
 import FieldBtn from './fieldBtn.vue'
 import Searchbox from './searchbox.vue'
 import SearchboxEmpty from './searchboxEmpty.vue'
-// import EmptyPage from './emptyPage'
 import Segment from './segment.vue'
 
 export default function install (Vue, options) {

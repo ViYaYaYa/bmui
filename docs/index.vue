@@ -27,7 +27,7 @@
     </div>
     <h2>searchbox</h2>
     <div class="wrap">
-      <bmui-searchbox @submit="searchboxEmpty = true" />
+      <bmui-searchbox v-model="searchbox" @submit="searchboxEmpty = true" />
       <bmui-searchbox-empty v-if="searchboxEmpty" />
     </div>
     <h2>segment</h2>
@@ -55,9 +55,10 @@ export default {
       fieldText2Model: '',
       fieldParagraph: '',
       fieldStatus: '',
+      searchbox: 'searchbox',
       searchboxEmpty: false,
       segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3'],
-      segmentIndex: null
+      segmentIndex: 2
     }
   },
   methods: {

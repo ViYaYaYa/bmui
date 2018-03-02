@@ -25,13 +25,13 @@ module.exports = {
         test: /\.styl$/,
         exclude: /node_modules/,
         use: [
-          "style-loader",
-          "css-loader",
+          'style-loader',
+          'css-loader',
           {
             loader: 'postcss-loader',
-            // options: {
-            //   sourceMap: true
-            // }
+            options: {
+              sourceMap: true
+            }
           },
           {
             loader: 'stylus-loader',

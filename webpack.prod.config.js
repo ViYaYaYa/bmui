@@ -30,16 +30,24 @@ module.exports = {
         exclude: /node_modules/,
         use: ExtractTextWebpackPlugin.extract({
           use: [
-            "css-loader",
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
             {
               loader: 'postcss-loader',
-              // options: {
-              //   sourceMap: true
-              // }
+              options: {
+                sourceMap: true
+              }
             },
             {
               loader: 'stylus-loader',
-              options: 'resolve url'
+              options: {
+                'resolve url': true,
+                'sourceMap': true
+              }
             }
           ]
         })
@@ -60,12 +68,13 @@ module.exports = {
       'src': Path.resolve(__dirname, 'src')
     }
   },
+  devtool: 'source-map',
   externals: {
     'vue': 'Vue',
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new ExtractTextWebpackPlugin("bmui.css"),
+    new ExtractTextWebpackPlugin('bmui.css'),
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     })

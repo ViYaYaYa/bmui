@@ -1,11 +1,11 @@
 <template>
-  <div :class="['bmui-searchbox', { 'bmui-searchbox-active': active }]" @click="focus">
+  <form :class="['bmui-searchbox', { 'bmui-searchbox-active': active }]" @click="focus" @submit.prevent="submit">
     <i class="bmui-searchbox-icon"/>
     <input class="bmui-searchbox-content" ref="input" type="text" @focus="active = true" v-model="valueInside">
-    <button class="bmui-searchbox-del" @click.stop v-if="valueInside" @click="valueInside = ''" />
-    <button class="bmui-searchbox-submit" @click.stop="submit" v-if="active && valueInside">确 认</button>
-    <button class="bmui-searchbox-submit" @click.stop="active = false" v-if="active && !valueInside">取 消</button>
-  </div>
+    <button class="bmui-searchbox-del" type="button" @click.stop v-if="valueInside" @click="valueInside = ''" />
+    <button class="bmui-searchbox-submit" type="submit" v-if="active && valueInside">确 认</button>
+    <button class="bmui-searchbox-submit" type="button" @click.stop="active = false" v-if="active && !valueInside">取 消</button>
+  </form>
 </template>
 <script>
 export default {
