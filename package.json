@@ -1,8 +1,8 @@
 {
   "name": "bmui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Bluemoon Moon Components",
-  "main": "dist",
+  "main": "dist/bmui.css",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.config.js",
     "build": "webpack --config webpack.prod.config.js && webpack --config webpack.docs.config.js"
