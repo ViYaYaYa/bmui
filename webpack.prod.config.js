@@ -6,8 +6,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
   entry: {
     'bmui.css': './src/bmui.styl',
-    'vue/index.js': './src/vue/index.js',
-    'docs/index.build.js': './docs/index.js'
+    'vue/index.js': './src/vue/index.js'
   },
   output: {
     path: Path.resolve(__dirname, 'dist'),
@@ -31,7 +30,12 @@ module.exports = {
         exclude: /node_modules/,
         use: ExtractTextWebpackPlugin.extract({
           use: [
-            "css-loader",
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
+            },
             {
               loader: 'postcss-loader',
               options: {
@@ -40,7 +44,10 @@ module.exports = {
             },
             {
               loader: 'stylus-loader',
-              options: 'resolve url'
+              options: {
+                'resolve url': true,
+                'sourceMap': true
+              }
             }
           ]
         })
@@ -61,12 +68,13 @@ module.exports = {
       'src': Path.resolve(__dirname, 'src')
     }
   },
+  devtool: 'source-map',
   externals: {
     'vue': 'Vue',
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new ExtractTextWebpackPlugin("bmui.css"),
+    new ExtractTextWebpackPlugin('bmui.css'),
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     })

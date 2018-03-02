@@ -150,3 +150,50 @@
     height: 80px
     font-size: $size4
     color: $color_t1
+
+.{$PREFIX}-field_btn
+  background-color: #fff
+  border-bottom: 1px solid $color_b1
+  min-height: 50px
+  font-size: $size4
+  color: $color_t1
+  display: flex
+  width: 100%
+  align-items: center
+  &-title
+    font-size: $size6
+    color: $color_t2
+    flex-shrink: 0
+    margin-left: 12px
+  &-content
+    $reset_ctrl()
+    flex-grow: 1
+    margin-left: 12px
+    margin-right: 8px
+    &::placeholder
+      color: $color_t3
+  &-btn
+    $reset_ctrl()
+    flex-shrink: 0
+    align-self: stretch
+    font-size: $size4
+    color: $color_main1
+    border-left: 1px solid $color_main1
+    padding: 0 8px
+    margin: 8px 0
+    &:disabled, &-disabled
+      color: $color_t3
+      border-left-color: $color_t3
+  &-status-loading, &-status-success, &-status-warning, &-status-fail
+    flex-shrink: 0
+    width: 30px
+    height: 30px
+    margin-right: 8px
+  &-status-loading
+    $icon('component_status_snake', '.svg')
+  &-status-success
+    $icon('component_status_success', '.svg')
+  &-status-warning
+    $icon('component_status_warning', '.svg')
+  &-status-fail
+    $icon('component_status_fail', '.svg')

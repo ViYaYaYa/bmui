@@ -9,7 +9,7 @@
     </div>
     <h2>choice</h2>
     <div class="wrap">
-      <bmui-radio :title="radioModel || 'radio'" :items="radio" v-model="radioModel" />
+      <bmui-radio title="radio" :items="radio" v-model="radioModel" />
       <bmui-radio-list :items="radioList" v-model="radioListModel" />
       <bmui-check-list-left :items="checkListLeft" v-model="checkListLeftModel" />
       <bmui-check-list-right :items="checkListRight" v-model="checkListRightModel" />
@@ -23,10 +23,16 @@
       <bmui-field-text1 title="field-text1" v-model="fieldText1Model" />
       <bmui-field-text2 title="field-text2" v-model="fieldText2Model" />
       <bmui-field-paragraph maxlength="100" v-model="fieldParagraph" />
+      <bmui-field-btn title="field-btn" @submit="fieldBtn" :status="fieldStatus" />
+    </div>
+    <h2>searchbox</h2>
+    <div class="wrap">
+      <bmui-searchbox v-model="searchbox" @submit="searchboxEmpty = true" />
+      <bmui-searchbox-empty v-if="searchboxEmpty" />
     </div>
     <h2>segment</h2>
     <div class="wrap">
-      <bmui-segment />
+      <bmui-segment :items="segment" :index="segmentIndex" @change="segmentChange" />
     </div>
   </div>
 </template>
@@ -48,12 +54,34 @@ export default {
       fieldText1Model: '',
       fieldText2Model: '',
       fieldParagraph: '',
-      segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3']
+      fieldStatus: '',
+      searchbox: 'searchbox',
+      searchboxEmpty: false,
+      segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3'],
+      segmentIndex: 2
     }
   },
   methods: {
     selectorChange (res) {
       console.log(res)
+    },
+    fieldBtn () {
+      this.fieldStatus = 'loading'
+      setTimeout(() => {
+        this.fieldStatus = 'success'
+      }, 1000)
+      setTimeout(() => {
+        this.fieldStatus = 'warning'
+      }, 2000)
+      setTimeout(() => {
+        this.fieldStatus = 'fail'
+      }, 3000)
+      setTimeout(() => {
+        this.fieldStatus = ''
+      }, 4000)
+    },
+    segmentChange (index) {
+      this.segmentIndex = index
     }
   }
 }
