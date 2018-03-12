@@ -4,8 +4,8 @@
   "description": "Bluemoon Moon Components",
   "main": "dist/bmui.css",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.config.js",
-    "build": "webpack --config webpack.prod.config.js && webpack --config webpack.docs.config.js"
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "node webpack.build.js"
   },
   "keywords": [],
   "author": "ViYaYaYa",
