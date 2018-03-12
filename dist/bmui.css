@@ -1235,8 +1235,13 @@ textarea.bmui-segment-text {
   margin-top: 50px;
 }
 .bmui-empty-img {
+  display: inline-block;
+  vertical-align: middle;
+  background: url(./assets/empty_page.png) center no-repeat;
+  background-size: contain;
   display: block;
   width: 175px;
+  height: 115px;
   margin: 0 auto;
 }
 .bmui-empty-text {

@@ -3227,10 +3227,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("aside", { staticClass: "bmui-empty" }, [
-      _c("img", {
-        staticClass: "bmui-empty-img",
-        attrs: { src: __webpack_require__(59) }
-      }),
+      _c("i", { staticClass: "bmui-empty-img" }),
       _vm._v(" "),
       _c("p", { staticClass: "bmui-empty-text" }, [_vm._v("暂无数据")])
     ])
@@ -3245,12 +3242,6 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-bb3a853e", esExports)
   }
 }
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/empty_page.png";
 
 /***/ })
 /******/ ]);
