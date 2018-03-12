@@ -1229,5 +1229,22 @@ textarea.bmui-segment-text {
   height: 2px;
   background-color: #fff;
 }
+.bmui-empty {
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+}
+.bmui-empty-img {
+  display: block;
+  width: 175px;
+  margin: 0 auto;
+}
+.bmui-empty-text {
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  font-size: 15px;
+  color: #999;
+}
 /*# sourceMappingURL=src/bmui.css.map */
 /*# sourceMappingURL=bmui.css.map*/
