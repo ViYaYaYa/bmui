@@ -3250,7 +3250,7 @@ if (false) {
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "../assets/empty_page.png";
+module.exports = __webpack_require__.p + "assets/empty_page.png";
 
 /***/ })
 /******/ ]);
