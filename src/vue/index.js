@@ -16,6 +16,7 @@ import FieldBtn from './fieldBtn.vue'
 import Searchbox from './searchbox.vue'
 import SearchboxEmpty from './searchboxEmpty.vue'
 import Segment from './segment.vue'
+import Empty from './empty.vue'
 
 export default function install (Vue, options) {
   Vue.component(Segment.name, Segment)
@@ -36,4 +37,5 @@ export default function install (Vue, options) {
   Vue.component(FieldBtn.name, FieldBtn)
   Vue.component(Searchbox.name, Searchbox)
   Vue.component(SearchboxEmpty.name, SearchboxEmpty)
+  Vue.component(Empty.name, Empty)
 }

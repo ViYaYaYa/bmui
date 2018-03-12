@@ -34,6 +34,10 @@
     <div class="wrap">
       <bmui-segment :items="segment" :index="segmentIndex" @change="segmentChange" />
     </div>
+    <h2>empty</h2>
+    <div class="wrap">
+      <bmui-empty />
+    </div>
   </div>
 </template>
 <script>

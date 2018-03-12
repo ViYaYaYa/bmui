@@ -5,6 +5,7 @@
     ],
     "rules": {
         "vue/max-attributes-per-line": "off",
-        "vue/require-v-for-key": "off"
+        "vue/require-v-for-key": "off",
+        "vue/attributes-order": "off"
     }
 }

@@ -62,3 +62,8 @@ Bluemoon Moon UI (currently based on Vue)
 ``` html
   <bmui-segment :items="选项数组：[String|Object: { name: String, mark: Number }]" index="激活项" @change="点击事件：args:index" />
 ```
+
+## empty
+``` html
+  <bmui-empty />
+```
