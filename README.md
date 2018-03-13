@@ -39,7 +39,7 @@ Bluemoon Moon UI (currently based on Vue)
   <bmui-radio-list :items="选项数组：[String|Object: { name:String, value:Any, disabled:Boolean }]" v-model="数据绑定实体" />
   <bmui-check-list-left :items="选项数组：[String|Object: { name:String, value:Any, disabled:Boolean }]" v-model="数据绑定数组" />
   <bmui-check-list-right :items="选项数组：[String|Object: { name:String, value:Any, disabled:Boolean }]" v-model="数据绑定数组" />
-  <bmui-selector :item="选项：String|Object: { name: String, value: Any }" :disabled="是否禁用：Boolean" @change="选择事件：args:value" />  
+  <bmui-selector :item="选项：String|Object: { name: String, value: Any }" :checked="是否被选中：Boolean" :disabled="是否禁用：Boolean" @change="选择事件：args:{ item:Any, checked:Boolean }" />  
 ```
 
 ## field

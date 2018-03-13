@@ -567,10 +567,10 @@ exports.default = {
       this.disabledInside = this.disabled;
     },
     change: function change() {
-      this.checkedInside = !this.checkedInside;
+      // this.checkedInside = !this.checkedInside
       this.$emit('change', {
         item: this.item,
-        checked: this.checkedInside
+        checked: !this.checkedInside
       });
     }
   }
