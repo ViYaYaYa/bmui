@@ -40,7 +40,7 @@ export default {
     change () {
       // this.checkedInside = !this.checkedInside
       this.$emit('change', {
-        item: this.item,
+        item: typeof this.item === 'object' ? this.item.value : this.item,
         checked: !this.checkedInside
       })
     }
