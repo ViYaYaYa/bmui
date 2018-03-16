@@ -1,11 +1,15 @@
 .{$PREFIX}-searchbox
-  display: flex
-  margin: 0 12px
-  align-items: center
+  padding: 0 12px
   min-height: 50px
   font-size: $size4
   color: $color_t1
   border-bottom: 1px solid $color_t3
+  display: flex
+  align-items: center
+  &-wrap
+    display: flex
+    align-items: center
+    width: 100%;
   &-icon
     flex-shrink: 0
     $icon('search', '.svg')
@@ -31,7 +35,7 @@
     border-bottom-color: $color_main1
     &-icon
       fill: $color_main1
-      
+
 .{$PREFIX}-searchbox_empty
   color: $color_t3
   font-size: $size4

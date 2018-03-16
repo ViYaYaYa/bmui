@@ -936,6 +936,8 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
+//
 
 exports.default = {
   name: 'BmuiSearchbox',
@@ -2884,75 +2886,80 @@ var render = function() {
       }
     },
     [
-      _c("i", { staticClass: "bmui-searchbox-icon" }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.valueInside,
-            expression: "valueInside"
-          }
-        ],
-        ref: "input",
-        staticClass: "bmui-searchbox-content",
-        attrs: { type: "text" },
-        domProps: { value: _vm.valueInside },
-        on: {
-          focus: function($event) {
-            _vm.active = true
-          },
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.valueInside = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _vm.valueInside
-        ? _c("button", {
-            staticClass: "bmui-searchbox-del",
-            attrs: { type: "button" },
-            on: {
-              click: [
-                function($event) {
-                  $event.stopPropagation()
-                },
-                function($event) {
-                  _vm.valueInside = ""
-                }
-              ]
-            }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.active && _vm.valueInside
-        ? _c(
-            "button",
-            { staticClass: "bmui-searchbox-submit", attrs: { type: "submit" } },
-            [_vm._v("确 认")]
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.active && !_vm.valueInside
-        ? _c(
-            "button",
+      _c("div", { staticClass: "bmui-searchbox-wrap" }, [
+        _c("i", { staticClass: "bmui-searchbox-icon" }),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
             {
-              staticClass: "bmui-searchbox-submit",
+              name: "model",
+              rawName: "v-model",
+              value: _vm.valueInside,
+              expression: "valueInside"
+            }
+          ],
+          ref: "input",
+          staticClass: "bmui-searchbox-content",
+          attrs: { type: "text" },
+          domProps: { value: _vm.valueInside },
+          on: {
+            focus: function($event) {
+              _vm.active = true
+            },
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.valueInside = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm.valueInside
+          ? _c("button", {
+              staticClass: "bmui-searchbox-del",
               attrs: { type: "button" },
               on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  _vm.active = false
-                }
+                click: [
+                  function($event) {
+                    $event.stopPropagation()
+                  },
+                  function($event) {
+                    _vm.valueInside = ""
+                  }
+                ]
               }
-            },
-            [_vm._v("取 消")]
-          )
-        : _vm._e()
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.active && _vm.valueInside
+          ? _c(
+              "button",
+              {
+                staticClass: "bmui-searchbox-submit",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("确 认")]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.active && !_vm.valueInside
+          ? _c(
+              "button",
+              {
+                staticClass: "bmui-searchbox-submit",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                    _vm.active = false
+                  }
+                }
+              },
+              [_vm._v("取 消")]
+            )
+          : _vm._e()
+      ])
     ]
   )
 }
