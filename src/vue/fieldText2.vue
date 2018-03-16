@@ -1,6 +1,6 @@
 <template>
   <div class="bmui-field_text2" @click="focus">
-    <p class="bmui-field_text2-title">{{ title }}</p>
+    <p class="bmui-field_text2-title">{{ title || 'TITLE' }}</p>
     <div class="bmui-field_text2-wrap">
       <input class="bmui-field_text2-input" ref="input" :placeholder="placeholder || '请选择'" v-model="valueInside">
       <button v-if="valueInside" class="bmui-field_text2-del" @click="valueInside = ''" />

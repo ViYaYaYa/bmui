@@ -107,9 +107,6 @@
     color: $color_t2
     font-size: $size6
     margin-bottom: 4px
-    &:empty:before {
-      content: "TITLE"
-    }
   &-wrap
     display: flex
     min-height: 30px
@@ -167,6 +164,7 @@
     margin-left: 12px
   &-content
     $reset_ctrl()
+    text-align: right
     flex-grow: 1
     margin-left: 12px
     margin-right: 8px
@@ -191,6 +189,7 @@
     margin-right: 8px
   &-status-loading
     $icon('component_status_snake', '.svg')
+    animation: convert($PREFIX + '-field-rotate') 1s infinite linear
   &-status-success
     $icon('component_status_success', '.svg')
   &-status-warning

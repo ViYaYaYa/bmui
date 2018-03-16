@@ -2511,7 +2511,7 @@ var render = function() {
     { staticClass: "bmui-field_text2", on: { click: _vm.focus } },
     [
       _c("p", { staticClass: "bmui-field_text2-title" }, [
-        _vm._v(_vm._s(_vm.title))
+        _vm._v(_vm._s(_vm.title || "TITLE"))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "bmui-field_text2-wrap" }, [
