@@ -54,7 +54,7 @@ Bluemoon Moon UI (currently based on Vue)
 
 ## searchbox
 ``` html
-  <bmui-searchbox v-model="文本绑定实体" @submit="按确认回调事件：args:value" />
+  <bmui-searchbox v-model="文本绑定实体" placeholder="请输入" @submit="按确认回调事件：args:value" />
   <bmui-searchbox-empty />
 ```
 

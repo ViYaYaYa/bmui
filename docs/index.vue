@@ -27,7 +27,7 @@
     </div>
     <h2>searchbox</h2>
     <div class="wrap">
-      <bmui-searchbox v-model="searchbox" @submit="searchboxEmpty = true" />
+      <bmui-searchbox v-model="searchbox" placeholder="placeholder" @submit="searchboxEmpty = true" />
       <bmui-searchbox-empty v-if="searchboxEmpty" />
     </div>
     <h2>segment</h2>

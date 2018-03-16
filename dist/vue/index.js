@@ -2900,7 +2900,7 @@ var render = function() {
           ],
           ref: "input",
           staticClass: "bmui-searchbox-content",
-          attrs: { type: "text" },
+          attrs: { placeholder: _vm.placeholder, type: "text" },
           domProps: { value: _vm.valueInside },
           on: {
             focus: function($event) {

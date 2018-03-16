@@ -2,7 +2,7 @@
   <form :class="['bmui-searchbox', { 'bmui-searchbox-active': active }]" @click="focus" @submit.prevent="submit">
     <div class="bmui-searchbox-wrap">
       <i class="bmui-searchbox-icon"/>
-      <input class="bmui-searchbox-content" ref="input" type="text" @focus="active = true" v-model="valueInside">
+      <input class="bmui-searchbox-content" :placeholder="placeholder" ref="input" type="text" @focus="active = true" v-model="valueInside">
       <button class="bmui-searchbox-del" type="button" @click.stop v-if="valueInside" @click="valueInside = ''" />
       <button class="bmui-searchbox-submit" type="submit" v-if="active && valueInside">确 认</button>
       <button class="bmui-searchbox-submit" type="button" @click.stop="active = false" v-if="active && !valueInside">取 消</button>
