@@ -927,7 +927,7 @@ textarea.bmui-field_btn-content {
       flex-shrink: 0;
   -ms-flex-item-align: stretch;
       align-self: stretch;
-  font-size: 14px;
+  font-size: 12px;
   color: #1fb8ff;
   border-left: 1px solid #1fb8ff;
   padding: 0 8px;
