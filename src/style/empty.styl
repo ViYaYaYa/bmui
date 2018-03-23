@@ -1,7 +1,11 @@
 .{$PREFIX}-empty
-  display: block
+  // display: block
+  // margin-top: 50px
   text-align: center
-  margin-top: 50px
+  position: absolute
+  left: 0
+  top: 20%
+  width: 100%
   &-img
     $icon("empty_page")
     display: block
@@ -13,3 +17,8 @@
     margin-top: 15px
     font-size: $size3
     color: $color_t3
+  &-btn
+    $reset_ctrl()
+    margin-top: 10px
+    font-size: $size4
+    color: $color_main1

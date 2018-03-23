@@ -37,7 +37,7 @@
     </div>
     <h2>empty</h2>
     <div class="wrap">
-      <bmui-empty />
+      <bmui-empty btn="按钮要监听组件click.native事件" />
     </div>
   </div>
 </template>

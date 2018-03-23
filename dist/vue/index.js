@@ -1067,9 +1067,16 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
 
 exports.default = {
-  name: 'BmuiEmpty'
+  name: 'BmuiEmpty',
+  props: {
+    btn: {
+      type: String,
+      default: ''
+    }
+  }
 };
 
 /***/ }),
@@ -3229,20 +3236,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("aside", { staticClass: "bmui-empty" }, [
+    _c("i", { staticClass: "bmui-empty-img" }),
+    _vm._v(" "),
+    _c("p", { staticClass: "bmui-empty-text" }, [_vm._v("暂无数据")]),
+    _vm._v(" "),
+    _vm.btn
+      ? _c(
+          "button",
+          { staticClass: "bmui-empty-btn", attrs: { type: "button" } },
+          [_vm._v(_vm._s(_vm.btn))]
+        )
+      : _vm._e()
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("aside", { staticClass: "bmui-empty" }, [
-      _c("i", { staticClass: "bmui-empty-img" }),
-      _vm._v(" "),
-      _c("p", { staticClass: "bmui-empty-text" }, [_vm._v("暂无数据")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
