@@ -24,7 +24,7 @@
       <bmui-field-text2 title="field-text2" v-model="fieldText2Model" />
       <bmui-field-paragraph maxlength="100" v-model="fieldParagraph" />
       <bmui-field-btn title="field-btn" @submit="fieldBtn" :status="fieldStatus" />
-      <bmui-field-btn title="field-btn" @submit="fieldBtn" status="loading" />
+      <bmui-field-btn title="field-btn" type="password" maxlength="8" @submit="fieldBtn" status="loading" />
     </div>
     <h2>searchbox</h2>
     <div class="wrap">

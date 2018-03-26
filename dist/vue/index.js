@@ -884,6 +884,14 @@ exports.default = {
     status: {
       type: String,
       default: ''
+    },
+    type: {
+      type: String,
+      default: ''
+    },
+    maxlength: {
+      type: [Number, String],
+      default: null
     }
   },
   data: function data() {
@@ -2761,28 +2769,100 @@ var render = function() {
         _vm._v(_vm._s(_vm.title || "TITLE"))
       ]),
       _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.valueInside,
-            expression: "valueInside"
-          }
-        ],
-        ref: "input",
-        staticClass: "bmui-field_btn-content",
-        attrs: { type: "text", placeholder: _vm.placeholder || "请输入" },
-        domProps: { value: _vm.valueInside },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      (_vm.type || "text") === "checkbox"
+        ? _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.valueInside,
+                expression: "valueInside"
+              }
+            ],
+            ref: "input",
+            staticClass: "bmui-field_btn-content",
+            attrs: {
+              maxlength: _vm.maxlength,
+              placeholder: _vm.placeholder || "请输入",
+              type: "checkbox"
+            },
+            domProps: {
+              checked: Array.isArray(_vm.valueInside)
+                ? _vm._i(_vm.valueInside, null) > -1
+                : _vm.valueInside
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.valueInside,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.valueInside = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.valueInside = $$c
+                }
+              }
             }
-            _vm.valueInside = $event.target.value
-          }
-        }
-      }),
+          })
+        : (_vm.type || "text") === "radio"
+          ? _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.valueInside,
+                  expression: "valueInside"
+                }
+              ],
+              ref: "input",
+              staticClass: "bmui-field_btn-content",
+              attrs: {
+                maxlength: _vm.maxlength,
+                placeholder: _vm.placeholder || "请输入",
+                type: "radio"
+              },
+              domProps: { checked: _vm._q(_vm.valueInside, null) },
+              on: {
+                change: function($event) {
+                  _vm.valueInside = null
+                }
+              }
+            })
+          : _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.valueInside,
+                  expression: "valueInside"
+                }
+              ],
+              ref: "input",
+              staticClass: "bmui-field_btn-content",
+              attrs: {
+                maxlength: _vm.maxlength,
+                placeholder: _vm.placeholder || "请输入",
+                type: _vm.type || "text"
+              },
+              domProps: { value: _vm.valueInside },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.valueInside = $event.target.value
+                }
+              }
+            }),
       _vm._v(" "),
       !_vm.status
         ? _c(

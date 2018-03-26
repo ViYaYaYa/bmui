@@ -1004,6 +1004,14 @@ exports.default = {
     status: {
       type: String,
       default: ''
+    },
+    type: {
+      type: String,
+      default: ''
+    },
+    maxlength: {
+      type: [Number, String],
+      default: null
     }
   },
   data: function data() {
@@ -3615,28 +3623,100 @@ var render = function() {
         _vm._v(_vm._s(_vm.title || "TITLE"))
       ]),
       _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.valueInside,
-            expression: "valueInside"
-          }
-        ],
-        ref: "input",
-        staticClass: "bmui-field_btn-content",
-        attrs: { type: "text", placeholder: _vm.placeholder || "请输入" },
-        domProps: { value: _vm.valueInside },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      (_vm.type || "text") === "checkbox"
+        ? _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.valueInside,
+                expression: "valueInside"
+              }
+            ],
+            ref: "input",
+            staticClass: "bmui-field_btn-content",
+            attrs: {
+              maxlength: _vm.maxlength,
+              placeholder: _vm.placeholder || "请输入",
+              type: "checkbox"
+            },
+            domProps: {
+              checked: Array.isArray(_vm.valueInside)
+                ? _vm._i(_vm.valueInside, null) > -1
+                : _vm.valueInside
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.valueInside,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.valueInside = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.valueInside = $$c
+                }
+              }
             }
-            _vm.valueInside = $event.target.value
-          }
-        }
-      }),
+          })
+        : (_vm.type || "text") === "radio"
+          ? _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.valueInside,
+                  expression: "valueInside"
+                }
+              ],
+              ref: "input",
+              staticClass: "bmui-field_btn-content",
+              attrs: {
+                maxlength: _vm.maxlength,
+                placeholder: _vm.placeholder || "请输入",
+                type: "radio"
+              },
+              domProps: { checked: _vm._q(_vm.valueInside, null) },
+              on: {
+                change: function($event) {
+                  _vm.valueInside = null
+                }
+              }
+            })
+          : _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.valueInside,
+                  expression: "valueInside"
+                }
+              ],
+              ref: "input",
+              staticClass: "bmui-field_btn-content",
+              attrs: {
+                maxlength: _vm.maxlength,
+                placeholder: _vm.placeholder || "请输入",
+                type: _vm.type || "text"
+              },
+              domProps: { value: _vm.valueInside },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.valueInside = $event.target.value
+                }
+              }
+            }),
       _vm._v(" "),
       !_vm.status
         ? _c(
@@ -4208,7 +4288,7 @@ exports = module.exports = __webpack_require__(2)(true);
 
 
 // module
-exports.push([module.i, "\n.wrap {\n  position: relative;\n  border: 1px solid red;\n  height: 300px;\n  overflow: auto;\n}\n", "", {"version":3,"sources":["C:/Users/huangjiali/Documents/_MY/bmui/docs/docs/index.vue"],"names":[],"mappings":";AA8FA;EACA,mBAAA;EACA,sBAAA;EACA,cAAA;EACA,eAAA;CACA","file":"index.vue","sourcesContent":["<template>\r\n  <div>\r\n    <h2>cell</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-cell-arrow1 title=\"cell-arrow1\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ut magni perferendis rem hic quam, sunt cum, culpa inventore obcaecati at harum nam eaque fugit fuga perspiciatis. Illum, nihil voluptatibus.\" />\r\n      <bmui-cell-arrow2 title=\"cell-arrow2\" />\r\n      <bmui-cell-text title=\"cell-text\" content=\"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur aut debitis nihil distinctio dolorum repudiandae laborum aliquid sapiente, totam culpa sint reiciendis modi dolor quasi dolorem iusto atque error qui.\" />\r\n      <bmui-cell-paragraph title=\"cell-paragraph\" content=\"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit commodi corporis repellendus ipsum aliquid asperiores rerum quos. Aliquam, non nam alias eveniet, voluptate, maxime facere dolor provident rem recusandae excepturi.\" />\r\n    </div>\r\n    <h2>choice</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-radio title=\"radio\" :items=\"radio\" v-model=\"radioModel\" />\r\n      <bmui-radio-list :items=\"radioList\" v-model=\"radioListModel\" />\r\n      <bmui-check-list-left :items=\"checkListLeft\" v-model=\"checkListLeftModel\" />\r\n      <bmui-check-list-right :items=\"checkListRight\" v-model=\"checkListRightModel\" />\r\n      <bmui-selector :item=\"selector1\" @change=\"selectorChange\" />\r\n      <bmui-selector :item=\"selector2\" :disabled=\"selector2Disabled\" @change=\"selectorChange\" />\r\n    </div>\r\n    <h2>field</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-field-arrow1 title=\"field-arrow1\"/>\r\n      <bmui-field-arrow2 title=\"field-arrow2\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed veritatis eveniet magnam animi atque natus dolorum ex a tenetur commodi earum ducimus, voluptatibus corrupti amet, ad autem praesentium optio tempora?\" />\r\n      <bmui-field-text1 title=\"field-text1\" v-model=\"fieldText1Model\" />\r\n      <bmui-field-text2 title=\"field-text2\" v-model=\"fieldText2Model\" />\r\n      <bmui-field-paragraph maxlength=\"100\" v-model=\"fieldParagraph\" />\r\n      <bmui-field-btn title=\"field-btn\" @submit=\"fieldBtn\" :status=\"fieldStatus\" />\r\n      <bmui-field-btn title=\"field-btn\" @submit=\"fieldBtn\" status=\"loading\" />\r\n    </div>\r\n    <h2>searchbox</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-searchbox v-model=\"searchbox\" placeholder=\"placeholder\" @submit=\"searchboxEmpty = true\" />\r\n      <bmui-searchbox-empty v-if=\"searchboxEmpty\" />\r\n    </div>\r\n    <h2>segment</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-segment :items=\"segment\" :index=\"segmentIndex\" @change=\"segmentChange\" />\r\n    </div>\r\n    <h2>empty</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-empty btn=\"按钮要监听组件click.native事件\" />\r\n    </div>\r\n  </div>\r\n</template>\r\n<script>\r\nexport default {\r\n  data () {\r\n    return {\r\n      radio: ['111', { name: '选项2', value: '222' }, { name: '禁用选项', value: '333', disabled: true }, '444', '555'],\r\n      radioModel: '',\r\n      radioList: ['radio-list', { name: '选项', value: '222', disabled: true }, '选项很长很长很长很长很长很长很长很长很长很长很长很长很长'],\r\n      radioListModel: '',\r\n      checkListLeft: ['check-list-left', '222', { name: '选项名称', value: '333', disabled: true }],\r\n      checkListLeftModel: [],\r\n      checkListRight: ['check-list-right', '222', { name: '选项名称超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长', value: '333', disabled: true }],\r\n      checkListRightModel: [],\r\n      selector1: '选项1',\r\n      selector2: { name: '选项2的名称', value: '222' },\r\n      selector2Disabled: true,\r\n      fieldText1Model: '',\r\n      fieldText2Model: '',\r\n      fieldParagraph: '',\r\n      fieldStatus: '',\r\n      searchbox: 'searchbox',\r\n      searchboxEmpty: false,\r\n      segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3'],\r\n      segmentIndex: 2\r\n    }\r\n  },\r\n  methods: {\r\n    selectorChange (res) {\r\n      console.log(res)\r\n    },\r\n    fieldBtn () {\r\n      this.fieldStatus = 'loading'\r\n      setTimeout(() => {\r\n        this.fieldStatus = 'success'\r\n      }, 1000)\r\n      setTimeout(() => {\r\n        this.fieldStatus = 'warning'\r\n      }, 2000)\r\n      setTimeout(() => {\r\n        this.fieldStatus = 'fail'\r\n      }, 3000)\r\n      setTimeout(() => {\r\n        this.fieldStatus = ''\r\n      }, 4000)\r\n    },\r\n    segmentChange (index) {\r\n      this.segmentIndex = index\r\n    }\r\n  }\r\n}\r\n</script>\r\n<style>\r\n  .wrap {\r\n    position: relative;\r\n    border: 1px solid red;\r\n    height: 300px;\r\n    overflow: auto;\r\n  }\r\n</style>\r\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.wrap {\n  position: relative;\n  border: 1px solid red;\n  height: 300px;\n  overflow: auto;\n}\n", "", {"version":3,"sources":["C:/Users/huangjiali/Documents/_MY/bmui/docs/docs/index.vue"],"names":[],"mappings":";AA8FA;EACA,mBAAA;EACA,sBAAA;EACA,cAAA;EACA,eAAA;CACA","file":"index.vue","sourcesContent":["<template>\r\n  <div>\r\n    <h2>cell</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-cell-arrow1 title=\"cell-arrow1\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ut magni perferendis rem hic quam, sunt cum, culpa inventore obcaecati at harum nam eaque fugit fuga perspiciatis. Illum, nihil voluptatibus.\" />\r\n      <bmui-cell-arrow2 title=\"cell-arrow2\" />\r\n      <bmui-cell-text title=\"cell-text\" content=\"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur aut debitis nihil distinctio dolorum repudiandae laborum aliquid sapiente, totam culpa sint reiciendis modi dolor quasi dolorem iusto atque error qui.\" />\r\n      <bmui-cell-paragraph title=\"cell-paragraph\" content=\"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit commodi corporis repellendus ipsum aliquid asperiores rerum quos. Aliquam, non nam alias eveniet, voluptate, maxime facere dolor provident rem recusandae excepturi.\" />\r\n    </div>\r\n    <h2>choice</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-radio title=\"radio\" :items=\"radio\" v-model=\"radioModel\" />\r\n      <bmui-radio-list :items=\"radioList\" v-model=\"radioListModel\" />\r\n      <bmui-check-list-left :items=\"checkListLeft\" v-model=\"checkListLeftModel\" />\r\n      <bmui-check-list-right :items=\"checkListRight\" v-model=\"checkListRightModel\" />\r\n      <bmui-selector :item=\"selector1\" @change=\"selectorChange\" />\r\n      <bmui-selector :item=\"selector2\" :disabled=\"selector2Disabled\" @change=\"selectorChange\" />\r\n    </div>\r\n    <h2>field</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-field-arrow1 title=\"field-arrow1\"/>\r\n      <bmui-field-arrow2 title=\"field-arrow2\" content=\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed veritatis eveniet magnam animi atque natus dolorum ex a tenetur commodi earum ducimus, voluptatibus corrupti amet, ad autem praesentium optio tempora?\" />\r\n      <bmui-field-text1 title=\"field-text1\" v-model=\"fieldText1Model\" />\r\n      <bmui-field-text2 title=\"field-text2\" v-model=\"fieldText2Model\" />\r\n      <bmui-field-paragraph maxlength=\"100\" v-model=\"fieldParagraph\" />\r\n      <bmui-field-btn title=\"field-btn\" @submit=\"fieldBtn\" :status=\"fieldStatus\" />\r\n      <bmui-field-btn title=\"field-btn\" type=\"password\" maxlength=\"8\" @submit=\"fieldBtn\" status=\"loading\" />\r\n    </div>\r\n    <h2>searchbox</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-searchbox v-model=\"searchbox\" placeholder=\"placeholder\" @submit=\"searchboxEmpty = true\" />\r\n      <bmui-searchbox-empty v-if=\"searchboxEmpty\" />\r\n    </div>\r\n    <h2>segment</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-segment :items=\"segment\" :index=\"segmentIndex\" @change=\"segmentChange\" />\r\n    </div>\r\n    <h2>empty</h2>\r\n    <div class=\"wrap\">\r\n      <bmui-empty btn=\"按钮要监听组件click.native事件\" />\r\n    </div>\r\n  </div>\r\n</template>\r\n<script>\r\nexport default {\r\n  data () {\r\n    return {\r\n      radio: ['111', { name: '选项2', value: '222' }, { name: '禁用选项', value: '333', disabled: true }, '444', '555'],\r\n      radioModel: '',\r\n      radioList: ['radio-list', { name: '选项', value: '222', disabled: true }, '选项很长很长很长很长很长很长很长很长很长很长很长很长很长'],\r\n      radioListModel: '',\r\n      checkListLeft: ['check-list-left', '222', { name: '选项名称', value: '333', disabled: true }],\r\n      checkListLeftModel: [],\r\n      checkListRight: ['check-list-right', '222', { name: '选项名称超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长', value: '333', disabled: true }],\r\n      checkListRightModel: [],\r\n      selector1: '选项1',\r\n      selector2: { name: '选项2的名称', value: '222' },\r\n      selector2Disabled: true,\r\n      fieldText1Model: '',\r\n      fieldText2Model: '',\r\n      fieldParagraph: '',\r\n      fieldStatus: '',\r\n      searchbox: 'searchbox',\r\n      searchboxEmpty: false,\r\n      segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3'],\r\n      segmentIndex: 2\r\n    }\r\n  },\r\n  methods: {\r\n    selectorChange (res) {\r\n      console.log(res)\r\n    },\r\n    fieldBtn () {\r\n      this.fieldStatus = 'loading'\r\n      setTimeout(() => {\r\n        this.fieldStatus = 'success'\r\n      }, 1000)\r\n      setTimeout(() => {\r\n        this.fieldStatus = 'warning'\r\n      }, 2000)\r\n      setTimeout(() => {\r\n        this.fieldStatus = 'fail'\r\n      }, 3000)\r\n      setTimeout(() => {\r\n        this.fieldStatus = ''\r\n      }, 4000)\r\n    },\r\n    segmentChange (index) {\r\n      this.segmentIndex = index\r\n    }\r\n  }\r\n}\r\n</script>\r\n<style>\r\n  .wrap {\r\n    position: relative;\r\n    border: 1px solid red;\r\n    height: 300px;\r\n    overflow: auto;\r\n  }\r\n</style>\r\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -4637,7 +4717,12 @@ var render = function() {
         }),
         _vm._v(" "),
         _c("bmui-field-btn", {
-          attrs: { title: "field-btn", status: "loading" },
+          attrs: {
+            title: "field-btn",
+            type: "password",
+            maxlength: "8",
+            status: "loading"
+          },
           on: { submit: _vm.fieldBtn }
         })
       ],
