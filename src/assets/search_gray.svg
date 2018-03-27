@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/search_gray</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon/search_gray" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M18.9362127,18.2291059 L21.7781746,21.0710678 L21.0710678,21.7781746 L18.2291059,18.9362127 C17.0923385,19.9110487 15.6149477,20.5 14,20.5 C10.4101491,20.5 7.5,17.5898509 7.5,14 C7.5,10.4101491 10.4101491,7.5 14,7.5 C17.5898509,7.5 20.5,10.4101491 20.5,14 C20.5,15.6149477 19.9110487,17.0923385 18.9362127,18.2291059 Z M14,19.5 C17.0375661,19.5 19.5,17.0375661 19.5,14 C19.5,10.9624339 17.0375661,8.5 14,8.5 C10.9624339,8.5 8.5,10.9624339 8.5,14 C8.5,17.0375661 10.9624339,19.5 14,19.5 Z" id="Combined-Shape" fill="#999999"></path>
+    </g>
+</svg>

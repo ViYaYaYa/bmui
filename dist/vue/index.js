@@ -2792,25 +2792,30 @@ var render = function() {
                 : _vm.valueInside
             },
             on: {
-              change: function($event) {
-                var $$a = _vm.valueInside,
-                  $$el = $event.target,
-                  $$c = $$el.checked ? true : false
-                if (Array.isArray($$a)) {
-                  var $$v = null,
-                    $$i = _vm._i($$a, $$v)
-                  if ($$el.checked) {
-                    $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+              change: [
+                function($event) {
+                  var $$a = _vm.valueInside,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.valueInside = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
                   } else {
-                    $$i > -1 &&
-                      (_vm.valueInside = $$a
-                        .slice(0, $$i)
-                        .concat($$a.slice($$i + 1)))
+                    _vm.valueInside = $$c
                   }
-                } else {
-                  _vm.valueInside = $$c
+                },
+                function($event) {
+                  _vm.$emit("change", $event)
                 }
-              }
+              ]
             }
           })
         : (_vm.type || "text") === "radio"
@@ -2832,9 +2837,14 @@ var render = function() {
               },
               domProps: { checked: _vm._q(_vm.valueInside, null) },
               on: {
-                change: function($event) {
-                  _vm.valueInside = null
-                }
+                change: [
+                  function($event) {
+                    _vm.valueInside = null
+                  },
+                  function($event) {
+                    _vm.$emit("change", $event)
+                  }
+                ]
               }
             })
           : _c("input", {
@@ -2855,6 +2865,9 @@ var render = function() {
               },
               domProps: { value: _vm.valueInside },
               on: {
+                change: function($event) {
+                  _vm.$emit("change", $event)
+                },
                 input: function($event) {
                   if ($event.target.composing) {
                     return

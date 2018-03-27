@@ -1,7 +1,7 @@
 <template>
   <div class="bmui-field_btn" @click="focus">
     <p class="bmui-field_btn-title">{{ title || 'TITLE' }}</p>
-    <input class="bmui-field_btn-content" :type="type || 'text'" :maxlength="maxlength" v-model="valueInside" :placeholder="placeholder || '请输入'" ref="input">
+    <input class="bmui-field_btn-content" :type="type || 'text'" @change="$emit('change', $event)" :maxlength="maxlength" v-model="valueInside" :placeholder="placeholder || '请输入'" ref="input">
     <button class="bmui-field_btn-btn" v-if="!status" @click.stop="submit">{{ btn || 'BUTTON' }}</button>
     <i :class="`bmui-field_btn-status-${status}`" v-if="status"/>
   </div>

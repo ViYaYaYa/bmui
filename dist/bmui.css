@@ -990,17 +990,15 @@ textarea.bmui-field_btn-btn {
   background-size: contain;
 }
 .bmui-searchbox {
-  padding: 0 12px;
-  min-height: 50px;
   font-size: 14px;
   color: #333;
-  border-bottom: 1px solid #999;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 3px 12px;
 }
 .bmui-searchbox-wrap {
   display: -webkit-box;
@@ -1010,15 +1008,16 @@ textarea.bmui-field_btn-btn {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  min-height: 40px;
+  border-bottom: 1px solid #999;
 }
 .bmui-searchbox-icon {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   display: inline-block;
   vertical-align: middle;
-  background: url(./assets/search.svg) center no-repeat;
+  background: url(./assets/search_gray.svg) center no-repeat;
   background-size: contain;
-  fill: #999;
   width: 30px;
   height: 30px;
 }
@@ -1132,11 +1131,14 @@ textarea.bmui-searchbox-submit {
 .bmui-searchbox-submit::placeholder {
   color: #999;
 }
-.bmui-searchbox-active {
+.bmui-searchbox-active .bmui-searchbox-wrap {
   border-bottom-color: #1fb8ff;
 }
-.bmui-searchbox-active-icon {
-  fill: #1fb8ff;
+.bmui-searchbox-active .bmui-searchbox-icon {
+  display: inline-block;
+  vertical-align: middle;
+  background: url(./assets/search_blue.svg) center no-repeat;
+  background-size: contain;
 }
 .bmui-searchbox_empty {
   color: #999;
