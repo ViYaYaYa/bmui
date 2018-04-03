@@ -4,7 +4,7 @@
   "description": "Bluemoon Moon Components",
   "main": "dist/bmui.css",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
+    "dev": "node webpack.dev.js",
     "build": "node webpack.build.js"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "bootstrap": "^4.0.0",
     "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.9",
     "eslint": "^4.16.0",

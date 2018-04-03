@@ -64,9 +64,8 @@ $normalize_lh = 1.15
 
 // 公共方法
 $box_sizing()
-  &, *
-    &, &:before, &:after
-      box-sizing: border-box
+  &, &:before, &:after
+    box-sizing: border-box
 
 $get_asset(path, ext = '.png')
   return '../assets/' + path + ext
@@ -99,9 +98,7 @@ $reset_ul()
   $reset()
   list-style: none
 
-$reset_lh()
-  line-height: $normalize_lh
-
-// 全局覆盖
+// Reset
 [class|="bmui"]
   $box_sizing()
+  $reset()

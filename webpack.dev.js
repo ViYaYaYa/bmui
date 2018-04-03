@@ -1,15 +1,36 @@
 var Path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var Webpack = require('webpack')
+var WebpackDevServer = require('webpack-dev-server')
 
-module.exports = {
-  entry: ['babel-polyfill', './docs/index.js'],
+function getEslintLoader () {
+  return {
+    loader: 'eslint-loader',
+    options: {
+      fix: true
+    }
+  }
+}
+
+function getPostcssLoader () {
+  return {
+    loader: 'postcss-loader',
+    options: {
+      sourceMap: true
+    }
+  }
+}
+
+var complier = Webpack({
+  entry: [
+    'babel-polyfill',
+    'bootstrap/dist/css/bootstrap.min.css',
+    'src/bmui.styl',
+    './docs/index.js'
+  ],
   output: {
-    path: Path.resolve(__dirname, 'dist'),
+    path: Path.resolve(__dirname, 'docs'),
     filename: 'index.build.js'
-  },
-  devServer: {
-    overlay: true,
-    host: '0.0.0.0'
   },
   module: {
     rules: [
@@ -18,12 +39,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'babel-loader',
-          {
-            loader: 'eslint-loader',
-            options: {
-              fix: true
-            }
-          }
+          getEslintLoader()
         ]
       },
       {
@@ -31,12 +47,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'vue-loader',
-          {
-            loader: 'eslint-loader',
-            options: {
-              fix: true
-            }
-          }
+          getEslintLoader()
         ]
       },
       {
@@ -45,12 +56,7 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
+          getPostcssLoader(),
           {
             loader: 'stylus-loader',
             options: 'resolve url'
@@ -58,8 +64,27 @@ module.exports = {
         ]
       },
       {
+        test: /\.css$/,
+        oneOf: [
+          {
+            include: /node_modules/,
+            use: [
+              'style-loader',
+              'css-loader'
+            ]
+          },
+          {
+            use: [
+              'style-loader',
+              'css-loader',
+              getPostcssLoader()
+            ]
+          }
+        ]
+      },
+      {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        use: ['url-loader']
+        use: 'url-loader'
       }
     ]
   },
@@ -74,4 +99,12 @@ module.exports = {
     })
   ],
   devtool: 'eval-source-map'
-}
+})
+
+var server = new WebpackDevServer(complier, {
+  contentBase: Path.resolve(__dirname, 'src'),
+  overlay: true,
+  stats: { colors: true }
+})
+
+server.listen(8080)
