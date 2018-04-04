@@ -138,6 +138,6 @@ Webpack([
   if (err) {
     console.log(err)
   } else {
-    console.log('恭喜你！打包完成')
+    console.log('恭喜你！打包完成，如果你是开发者，请不要忘记在commit前更新package.json的版本号喔')
   }
 })
