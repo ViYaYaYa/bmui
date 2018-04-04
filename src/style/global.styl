@@ -1,5 +1,7 @@
 $PREFIX = 'bmui'
 
+$normalize_lh = 1.15
+
 // UI组命名空间
 angelkit_brandcolor_1 = #1fb8ff
 angelkit_brandcolor_2 = #ff6c47
@@ -60,13 +62,7 @@ $offset1 = angelkit_gap_1
 $offset2 = angelkit_gap_2
 $offset3 = angelkit_gap_3
 
-$normalize_lh = 1.15
-
-// 公共方法
-$box_sizing()
-  &, &:before, &:after
-    box-sizing: border-box
-
+// 全局方法
 $get_asset(path, ext = '.png')
   return '../assets/' + path + ext
 
@@ -98,7 +94,22 @@ $reset_ul()
   $reset()
   list-style: none
 
-// Reset
+// 全局Reset
 [class|="bmui"]
-  $box_sizing()
-  $reset()
+  margin: 0
+  padding: 0
+  font-style: inherit
+  font-size: inherit
+  font-weight: inherit
+  color: inherit
+  line-height: inherit
+  &, &:before, &:after
+    box-sizing: border-box
+  ul&, li&
+    list-style: none
+  input&, textarea&
+    appearance: none
+    border: none
+    background-color: transparent
+    &::placeholder
+      color: $color_t3

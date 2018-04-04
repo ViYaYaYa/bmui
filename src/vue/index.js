@@ -18,7 +18,7 @@ import SearchboxEmpty from './searchboxEmpty.vue'
 import Segment from './segment.vue'
 import Empty from './empty.vue'
 
-export default function install (Vue, options) {
+export function install (Vue) {
   Vue.component(Segment.name, Segment)
   Vue.component(CellArrow1.name, CellArrow1)
   Vue.component(CellArrow2.name, CellArrow2)
@@ -39,3 +39,5 @@ export default function install (Vue, options) {
   Vue.component(SearchboxEmpty.name, SearchboxEmpty)
   Vue.component(Empty.name, Empty)
 }
+
+export default install

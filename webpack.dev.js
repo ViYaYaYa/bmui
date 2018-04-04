@@ -28,10 +28,6 @@ var complier = Webpack({
     'src/bmui.styl',
     './docs/index.js'
   ],
-  output: {
-    path: Path.resolve(__dirname, 'docs'),
-    filename: 'index.build.js'
-  },
   module: {
     rules: [
       {
@@ -84,7 +80,7 @@ var complier = Webpack({
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
-        use: 'url-loader'
+        use: ['url-loader']
       }
     ]
   },

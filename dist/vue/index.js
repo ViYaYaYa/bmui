@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 20);
@@ -1097,7 +1097,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = install;
+exports.install = install;
 
 var _cellArrow = __webpack_require__(21);
 
@@ -1177,7 +1177,7 @@ var _empty2 = _interopRequireDefault(_empty);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function install(Vue, options) {
+function install(Vue) {
   Vue.component(_segment2.default.name, _segment2.default);
   Vue.component(_cellArrow2.default.name, _cellArrow2.default);
   Vue.component(_cellArrow4.default.name, _cellArrow4.default);
@@ -1198,6 +1198,8 @@ function install(Vue, options) {
   Vue.component(_searchboxEmpty2.default.name, _searchboxEmpty2.default);
   Vue.component(_empty2.default.name, _empty2.default);
 }
+
+exports.default = install;
 
 /***/ }),
 /* 21 */

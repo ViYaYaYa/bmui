@@ -1,11 +1,45 @@
+[class|="bmui"] {
+  margin: 0;
+  padding: 0;
+  font-style: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
+}
 [class|="bmui"],
-[class|="bmui"] *,
 [class|="bmui"]:before,
-[class|="bmui"] *:before,
-[class|="bmui"]:after,
-[class|="bmui"] *:after {
+[class|="bmui"]:after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+ul[class|="bmui"],
+li[class|="bmui"] {
+  list-style: none;
+}
+input[class|="bmui"],
+textarea[class|="bmui"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-color: transparent;
+}
+input[class|="bmui"]::-webkit-input-placeholder,
+textarea[class|="bmui"]::-webkit-input-placeholder {
+  color: #999;
+}
+input[class|="bmui"]:-ms-input-placeholder,
+textarea[class|="bmui"]:-ms-input-placeholder {
+  color: #999;
+}
+input[class|="bmui"]::-ms-input-placeholder,
+textarea[class|="bmui"]::-ms-input-placeholder {
+  color: #999;
+}
+input[class|="bmui"]::placeholder,
+textarea[class|="bmui"]::placeholder {
+  color: #999;
 }
 @-webkit-keyframes bmui-field-rotate {
   from {

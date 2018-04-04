@@ -1,24 +1,22 @@
-var Path = require('path')
 var Webpack = require('webpack')
+var Path = require('path')
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 
 Webpack([
-  // CSS
+  // Bmui CSS
   {
     entry: {
-      'bmui.css': './src/bmui.styl',
+      'bmui.css': './src/bmui.styl'
     },
     output: {
       path: Path.resolve(__dirname, 'dist'),
-      filename: '[name]',
-      publicPath: './'
+      filename: '[name]'
     },
     module: {
       rules: [
         {
           test: /\.styl$/,
-          exclude: /node_modules/,
           use: ExtractTextWebpackPlugin.extract({
             use: [
               {
@@ -48,34 +46,23 @@ Webpack([
           use: {
             loader: 'file-loader',
             options: {
-              name: 'assets/[name].[ext]'
+              name: './assets/[name].[ext]'
             }
           }
         }
       ]
     },
-    resolve: {
-      alias: {
-        'src': Path.resolve(__dirname, 'src')
-      }
-    },
     devtool: 'source-map',
-    plugins: [
-      new CleanWebpackPlugin(['dist']),
-      new ExtractTextWebpackPlugin('bmui.css')
-    ]
+    plugins: [new ExtractTextWebpackPlugin('bmui.css')]
   },
-  // Vue
+  // Bmui Vue Conponents
   {
-    entry: {
-      'index.js': './src/vue/index.js'
-    },
+    entry: './src/vue/index.js',
     output: {
       path: Path.resolve(__dirname, 'dist/vue'),
-      filename: '[name]',
+      filename: 'index.js',
       library: 'bmui',
-      libraryTarget: 'umd',
-      publicPath: './'
+      libraryTarget: 'umd'
     },
     module: {
       rules: [
@@ -115,14 +102,12 @@ Webpack([
       })
     ]
   },
-  // Docs
+  // Bmui Docs
   {
-    entry: {
-      'index.build.js': './docs/index.js'
-    },
+    entry: './docs/index.js',
     output: {
       path: Path.resolve(__dirname, 'docs'),
-      filename: '[name]',
+      filename: 'index.build.js'
     },
     module: {
       rules: [
@@ -135,30 +120,6 @@ Webpack([
           test: /\.vue$/,
           exclude: /node_modules/,
           use: 'vue-loader'
-        },
-        {
-          test: /\.styl$/,
-          exclude: /node_modules/,
-          use: [
-            'style-loader',
-            'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'stylus-loader',
-              options: 'resolve url'
-            }
-          ]
-        },
-        {
-          test: /\.(png|jpg|jpeg|gif|svg)$/,
-          use: {
-            loader: 'url-loader'
-          }
         }
       ]
     },
@@ -170,8 +131,13 @@ Webpack([
     devtool: 'source-map',
     externals: {
       'vue': 'Vue',
+      'src/vue': 'bmui'
     }
   }
 ], function (err, stats) {
-  if (err) console.log(err)
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('恭喜你！打包完成')
+  }
 })
