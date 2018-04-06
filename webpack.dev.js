@@ -79,7 +79,7 @@ var complier = Webpack({
         ]
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        test: /\.(woff2|woff|png|jpg|jpeg|gif|svg)$/,
         use: ['url-loader']
       }
     ]

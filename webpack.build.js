@@ -73,7 +73,6 @@ Webpack([
         },
         {
           test: /\.vue$/,
-          exclude: /node_modules/,
           use: 'vue-loader'
         },
         {
@@ -118,7 +117,6 @@ Webpack([
         },
         {
           test: /\.vue$/,
-          exclude: /node_modules/,
           use: 'vue-loader'
         }
       ]
