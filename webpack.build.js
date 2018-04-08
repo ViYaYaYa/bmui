@@ -1,11 +1,11 @@
 var Webpack = require('webpack')
 var Path = require('path')
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
-var CleanWebpackPlugin = require('clean-webpack-plugin')
 
-Webpack([
+module.exports = [
   // Bmui CSS
   {
+    mode: "production",
     entry: {
       'bmui.css': './src/bmui.styl'
     },
@@ -57,6 +57,7 @@ Webpack([
   },
   // Bmui Vue Conponents
   {
+    mode: "production",
     entry: './src/vue/index.js',
     output: {
       path: Path.resolve(__dirname, 'dist/vue'),
@@ -103,6 +104,7 @@ Webpack([
   },
   // Bmui Docs
   {
+    mode: "production",
     entry: './docs/index.js',
     output: {
       path: Path.resolve(__dirname, 'docs'),
@@ -132,10 +134,4 @@ Webpack([
       'src/vue': 'bmui'
     }
   }
-], function (err, stats) {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log('恭喜你！打包完成，如果你是开发者，请不要忘记在commit前更新package.json的版本号喔')
-  }
-})
+]

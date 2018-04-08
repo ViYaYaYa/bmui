@@ -1,5 +1,9 @@
 <template>
-  <button class="bmui-selector" :class="{ 'bmui-selector-checked': checkedInside, 'bmui-selector-disabled': disabled }" @click="change" :disabled="disabled">{{ typeof item === 'string' ? item : item.name || 'ITEM' }}</button>
+  <button
+    class="bmui-selector"
+    :class="{ 'bmui-selector-checked': checkedInside, 'bmui-selector-disabled': disabled }"
+    @click="change"
+    :disabled="disabled">{{ typeof item === 'string' ? item : item.name || 'ITEM' }}</button>
 </template>
 <script>
 export default {

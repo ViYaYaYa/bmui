@@ -1,10 +1,19 @@
 <template>
-  <div class="bmui-field_paragraph" @click="focus">
+  <div
+    class="bmui-field_paragraph"
+    @click="focus">
     <div class="bmui-field_paragraph-wrap">
       <p class="bmui-field_paragraph-title">{{ title || 'TITLE' }}</p>
-      <p class="bmui-field_paragraph-count" v-if="!countHide">{{ valueInside.length }}/{{ maxlength }}</p>
+      <p
+        class="bmui-field_paragraph-count"
+        v-if="!countHide">{{ valueInside.length }}/{{ maxlength }}</p>
     </div>
-    <textarea class="bmui-field_paragraph-input" ref="input" :maxlength="maxlength || 50" :placeholder="placeholder || '请输入'" v-model="valueInside"/>
+    <textarea
+      class="bmui-field_paragraph-input"
+      ref="input"
+      :maxlength="maxlength || 50"
+      :placeholder="placeholder || '请输入'"
+      v-model="valueInside"/>
   </div>
 </template>
 <script>

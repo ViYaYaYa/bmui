@@ -10,8 +10,7 @@
 [class|="bmui"],
 [class|="bmui"]:before,
 [class|="bmui"]:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 ul[class|="bmui"],
 li[class|="bmui"] {
@@ -27,6 +26,10 @@ textarea[class|="bmui"] {
 }
 input[class|="bmui"]::-webkit-input-placeholder,
 textarea[class|="bmui"]::-webkit-input-placeholder {
+  color: #999;
+}
+input[class|="bmui"]::-moz-placeholder,
+textarea[class|="bmui"]::-moz-placeholder {
   color: #999;
 }
 input[class|="bmui"]:-ms-input-placeholder,
@@ -251,6 +254,9 @@ textarea.bmui-radio-input {
 .bmui-radio-input::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-radio-input::-moz-placeholder {
+  color: #999;
+}
 .bmui-radio-input:-ms-input-placeholder {
   color: #999;
 }
@@ -320,6 +326,9 @@ textarea.bmui-radio_list-input {
 .bmui-radio_list-input::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-radio_list-input::-moz-placeholder {
+  color: #999;
+}
 .bmui-radio_list-input:-ms-input-placeholder {
   color: #999;
 }
@@ -384,6 +393,9 @@ textarea.bmui-check_list_left-input {
   width: 100%;
 }
 .bmui-check_list_left-input::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-check_list_left-input::-moz-placeholder {
   color: #999;
 }
 .bmui-check_list_left-input:-ms-input-placeholder {
@@ -455,6 +467,9 @@ textarea.bmui-check_list_right-input {
 .bmui-check_list_right-input::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-check_list_right-input::-moz-placeholder {
+  color: #999;
+}
 .bmui-check_list_right-input:-ms-input-placeholder {
   color: #999;
 }
@@ -496,6 +511,9 @@ textarea.bmui-selector {
   width: 100%;
 }
 .bmui-selector::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-selector::-moz-placeholder {
   color: #999;
 }
 .bmui-selector:-ms-input-placeholder {
@@ -666,6 +684,9 @@ textarea.bmui-field_text1-input {
 .bmui-field_text1-input::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-field_text1-input::-moz-placeholder {
+  color: #999;
+}
 .bmui-field_text1-input:-ms-input-placeholder {
   color: #999;
 }
@@ -676,6 +697,9 @@ textarea.bmui-field_text1-input {
   color: #999;
 }
 .bmui-field_text1-input::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-field_text1-input::-moz-placeholder {
   color: #999;
 }
 .bmui-field_text1-input:-ms-input-placeholder {
@@ -714,6 +738,9 @@ textarea.bmui-field_text1-del {
   width: 100%;
 }
 .bmui-field_text1-del::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-field_text1-del::-moz-placeholder {
   color: #999;
 }
 .bmui-field_text1-del:-ms-input-placeholder {
@@ -772,6 +799,9 @@ textarea.bmui-field_text2-input {
 .bmui-field_text2-input::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-field_text2-input::-moz-placeholder {
+  color: #999;
+}
 .bmui-field_text2-input:-ms-input-placeholder {
   color: #999;
 }
@@ -808,6 +838,9 @@ textarea.bmui-field_text2-del {
   width: 100%;
 }
 .bmui-field_text2-del::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-field_text2-del::-moz-placeholder {
   color: #999;
 }
 .bmui-field_text2-del:-ms-input-placeholder {
@@ -869,6 +902,9 @@ textarea.bmui-field_paragraph-input {
 .bmui-field_paragraph-input::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-field_paragraph-input::-moz-placeholder {
+  color: #999;
+}
 .bmui-field_paragraph-input:-ms-input-placeholder {
   color: #999;
 }
@@ -924,6 +960,9 @@ textarea.bmui-field_btn-content {
 .bmui-field_btn-content::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-field_btn-content::-moz-placeholder {
+  color: #999;
+}
 .bmui-field_btn-content:-ms-input-placeholder {
   color: #999;
 }
@@ -934,6 +973,9 @@ textarea.bmui-field_btn-content {
   color: #999;
 }
 .bmui-field_btn-content::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-field_btn-content::-moz-placeholder {
   color: #999;
 }
 .bmui-field_btn-content:-ms-input-placeholder {
@@ -971,6 +1013,9 @@ textarea.bmui-field_btn-btn {
   width: 100%;
 }
 .bmui-field_btn-btn::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-field_btn-btn::-moz-placeholder {
   color: #999;
 }
 .bmui-field_btn-btn:-ms-input-placeholder {
@@ -1077,6 +1122,9 @@ textarea.bmui-searchbox-content {
 .bmui-searchbox-content::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-searchbox-content::-moz-placeholder {
+  color: #999;
+}
 .bmui-searchbox-content:-ms-input-placeholder {
   color: #999;
 }
@@ -1087,6 +1135,9 @@ textarea.bmui-searchbox-content {
   color: #999;
 }
 .bmui-searchbox-content::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-searchbox-content::-moz-placeholder {
   color: #999;
 }
 .bmui-searchbox-content:-ms-input-placeholder {
@@ -1125,6 +1176,9 @@ textarea.bmui-searchbox-del {
 .bmui-searchbox-del::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-searchbox-del::-moz-placeholder {
+  color: #999;
+}
 .bmui-searchbox-del:-ms-input-placeholder {
   color: #999;
 }
@@ -1154,6 +1208,9 @@ textarea.bmui-searchbox-submit {
   width: 100%;
 }
 .bmui-searchbox-submit::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-searchbox-submit::-moz-placeholder {
   color: #999;
 }
 .bmui-searchbox-submit:-ms-input-placeholder {
@@ -1192,8 +1249,7 @@ textarea.bmui-searchbox-submit {
   display: flex;
   overflow-x: auto;
   background-color: #1fb8ff;
-  -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-          box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .bmui-segment-item {
   -ms-flex-negative: 0;
@@ -1259,6 +1315,9 @@ textarea.bmui-segment-text {
 .bmui-segment-text::-webkit-input-placeholder {
   color: #999;
 }
+.bmui-segment-text::-moz-placeholder {
+  color: #999;
+}
 .bmui-segment-text:-ms-input-placeholder {
   color: #999;
 }
@@ -1280,6 +1339,7 @@ textarea.bmui-segment-text {
   border-radius: 6px/50%;
   border-radius: calc(1ch + 3px)/50%;
   -webkit-transform: translate(50%, -40%);
+      -ms-transform: translate(50%, -40%);
           transform: translate(50%, -40%);
 }
 .bmui-segment-active {
@@ -1338,6 +1398,9 @@ textarea.bmui-empty-btn {
   width: 100%;
 }
 .bmui-empty-btn::-webkit-input-placeholder {
+  color: #999;
+}
+.bmui-empty-btn::-moz-placeholder {
   color: #999;
 }
 .bmui-empty-btn:-ms-input-placeholder {

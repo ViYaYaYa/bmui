@@ -1,8 +1,17 @@
 <template>
-  <div class="bmui-field_text1" @click="focus">
+  <div
+    class="bmui-field_text1"
+    @click="focus">
     <p class="bmui-field_text1-title">{{ title || 'TITLE' }}</p>
-    <input class="bmui-field_text1-input" ref="input" :placeholder="placeholder || '请选择'" v-model="valueInside">
-    <button v-if="valueInside" class="bmui-field_text1-del" @click="valueInside = ''" />
+    <input
+      class="bmui-field_text1-input"
+      ref="input"
+      :placeholder="placeholder || '请选择'"
+      v-model="valueInside">
+    <button
+      v-if="valueInside"
+      class="bmui-field_text1-del"
+      @click="valueInside = ''" />
   </div>
 </template>
 <script>

@@ -1,11 +1,10 @@
 {
-    "extends": [
-        "standard",
-        "plugin:vue/recommended"
-    ],
-    "rules": {
-        "vue/max-attributes-per-line": "off",
-        "vue/require-v-for-key": "off",
-        "vue/attributes-order": "off"
-    }
+  "extends": [
+    "standard",
+    "plugin:vue/recommended"
+  ],
+  "rules": {
+    "vue/require-v-for-key": "off",
+    "vue/attributes-order": "off"
+  }
 }

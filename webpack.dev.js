@@ -21,7 +21,8 @@ function getPostcssLoader () {
   }
 }
 
-var complier = Webpack({
+module.exports = {
+  mode: "development",
   entry: [
     'babel-polyfill',
     'bootstrap/dist/css/bootstrap.min.css',
@@ -81,6 +82,10 @@ var complier = Webpack({
       {
         test: /\.(woff2|woff|png|jpg|jpeg|gif|svg)$/,
         use: ['url-loader']
+      },
+      {
+        test: /\.md$/,
+        use: ['raw-loader', 'markdown-loader']
       }
     ]
   },
@@ -89,18 +94,12 @@ var complier = Webpack({
       'src': Path.resolve(__dirname, 'src')
     }
   },
+  devServer: {
+    overlay: true
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './docs/index.html'
     })
-  ],
-  devtool: 'eval-source-map'
-})
-
-var server = new WebpackDevServer(complier, {
-  contentBase: Path.resolve(__dirname, 'src'),
-  overlay: true,
-  stats: { colors: true }
-})
-
-server.listen(8080)
+  ]
+}

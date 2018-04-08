@@ -2,38 +2,81 @@
   <div>
     <h2>cell</h2>
     <div class="wrap">
-      <bmui-cell-arrow1 title="cell-arrow1" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ut magni perferendis rem hic quam, sunt cum, culpa inventore obcaecati at harum nam eaque fugit fuga perspiciatis. Illum, nihil voluptatibus." />
+      <bmui-cell-arrow1
+        title="cell-arrow1"
+        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ut magni perferendis rem hic quam, sunt cum, culpa inventore obcaecati at harum nam eaque fugit fuga perspiciatis. Illum, nihil voluptatibus." />
       <bmui-cell-arrow2 title="cell-arrow2" />
-      <bmui-cell-text title="cell-text" content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur aut debitis nihil distinctio dolorum repudiandae laborum aliquid sapiente, totam culpa sint reiciendis modi dolor quasi dolorem iusto atque error qui." />
-      <bmui-cell-paragraph title="cell-paragraph" content="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit commodi corporis repellendus ipsum aliquid asperiores rerum quos. Aliquam, non nam alias eveniet, voluptate, maxime facere dolor provident rem recusandae excepturi." />
+      <bmui-cell-text
+        title="cell-text"
+        content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur aut debitis nihil distinctio dolorum repudiandae laborum aliquid sapiente, totam culpa sint reiciendis modi dolor quasi dolorem iusto atque error qui." />
+      <bmui-cell-paragraph
+        title="cell-paragraph"
+        content="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit commodi corporis repellendus ipsum aliquid asperiores rerum quos. Aliquam, non nam alias eveniet, voluptate, maxime facere dolor provident rem recusandae excepturi." />
     </div>
     <h2>choice</h2>
     <div class="wrap">
-      <bmui-radio title="radio" :items="radio" v-model="radioModel" />
-      <bmui-radio-list :items="radioList" v-model="radioListModel" />
-      <bmui-check-list-left :items="checkListLeft" v-model="checkListLeftModel" />
-      <bmui-check-list-right :items="checkListRight" v-model="checkListRightModel" />
-      <bmui-selector :item="selector1" @change="selectorChange" />
-      <bmui-selector :item="selector2" :disabled="selector2Disabled" @change="selectorChange" />
+      <bmui-radio
+        title="radio"
+        :items="radio"
+        v-model="radioModel" />
+      <bmui-radio-list
+        :items="radioList"
+        v-model="radioListModel" />
+      <bmui-check-list-left
+        :items="checkListLeft"
+        v-model="checkListLeftModel" />
+      <bmui-check-list-right
+        :items="checkListRight"
+        v-model="checkListRightModel" />
+      <bmui-selector
+        :item="selector1"
+        @change="selectorChange" />
+      <bmui-selector
+        :item="selector2"
+        :disabled="selector2Disabled"
+        @change="selectorChange" />
     </div>
     <h2>field</h2>
     <div class="wrap">
       <bmui-field-arrow1 title="field-arrow1"/>
-      <bmui-field-arrow2 title="field-arrow2" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed veritatis eveniet magnam animi atque natus dolorum ex a tenetur commodi earum ducimus, voluptatibus corrupti amet, ad autem praesentium optio tempora?" />
-      <bmui-field-text1 title="field-text1" v-model="fieldText1Model" />
-      <bmui-field-text2 title="field-text2" v-model="fieldText2Model" />
-      <bmui-field-paragraph maxlength="100" v-model="fieldParagraph" />
-      <bmui-field-btn title="field-btn" @change="fieldBtnChange" @submit="fieldBtn" :status="fieldStatus" />
-      <bmui-field-btn title="field-btn" type="password" maxlength="8" @submit="fieldBtn" status="loading" />
+      <bmui-field-arrow2
+        title="field-arrow2"
+        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed veritatis eveniet magnam animi atque natus dolorum ex a tenetur commodi earum ducimus, voluptatibus corrupti amet, ad autem praesentium optio tempora?" />
+      <bmui-field-text1
+        title="field-text1"
+        v-model="fieldText1Model" />
+      <bmui-field-text2
+        title="field-text2"
+        v-model="fieldText2Model" />
+      <bmui-field-paragraph
+        maxlength="100"
+        v-model="fieldParagraph" />
+      <bmui-field-btn
+        title="field-btn"
+        @change="fieldBtnChange"
+        @submit="fieldBtn"
+        :status="fieldStatus" />
+      <bmui-field-btn
+        title="field-btn"
+        type="password"
+        maxlength="8"
+        @submit="fieldBtn"
+        status="loading" />
     </div>
     <h2>searchbox</h2>
     <div class="wrap">
-      <bmui-searchbox v-model="searchbox" placeholder="placeholder" @submit="searchboxEmpty = true" />
+      <bmui-searchbox
+        v-model="searchbox"
+        placeholder="placeholder"
+        @submit="searchboxEmpty = true" />
       <bmui-searchbox-empty v-if="searchboxEmpty" />
     </div>
     <h2>segment</h2>
     <div class="wrap">
-      <bmui-segment :items="segment" :index="segmentIndex" @change="segmentChange" />
+      <bmui-segment
+        :items="segment"
+        :index="segmentIndex"
+        @change="segmentChange" />
     </div>
     <h2>empty</h2>
     <div class="wrap">
