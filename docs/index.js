@@ -10,9 +10,12 @@ import Bmui from 'src/vue'
 Vue.use(VueRouter)
 Vue.use(Bmui)
 
+let router = new VueRouter()
+
 // eslint-disable-next-line
 new Vue({
   el: '#app',
+  router,
   render: function (h) {
     return h(App)
   }

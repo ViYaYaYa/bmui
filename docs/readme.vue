@@ -7,9 +7,7 @@ let tips = '请在1024宽度的窗口下获得更好的预览效果\nPlease view
 export default {
   methods: {
     setHash (ev) {
-      if (ev.target && ev.target.id) {
-        this.$emit('change', ev.target.id)
-      }
+      this.$router.replace(ev.target.id)
     }
   },
   template: '<div>' + '<p>' + tips + '</p>' + template + '</div>'
