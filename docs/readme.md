@@ -6,6 +6,8 @@
 
 ### bmui-cell-arrow1
 
+#### 布局方式：块
+
 #### 参数
 
   |   | Type | Default |
@@ -23,6 +25,8 @@
 
 ### bmui-cell-arrow2
 
+#### 布局方式：块
+
 #### 参数
 
   |   | Type | Default |
@@ -38,6 +42,8 @@
 -------------------------
 
 ### bmui-cell-text
+
+#### 布局方式：块
 
 #### 参数
 
@@ -55,6 +61,8 @@
 -------------------------
 
 ### bmui-cell-paragraph
+
+#### 布局方式：块
 
 #### 参数
 
@@ -79,12 +87,14 @@
 
 ### bmui-radio
 
+#### 布局方式：块
+
 #### 参数
 
   |   | Type | Default | Remark |
   |:---:|:---:|:---:|:---------:|
   | title | String | "TITLE" | |
-  | items | Array(String \| Object) | [] | 如果items项为Object，其格式应符合{ name, value, disabled? }结构 |
+  | items | Array(String or Object) | [] | 如果items项为Object，其格式应符合{ name, value, disabled? }结构 |
 
 #### 行为
 

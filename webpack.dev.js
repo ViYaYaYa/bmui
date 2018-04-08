@@ -91,7 +91,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'src': Path.resolve(__dirname, 'src')
+      'src': Path.resolve(__dirname, 'src'),
+      'vue': 'vue/dist/vue.js'
     }
   },
   devServer: {
