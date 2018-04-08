@@ -131,6 +131,7 @@ module.exports = [
     devtool: 'source-map',
     externals: {
       'vue': 'Vue',
+      'vue-router': 'VueRouter',
       'src/vue': 'bmui'
     }
   }

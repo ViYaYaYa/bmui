@@ -1,20 +1,11 @@
-$NAME = 'choice'
-
-$NAME_RADIO = 'radio'
-$NAME_RADIO_LIST = 'radio_list'
-$NAME_CHECK_LIST_LEFT = 'check_list_left'
-$NAME_CHECK_LIST_RIGHT = 'check_list_right'
-$NAME_SELECTOR = 'selector'
-
-.{$PREFIX}-{$NAME_RADIO}
+.{$PREFIX}-radio
   min-height: 50px
   display: flex
   justify-content: space-between
   align-items: center
   background-color: #fff
   border-bottom: 1px solid $color_b1
-  padding-left: 12px
-  padding-right: 12px
+  padding: 12px
   &-title
     flex-shrink: 0
     color: $color_t2
@@ -22,26 +13,24 @@ $NAME_SELECTOR = 'selector'
     margin-right: 12px
   &-ctrls
     text-align: right
-    line-height: 1
+    margin: 0 -8px
   &-ctrl
     display: inline-block
     color: $color_t1
     font-size: $size4
-    margin-left: 8px
+    margin: 0 8px
   &-input
-    $reset_ctrl()
     $icon('radio_normal', '.svg')
     width: 30px
     height: 30px
     &:checked
-      background-image: url(($get_asset('radio_selected', '.svg')))
+      background-image: convert('url(' + $get_asset('radio_selected', '.svg') + ')')
     &:disabled
-      background-image: url(($get_asset('radio_disable', '.svg')))
+      background-image: convert('url(' + $get_asset('radio_disable', '.svg') + ')')
   &-disabled
     color: $color_t3
 
-.{$PREFIX}-{$NAME_RADIO_LIST}
-  $reset_ul()
+.{$PREFIX}-radio_list
   &-item
     display: flex
     align-items: center
@@ -49,24 +38,22 @@ $NAME_SELECTOR = 'selector'
     border-bottom: 1px solid $color_b1
     background-color: #fff
     padding: 12px
-    padding-left: 8px
     font-size: $size4
     color: $color_t1
   &-disabled
     color: $color_t3
   &-input
-    $reset_ctrl()
     flex-shrink: 0
     $icon('radio_normal', '.svg')
     width: 30px
     height: 30px
-    margin-right: 8px
+    margin: 0 8px 0 -4px
     &:checked
-      background-image: url(($get_asset('radio_selected', '.svg')))
+      background-image: convert('url(' + $get_asset('radio_selected', '.svg') + ')')
     &:disabled
-      background-image: url(($get_asset('radio_disable', '.svg')))
-.{$PREFIX}-{$NAME_CHECK_LIST_LEFT}
-  $reset_ul()
+      background-image: convert('url(' + $get_asset('radio_disable', '.svg') + ')')
+
+.{$PREFIX}-check_list
   &-item
     display: flex
     align-items: center
@@ -74,58 +61,31 @@ $NAME_SELECTOR = 'selector'
     border-bottom: 1px solid $color_b1
     background-color: #fff
     padding: 12px
-    padding-left: 8px
     font-size: $size4
     color: $color_t1
   &-disabled
     color: $color_t3
+  &-text
+    flex-grow: 1
   &-input
-    $reset_ctrl()
     flex-shrink: 0
     $icon('checkbox_normal', '.svg')
     width: 30px
     height: 30px
-    margin-right: 8px
+    margin: 0 8px 0 -4px
     &:checked
-      background-image: url(($get_asset('checkbox_selected', '.svg')))
+      background-image: convert('url(' + $get_asset('checkbox_selected', '.svg') + ')')
     &:disabled
-      background-image: url(($get_asset('checkbox_disable', '.svg')))
-.{$PREFIX}-{$NAME_CHECK_LIST_RIGHT}
-  $reset_ul()
-  &-item
-    display: flex
-    align-items: center
-    justify-content: space-between
-    min-height: 50px
-    border-bottom: 1px solid $color_b1
-    background-color: #fff
-    padding: 12px
-    padding-left: 8px
-    font-size: $size4
-    color: $color_t1
-  &-disabled
-    color: $color_t3
-  &-input
-    $reset_ctrl()
-    flex-shrink: 0
-    $icon('checkbox_normal', '.svg')
-    width: 30px
-    height: 30px
-    margin-left: 8px
-    &:checked
-      background-image: url(($get_asset('checkbox_selected', '.svg')))
-    &:disabled
-      background-image: url(($get_asset('checkbox_disable', '.svg')))
-.{$PREFIX}-{$NAME_SELECTOR}
-  $reset_ctrl()
+      background-image: convert('url(' + $get_asset('checkbox_disable', '.svg') + ')')
+
+.{$PREFIX}-selector
   display: inline-block
   border: 1px solid $color_sub2
   background-color: #fff
   font-size: 12px
   color: $color_t2
   min-height: 30px
-  padding-left: 8px
-  padding-right: 8px
+  padding: 4px 8px
   border-radius: 2px
   &-checked
     color: #fff

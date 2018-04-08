@@ -11,19 +11,17 @@
           type="radio"
           :value="typeof item === 'string' ? item : item.value"
           v-model="valueInside"
-          :disabled="item.disabled"><span>{{ (typeof item === 'string' ? item : item.name) || 'ITEM' }}</span>
+          :disabled="item.disabled">{{ (typeof item === 'string' ? item : item.name) || 'ITEM' }}
       </label>
     </p>
   </div>
 </template>
 <script>
+import MixinInput from './mixins/input'
 export default {
   name: 'BmuiRadio',
+  mixins: [MixinInput],
   props: {
-    value: {
-      type: [String, Object],
-      default: null
-    },
     title: {
       type: String,
       default: ''
@@ -34,19 +32,6 @@ export default {
         return []
       }
     }
-  },
-  data () {
-    return {
-      valueInside: null
-    }
-  },
-  watch: {
-    valueInside (v) {
-      this.$emit('input', v)
-    }
-  },
-  created () {
-    this.valueInside = this.value
   }
 }
 </script>

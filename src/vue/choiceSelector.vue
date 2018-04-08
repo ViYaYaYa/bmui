@@ -6,47 +6,25 @@
     :disabled="disabled">{{ typeof item === 'string' ? item : item.name || 'ITEM' }}</button>
 </template>
 <script>
+import MixinInput from './mixins/input'
 export default {
   name: 'BmuiSelector',
+  mixins: [MixinInput],
   props: {
     item: {
       type: [String, Object],
       default: ''
-    },
-    checked: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
     }
-  },
-  data () {
-    return {
-      checkedInside: false,
-      disabledInside: false
-    }
-  },
-  watch: {
-    checked () {
-      this.update()
-    }
-  },
-  created () {
-    this.update()
   },
   methods: {
-    update () {
-      this.checkedInside = this.checked
-      this.disabledInside = this.disabled
-    },
     change () {
-      // this.checkedInside = !this.checkedInside
-      this.$emit('change', {
-        item: typeof this.item === 'object' ? this.item.value : this.item,
-        checked: !this.checkedInside
-      })
+      if (!this.disabled) {
+        this.checkedInside = !this.checkedInside
+        this.$emit('change', {
+          item: typeof this.item === 'string' ? this.item : this.item.value,
+          checked: this.checkedInside
+        })
+      }
     }
   }
 }

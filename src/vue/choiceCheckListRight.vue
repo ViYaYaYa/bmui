@@ -1,49 +1,32 @@
 <template>
-  <ul class="bmui-check_list_right">
+  <ul class="bmui-check_list">
     <li v-for="item of items">
       <label
-        class="bmui-check_list_right-item"
-        :class="{ 'disabled': item.disabled }">
-        <span>{{ (typeof item === 'string' ? item : item.name) || 'ITEM' }}</span>
+        class="bmui-check_list-item"
+        :class="{ 'bmui-check_list-disabled': item.disabled }">
+        <span class="bmui-check_list-text">{{ (typeof item === 'string' ? item : item.name) || 'ITEM' }}</span>
         <input
-          class="bmui-check_list_right-input"
+          class="bmui-check_list-input"
           type="checkbox"
           :value="typeof item === 'string' ? item : item.value"
-          v-model="valuesInside"
+          v-model="valueInside"
           :disabled="item.disabled">
       </label>
     </li>
   </ul>
 </template>
 <script>
+import MixinInput from './mixins/input'
 export default {
   name: 'BmuiCheckListRight',
+  mixins: [MixinInput],
   props: {
-    value: {
-      type: Array,
-      default: function () {
-        return []
-      }
-    },
     items: {
       type: Array,
       default: function () {
         return []
       }
     }
-  },
-  data () {
-    return {
-      valuesInside: []
-    }
-  },
-  watch: {
-    valuesInside (v) {
-      this.$emit('input', v)
-    }
-  },
-  created () {
-    this.valuesInside = this.value.slice()
   }
 }
 </script>

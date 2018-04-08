@@ -23,23 +23,25 @@
         v-if="!currHash || currHash === 'choice'">
         <bmui-radio
           title="radio"
-          :items="radio"
-          v-model="radioModel" />
+          :items="['111', { name: '选项2', value: '222' }, { name: '禁用选项', value: '333', disabled: true }, '444', '555']"
+          v-model="radioModel"/>
         <bmui-radio-list
-          :items="radioList"
+          :items="['radio-list', { name: '选项', value: '222', disabled: true }, '选项很长很长很长很长很长很长很长很长很长很长很长很长很长']"
           v-model="radioListModel" />
         <bmui-check-list-left
-          :items="checkListLeft"
+          :items="['check-list-left', '222', { name: '选项名称', value: '333', disabled: true }]"
           v-model="checkListLeftModel" />
         <bmui-check-list-right
-          :items="checkListRight"
+          :items="['check-list-right', '222', { name: '选项名称超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长', value: '333', disabled: true }]"
           v-model="checkListRightModel" />
         <bmui-selector
-          :item="selector1"
+          :item="'选项1'"
+          :checked="selector === '选项1'"
           @change="selectorChange" />
         <bmui-selector
-          :item="selector2"
-          :disabled="selector2Disabled"
+          :item="{ name: '选项2的名称', value: '222' }"
+          :checked="selector === '222'"
+          :disabled="true"
           @change="selectorChange" />
       </div>
       <div
@@ -104,17 +106,11 @@ export default {
   data () {
     return {
       currHash: '',
-      radio: ['111', { name: '选项2', value: '222' }, { name: '禁用选项', value: '333', disabled: true }, '444', '555'],
       radioModel: '',
-      radioList: ['radio-list', { name: '选项', value: '222', disabled: true }, '选项很长很长很长很长很长很长很长很长很长很长很长很长很长'],
       radioListModel: '',
-      checkListLeft: ['check-list-left', '222', { name: '选项名称', value: '333', disabled: true }],
       checkListLeftModel: [],
-      checkListRight: ['check-list-right', '222', { name: '选项名称超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长', value: '333', disabled: true }],
       checkListRightModel: [],
-      selector1: '选项1',
-      selector2: { name: '选项2的名称', value: '222' },
-      selector2Disabled: true,
+      selector: '',
       fieldText1Model: '',
       fieldText2Model: '',
       fieldParagraph: '',
