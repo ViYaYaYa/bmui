@@ -6,7 +6,7 @@
     :disabled="disabled">{{ typeof item === 'string' ? item : item.name || 'ITEM' }}</button>
 </template>
 <script>
-import MixinInput from './mixins/input'
+import MixinInput from 'src/vue/mixins/input'
 export default {
   name: 'BmuiSelector',
   mixins: [MixinInput],

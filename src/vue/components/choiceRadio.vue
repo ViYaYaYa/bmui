@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import MixinInput from './mixins/input'
+import MixinInput from 'src/vue/mixins/input'
 export default {
   name: 'BmuiRadio',
   mixins: [MixinInput],
