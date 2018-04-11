@@ -1,5 +1,16 @@
 <template>
-  <div>
+  <div class="m_page">
+    <div class="m_category">
+      <h2>分类</h2>
+      <ul>
+        <li>cell</li>
+        <li>choice</li>
+        <li>field</li>
+        <li>searchbox</li>
+        <li>segment</li>
+        <li>empty</li>
+      </ul>
+    </div>
     <readme
       class="m_readme"
       @change="setCurrHash"/>
@@ -36,13 +47,11 @@
           v-model="checkListRightModel" />
         <bmui-selector
           :item="'选项1'"
-          :checked="selector === '选项1'"
+          v-model="selector"
           @change="selectorChange" />
         <bmui-selector
           :item="{ name: '选项2的名称', value: '222' }"
-          :checked="selector === '222'"
-          :disabled="true"
-          @change="selectorChange" />
+          :disabled="true" />
       </div>
       <div
         class="wrap"
@@ -154,27 +163,63 @@ export default {
 </script>
 <style scoped>
   @media screen and (max-width: 1023px) {
+    .m_category {
+      display: none;
+    }
+    .m_readme {
+      position: static;
+    }
     .m_preview {
       display: none;
     }
   }
   @media screen and (min-width: 1024px) {
+    .m_category {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 150px;
+      height: 100%;
+      overflow: auto;
+    }
     .m_readme {
-      margin-right: 320px;
+      position: absolute;
+      top: 0;
+      left: 150px;
+      right: 320px;
+      height: 100%;
+      overflow: auto;
     }
     .m_preview {
-      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 568px;
+      width: 320px;
+      overflow: auto;
     }
+  }
+  .m_page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .m_category {
+    position: absolute;
+    height: 100%;
+    overflow: auto;
+  }
+  .m_readme {
+    position: absolute;
+    overflow: auto;
   }
   .m_preview {
     background-color: #f8f8f8;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 320px;
-    height: 568px;
     border: 1px solid #f00;
-    overflow: auto;
   }
   .m_preview .wrap {
     position: relative;

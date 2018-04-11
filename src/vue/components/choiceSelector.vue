@@ -1,8 +1,8 @@
 <template>
   <button
     class="bmui-selector"
-    :class="{ 'bmui-selector-checked': checkedInside, 'bmui-selector-disabled': disabled }"
-    @click="change"
+    :class="{ 'bmui-selector-checked': choiceCheckedInside, 'bmui-selector-disabled': disabled }"
+    @click="choiceCheckedInside = !choiceCheckedInside"
     :disabled="disabled">{{ typeof item === 'string' ? item : item.name || 'ITEM' }}</button>
 </template>
 <script>
@@ -16,16 +16,25 @@ export default {
       default: ''
     }
   },
-  methods: {
-    change () {
-      if (!this.disabled) {
-        this.checkedInside = !this.checkedInside
-        this.$emit('change', {
-          item: typeof this.item === 'string' ? this.item : this.item.value,
-          checked: this.checkedInside
-        })
-      }
+  data () {
+    return {
+      choiceCheckedInside: false
     }
+  },
+  watch: {
+    value (v) {
+      this.choiceCheckedInside = !!this.value
+    },
+    choiceCheckedInside (v) {
+      this.$emit('change', {
+        item: typeof this.item === 'string' ? this.item : this.item.value,
+        checked: v
+      })
+      this.$emit('input', v)
+    }
+  },
+  created () {
+    this.choiceCheckedInside = !!this.value
   }
 }
 </script>

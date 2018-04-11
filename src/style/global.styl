@@ -64,12 +64,12 @@ $offset3 = angelkit_gap_3
 
 // 全局方法
 $get_asset(path, ext = '.png')
-  return '../assets/' + path + ext
+  return '\~src/assets/' + path + ext
 
 $icon(path, ext = '.png')
   display: inline-block
   vertical-align: middle
-  background: url($get_asset(path, ext)) center no-repeat
+  background: convert('url(' + $get_asset(path, ext) + ')') center no-repeat
   background-size: contain
 
 $reset()

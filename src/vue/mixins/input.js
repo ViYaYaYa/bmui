@@ -19,21 +19,24 @@ export default {
   },
   created () {
     this.valueInside = this.value
-    this.disabledInside = this.disabled
-    this.checkedInside = this.checked
+    this.disabledInside = !!this.disabled
+    this.checkedInside = !!this.checked
   },
   watch: {
     value (v) {
       this.valueInside = this.value
     },
     disabled (v) {
-      this.disabledInside = this.disabled
+      this.disabledInside = !!this.disabled
     },
     checked (v) {
-      this.checkedInside = this.checked
+      this.checkedInside = !!this.checked
     },
     valueInside (v) {
       this.$emit('input', v)
+    },
+    checkedInside (v) {
+      this.$emit('change', v)
     }
   }
 }
