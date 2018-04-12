@@ -74,12 +74,9 @@ textarea[class|="bmui"]::placeholder {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 12px;
-  padding-right: 8px;
+  padding: 12px;
 }
 .bmui-cell_arrow1-title {
-  margin: 0;
-  padding: 0;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   color: #666;
@@ -87,8 +84,6 @@ textarea[class|="bmui"]::placeholder {
   margin-right: 12px;
 }
 .bmui-cell_arrow1-content {
-  margin: 0;
-  padding: 0;
   color: #333;
   font-size: 14px;
   -webkit-box-flex: 1;
@@ -108,7 +103,7 @@ textarea[class|="bmui"]::placeholder {
   height: 30px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin-left: 8px;
+  margin: 0 -4px 0 8px;
 }
 .bmui-cell_arrow2 {
   min-height: 50px;
@@ -120,12 +115,9 @@ textarea[class|="bmui"]::placeholder {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 12px;
-  padding-right: 8px;
+  padding: 12px;
 }
 .bmui-cell_arrow2-title {
-  margin: 0;
-  padding: 0;
   color: #333;
   font-size: 14px;
   -webkit-box-flex: 1;
@@ -144,7 +136,7 @@ textarea[class|="bmui"]::placeholder {
   height: 30px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin-left: 8px;
+  margin: 0 -4px 0 8px;
 }
 .bmui-cell_text {
   min-height: 50px;
@@ -159,8 +151,6 @@ textarea[class|="bmui"]::placeholder {
   padding: 12px;
 }
 .bmui-cell_text-title {
-  margin: 0;
-  padding: 0;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   color: #666;
@@ -168,8 +158,6 @@ textarea[class|="bmui"]::placeholder {
   margin-right: 12px;
 }
 .bmui-cell_text-content {
-  margin: 0;
-  padding: 0;
   color: #333;
   font-size: 14px;
   -webkit-box-flex: 1;
@@ -184,15 +172,11 @@ textarea[class|="bmui"]::placeholder {
   padding: 12px;
 }
 .bmui-cell_paragraph-title {
-  margin: 0;
-  padding: 0;
   color: #666;
   font-size: 11px;
   margin-bottom: 8px;
 }
 .bmui-cell_paragraph-content {
-  margin: 0;
-  padding: 0;
   color: #333;
   font-size: 14px;
 }
@@ -209,8 +193,7 @@ textarea[class|="bmui"]::placeholder {
           align-items: center;
   background-color: #fff;
   border-bottom: 1px solid #e5e5e5;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 12px;
 }
 .bmui-radio-title {
   -ms-flex-negative: 0;
@@ -221,50 +204,21 @@ textarea[class|="bmui"]::placeholder {
 }
 .bmui-radio-ctrls {
   text-align: right;
-  line-height: 1;
+  margin: 0 -8px;
 }
 .bmui-radio-ctrl {
   display: inline-block;
   color: #333;
   font-size: 14px;
-  margin-left: 8px;
+  margin: 0 8px;
 }
 .bmui-radio-input {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   display: inline-block;
   vertical-align: middle;
   background: url(./assets/radio_normal.svg) center no-repeat;
   background-size: contain;
   width: 30px;
   height: 30px;
-}
-textarea.bmui-radio-input {
-  width: 100%;
-}
-.bmui-radio-input::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-radio-input::-moz-placeholder {
-  color: #999;
-}
-.bmui-radio-input:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-radio-input::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-radio-input::placeholder {
-  color: #999;
 }
 .bmui-radio-input:checked {
   background-image: url(./assets/radio_selected.svg);
@@ -274,11 +228,6 @@ textarea.bmui-radio-input {
 }
 .bmui-radio-disabled {
   color: #999;
-}
-.bmui-radio_list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 .bmui-radio_list-item {
   display: -webkit-box;
@@ -291,7 +240,6 @@ textarea.bmui-radio-input {
   border-bottom: 1px solid #e5e5e5;
   background-color: #fff;
   padding: 12px;
-  padding-left: 8px;
   font-size: 14px;
   color: #333;
 }
@@ -299,17 +247,6 @@ textarea.bmui-radio-input {
   color: #999;
 }
 .bmui-radio_list-input {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   display: inline-block;
@@ -318,25 +255,7 @@ textarea.bmui-radio-input {
   background-size: contain;
   width: 30px;
   height: 30px;
-  margin-right: 8px;
-}
-textarea.bmui-radio_list-input {
-  width: 100%;
-}
-.bmui-radio_list-input::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-radio_list-input::-moz-placeholder {
-  color: #999;
-}
-.bmui-radio_list-input:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-radio_list-input::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-radio_list-input::placeholder {
-  color: #999;
+  margin: 0 8px 0 -4px;
 }
 .bmui-radio_list-input:checked {
   background-image: url(./assets/radio_selected.svg);
@@ -344,12 +263,7 @@ textarea.bmui-radio_list-input {
 .bmui-radio_list-input:disabled {
   background-image: url(./assets/radio_disable.svg);
 }
-.bmui-check_list_left {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.bmui-check_list_left-item {
+.bmui-check_list-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,25 +274,18 @@ textarea.bmui-radio_list-input {
   border-bottom: 1px solid #e5e5e5;
   background-color: #fff;
   padding: 12px;
-  padding-left: 8px;
   font-size: 14px;
   color: #333;
 }
-.bmui-check_list_left-disabled {
+.bmui-check_list-disabled {
   color: #999;
 }
-.bmui-check_list_left-input {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+.bmui-check_list-text {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.bmui-check_list-input {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   display: inline-block;
@@ -387,143 +294,23 @@ textarea.bmui-radio_list-input {
   background-size: contain;
   width: 30px;
   height: 30px;
-  margin-right: 8px;
+  margin: 0 8px 0 -4px;
 }
-textarea.bmui-check_list_left-input {
-  width: 100%;
-}
-.bmui-check_list_left-input::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-check_list_left-input::-moz-placeholder {
-  color: #999;
-}
-.bmui-check_list_left-input:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-check_list_left-input::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-check_list_left-input::placeholder {
-  color: #999;
-}
-.bmui-check_list_left-input:checked {
+.bmui-check_list-input:checked {
   background-image: url(./assets/checkbox_selected.svg);
 }
-.bmui-check_list_left-input:disabled {
-  background-image: url(./assets/checkbox_disable.svg);
-}
-.bmui-check_list_right {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.bmui-check_list_right-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  min-height: 50px;
-  border-bottom: 1px solid #e5e5e5;
-  background-color: #fff;
-  padding: 12px;
-  padding-left: 8px;
-  font-size: 14px;
-  color: #333;
-}
-.bmui-check_list_right-disabled {
-  color: #999;
-}
-.bmui-check_list_right-input {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  display: inline-block;
-  vertical-align: middle;
-  background: url(./assets/checkbox_normal.svg) center no-repeat;
-  background-size: contain;
-  width: 30px;
-  height: 30px;
-  margin-left: 8px;
-}
-textarea.bmui-check_list_right-input {
-  width: 100%;
-}
-.bmui-check_list_right-input::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-check_list_right-input::-moz-placeholder {
-  color: #999;
-}
-.bmui-check_list_right-input:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-check_list_right-input::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-check_list_right-input::placeholder {
-  color: #999;
-}
-.bmui-check_list_right-input:checked {
-  background-image: url(./assets/checkbox_selected.svg);
-}
-.bmui-check_list_right-input:disabled {
+.bmui-check_list-input:disabled {
   background-image: url(./assets/checkbox_disable.svg);
 }
 .bmui-selector {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   display: inline-block;
   border: 1px solid #d7d7d7;
   background-color: #fff;
   font-size: 12px;
   color: #666;
   min-height: 30px;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 4px 8px;
   border-radius: 2px;
-}
-textarea.bmui-selector {
-  width: 100%;
-}
-.bmui-selector::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-selector::-moz-placeholder {
-  color: #999;
-}
-.bmui-selector:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-selector::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-selector::placeholder {
-  color: #999;
 }
 .bmui-selector-checked {
   color: #fff;
@@ -1235,7 +1022,7 @@ textarea.bmui-searchbox-submit {
   color: #999;
   font-size: 14px;
   text-align: center;
-  background: url(./assets/empty@3x.png) top no-repeat;
+  background: url("/~src/assets/empty@3x.png") top no-repeat;
   background-size: 120px;
   padding-top: 128px;
   margin-top: 44px;

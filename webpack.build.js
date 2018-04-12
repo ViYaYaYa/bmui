@@ -53,6 +53,11 @@ module.exports = [
       ]
     },
     devtool: 'source-map',
+    resolve: {
+      alias: {
+        'src': Path.resolve(__dirname, 'src')
+      }
+    },
     plugins: [new ExtractTextWebpackPlugin('bmui.css')]
   },
   // Bmui Vue Conponents
@@ -96,6 +101,9 @@ module.exports = [
     externals: {
       'vue': 'Vue',
     },
+    optimization: {
+      minimize: false
+    },
     plugins: [
       new Webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
@@ -115,11 +123,15 @@ module.exports = [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: 'babel-loader'
+          use: ['babel-loader']
         },
         {
           test: /\.vue$/,
-          use: 'vue-loader'
+          use: ['vue-loader']
+        },
+        {
+          test: /\.md$/,
+          use: ['raw-loader', 'markdown-loader']
         }
       ]
     },
