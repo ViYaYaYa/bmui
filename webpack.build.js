@@ -66,6 +66,7 @@ module.exports = [
     entry: './src/vue/index.js',
     output: {
       path: Path.resolve(__dirname, 'dist/vue'),
+      publicPath: './',
       filename: 'index.js',
       library: 'bmui',
       libraryTarget: 'umd'
@@ -80,15 +81,6 @@ module.exports = [
         {
           test: /\.vue$/,
           use: 'vue-loader'
-        },
-        {
-          test: /\.(png|jpg|jpeg|gif|svg)$/,
-          use: {
-            loader: 'file-loader',
-            options: {
-              name: '../assets/[name].[ext]'
-            }
-          }
         }
       ]
     },

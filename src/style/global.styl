@@ -107,9 +107,12 @@ $reset_ul()
     box-sizing: border-box
   ul&, li&
     list-style: none
-  input&, textarea&
+  input&, textarea&, button&
     appearance: none
     border: none
     background-color: transparent
     &::placeholder
       color: $color_t3
+  textarea&
+    display: block
+    width: 100%

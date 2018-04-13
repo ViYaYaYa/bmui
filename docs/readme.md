@@ -1,3 +1,7 @@
+请在1024宽度的窗口下获得更好的预览效果
+
+Please view this page with at least 1024px width screen.
+
 ## Cell
 
 > 仅具备展示功能，文本展示区域没有状态改变
@@ -167,13 +171,13 @@
   |:---:|:---:|:---:|:-------:|
   | item | String or Object | 'ITEM' | 如果item为Object，其格式应符合{ name, value }结构 |
   | disabled | Any | undefined | 暂无 |
-  | checked | Any | undefined | 暂无 |
+  | v-model | Any | null | 绑定的目标值更新后为Bool |
 
 #### 行为
 
   | Event | Args | Remark |
   |:-----:|:-----:|:-----:|
-  | change | Object（点击的响应） | 返回结构为{ item, checked } |
+  | change | Object（点击的响应） | 返回结构为{ item, checked }，与v-model一起时慎用，因为有逻辑交集 |
 
 #### 用法
 
@@ -182,9 +186,153 @@
     :item="{ name: '选项名称', value: '选项值' }"
     :checked="selector === '选项值'"
     :disabled="true"
-    @change="selectorChange" />
+    @change="selectorChange"/>
 ```
 
 -------------------------
 
 ## field
+
+> 有交互的表单控件，该目录下的控件共享大部分input固有的属性，像maxlength，disable等，但一般不具备@change功能，只能通过v-model监听变化
+
+-------------------------
+
+### bmui-field-arrow1
+
+#### 布局方式：块
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | title | String | 'TITLE' | / |
+  | content | String | '' | / |
+  | placeholder | String | '请选择' | / |
+
+#### 用法
+
+```html
+  <bmui-field-arrow1
+    title="field-arrow1"
+    content="已选择"/>
+```
+
+-------------------------
+
+### bmui-field-arrow2
+
+#### 布局方式：块
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | title | String | 'TITLE' | / |
+  | content | String | '' | / |
+  | placeholder | String | '请选择' | / |
+
+#### 用法
+
+```html
+  <bmui-field-arrow2 title="field-arrow2"/>
+```
+
+-------------------------
+
+### bmui-field-text1
+
+#### 布局方式：块
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | title | String | 'TITLE' | / |
+  | v-model | Any | null | / |
+  | placeholder | String | '请输入' | / |
+
+#### 用法
+
+```html
+  <bmui-field-text1
+    title="field-text1"
+    placeholder="自定义占位符"
+    v-model="绑定对象"/>
+```
+
+-------------------------
+
+### bmui-field-text2
+
+#### 布局方式：块
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | title | String | 'TITLE' | / |
+  | v-model | Any | null | / |
+  | placeholder | String | '请输入' | / |
+
+#### 用法
+
+```html
+  <bmui-field-text2
+    title="field-text2"
+    v-model="绑定对象"/>
+```
+
+-------------------------
+
+### bmui-field-paragraph
+
+#### 布局方式：块
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | title | String | 'TITLE' | / |
+  | maxlength | Number | null | / |
+  | v-model | Any | null | / |
+
+#### 用法
+
+```html
+  <bmui-field-paragraph
+    title="field-paragraph"
+    maxlength="100"
+    v-model="绑定对象"/>
+```
+
+-------------------------
+
+### bmui-field-btn
+
+#### 布局方式：块
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | title | String | 'TITLE' | / |
+  | btn | String | 'BUTTON' | / |
+  | v-model | Any | null | / |
+  | status | String | '' | 目前有4种状态：loading，success，warning，fail |
+
+#### 行为
+
+  | Event | Args | Remark |
+  |:---:  |:---: |:---:   |
+  | submit | String | / |
+
+
+#### 用法
+
+```html
+  <bmui-field-btn
+    title="field-btn"
+    v-model="绑定对象"
+    @submit="回调事件"
+    :status="loading"/>
+```

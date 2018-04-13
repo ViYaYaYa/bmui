@@ -1,107 +1,104 @@
 <template>
   <div class="m_page">
     <div class="m_category">
-      <h2>分类</h2>
+      <h2>组件目录</h2>
       <ul>
-        <li>cell</li>
-        <li>choice</li>
-        <li>field</li>
-        <li>searchbox</li>
-        <li>segment</li>
-        <li>empty</li>
+        <li><button @click="$router.replace('cell')">cell</button></li>
+        <li><button @click="$router.replace('choice')">choice</button></li>
+        <li><button @click="$router.replace('field')">field</button></li>
+        <li><button @click="$router.replace('searchbox')">searchbox</button></li>
+        <li><button @click="$router.replace('segment')">segment</button></li>
+        <li><button @click="$router.replace('empty')">empty</button></li>
       </ul>
     </div>
-    <readme
-      class="m_readme"
-      @change="setCurrHash"/>
+    <readme class="m_readme"/>
     <div class="m_preview">
+      <p v-if="!anchor">请选择最左列目录的组件</p>
       <div
         class="wrap"
-        v-if="!currHash || currHash === 'cell'">
+        v-show="anchor === 'cell'">
         <bmui-cell-arrow1
           title="cell-arrow1"
-          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ut magni perferendis rem hic quam, sunt cum, culpa inventore obcaecati at harum nam eaque fugit fuga perspiciatis. Illum, nihil voluptatibus." />
-        <bmui-cell-arrow2 title="cell-arrow2" />
+          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ut magni perferendis rem hic quam, sunt cum, culpa inventore obcaecati at harum nam eaque fugit fuga perspiciatis. Illum, nihil voluptatibus."/>
+        <bmui-cell-arrow2 title="cell-arrow2"/>
         <bmui-cell-text
           title="cell-text"
-          content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur aut debitis nihil distinctio dolorum repudiandae laborum aliquid sapiente, totam culpa sint reiciendis modi dolor quasi dolorem iusto atque error qui." />
+          content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur aut debitis nihil distinctio dolorum repudiandae laborum aliquid sapiente, totam culpa sint reiciendis modi dolor quasi dolorem iusto atque error qui."/>
         <bmui-cell-paragraph
           title="cell-paragraph"
-          content="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit commodi corporis repellendus ipsum aliquid asperiores rerum quos. Aliquam, non nam alias eveniet, voluptate, maxime facere dolor provident rem recusandae excepturi." />
+          content="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit commodi corporis repellendus ipsum aliquid asperiores rerum quos. Aliquam, non nam alias eveniet, voluptate, maxime facere dolor provident rem recusandae excepturi."/>
       </div>
       <div
         class="wrap"
-        v-if="!currHash || currHash === 'choice'">
+        v-show="anchor === 'choice'">
         <bmui-radio
           title="radio"
           :items="['111', { name: '选项2', value: '222' }, { name: '禁用选项', value: '333', disabled: true }, '444', '555']"
           v-model="radioModel"/>
         <bmui-radio-list
           :items="['radio-list', { name: '选项', value: '222', disabled: true }, '选项很长很长很长很长很长很长很长很长很长很长很长很长很长']"
-          v-model="radioListModel" />
+          v-model="radioListModel"/>
         <bmui-check-list-left
           :items="['check-list-left', '222', { name: '选项名称', value: '333', disabled: true }]"
-          v-model="checkListLeftModel" />
+          v-model="checkListLeftModel"/>
         <bmui-check-list-right
           :items="['check-list-right', '222', { name: '选项名称超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长', value: '333', disabled: true }]"
-          v-model="checkListRightModel" />
+          v-model="checkListRightModel"/>
         <bmui-selector
           :item="'选项1'"
           v-model="selector"
-          @change="selectorChange" />
+          @change="selectorChange"/>
         <bmui-selector
           :item="{ name: '选项2的名称', value: '222' }"
-          :disabled="true" />
+          :disabled="true"/>
       </div>
       <div
         class="wrap"
-        v-if="!currHash || currHash === 'field'">
-        <bmui-field-arrow1 title="field-arrow1"/>
-        <bmui-field-arrow2
-          title="field-arrow2"
-          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed veritatis eveniet magnam animi atque natus dolorum ex a tenetur commodi earum ducimus, voluptatibus corrupti amet, ad autem praesentium optio tempora?" />
+        v-show="anchor === 'field'">
+        <bmui-field-arrow1
+          @click="test"
+          title="field-arrow1"
+          content="已选择"/>
+        <bmui-field-arrow2 title="field-arrow2"/>
         <bmui-field-text1
           title="field-text1"
-          v-model="fieldText1Model" />
+          placeholder="自定义占位符"
+          v-model="fieldText1Model"/>
         <bmui-field-text2
           title="field-text2"
-          v-model="fieldText2Model" />
+          v-model="fieldText2Model"/>
         <bmui-field-paragraph
+          title="field-paragraph"
           maxlength="100"
-          v-model="fieldParagraph" />
+          v-model="fieldParagraph"/>
         <bmui-field-btn
           title="field-btn"
-          @change="fieldBtnChange"
-          @submit="fieldBtn"
-          :status="fieldStatus" />
-        <bmui-field-btn
-          title="field-btn"
-          type="password"
-          maxlength="8"
-          @submit="fieldBtn"
-          status="loading" />
+          btn="按钮文字"
+          v-model="fieldBtn"
+          @submit="fieldBtnSubmit"
+          :status="fieldBtnStatus"/>
       </div>
       <div
         class="wrap"
-        v-if="!currHash || currHash === 'searchbox'">
+        v-show="anchor === 'searchbox'">
         <bmui-searchbox
           v-model="searchbox"
           placeholder="placeholder"
-          @submit="searchboxEmpty = true" />
-        <bmui-searchbox-empty v-if="searchboxEmpty" />
+          @submit="searchboxEmpty = true"/>
+        <bmui-searchbox-empty v-if="searchboxEmpty"/>
       </div>
       <div
         class="wrap"
-        v-if="!currHash || currHash === 'segment'">
+        v-show="anchor === 'segment'">
         <bmui-segment
           :items="segment"
           :index="segmentIndex"
-          @change="segmentChange" />
+          @change="segmentChange"/>
       </div>
       <div
         class="wrap"
-        v-if="!currHash || currHash === 'empty'">
-        <bmui-empty btn="按钮要监听组件click.native事件" />
+        v-show="anchor === 'empty'">
+        <bmui-empty btn="按钮要监听组件click.native事件"/>
       </div>
     </div>
   </div>
@@ -123,36 +120,40 @@ export default {
       fieldText1Model: '',
       fieldText2Model: '',
       fieldParagraph: '',
-      fieldStatus: '',
+      fieldBtn: '',
+      fieldBtnStatus: '',
       searchbox: 'searchbox',
       searchboxEmpty: false,
       segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3'],
       segmentIndex: 2
     }
   },
+  computed: {
+    anchor () {
+      return this.$route.path ? this.$route.path.slice(1) : ''
+    }
+  },
   methods: {
-    setCurrHash (hash) {
-      this.currHash = hash
+    test (arg1, arg2) {
+      console.log(arg1)
+      console.log(arg2)
     },
     selectorChange (res) {
       console.log(res)
     },
-    fieldBtnChange (ev) {
-      console.log(ev)
-    },
-    fieldBtn () {
-      this.fieldStatus = 'loading'
+    fieldBtnSubmit () {
+      this.fieldBtnStatus = 'loading'
       setTimeout(() => {
-        this.fieldStatus = 'success'
+        this.fieldBtnStatus = 'success'
       }, 1000)
       setTimeout(() => {
-        this.fieldStatus = 'warning'
+        this.fieldBtnStatus = 'warning'
       }, 2000)
       setTimeout(() => {
-        this.fieldStatus = 'fail'
+        this.fieldBtnStatus = 'fail'
       }, 3000)
       setTimeout(() => {
-        this.fieldStatus = ''
+        this.fieldBtnStatus = ''
       }, 4000)
     },
     segmentChange (index) {
@@ -162,7 +163,7 @@ export default {
 }
 </script>
 <style scoped>
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1024px) {
     .m_category {
       display: none;
     }

@@ -72,7 +72,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "./";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -201,7 +201,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   data: function data() {
     return {
-      valueInside: null,
+      valueInside: '',
       disabledInside: false,
       checkedInside: false
     };
@@ -209,21 +209,36 @@ exports.default = {
 
   props: {
     value: {
-      default: null
+      default: ''
     },
     disabled: {
       default: false
     },
     checked: {
       default: false
+    },
+    placeholder: {
+      default: ''
+    },
+    maxlength: {
+      default: undefined
+    },
+    type: {
+      default: undefined
     }
   },
-  created: function created() {
-    this.valueInside = this.value;
-    this.disabledInside = !!this.disabled;
-    this.checkedInside = !!this.checked;
+  computed: {
+    mixinInputProps: function mixinInputProps() {
+      return {
+        // value: this.value,
+        disabled: this.disabled,
+        // checked: this.checked,
+        placeholder: this.placeholder,
+        maxlength: this.maxlength,
+        type: this.type
+      };
+    }
   },
-
   watch: {
     value: function value(v) {
       this.valueInside = this.value;
@@ -240,6 +255,17 @@ exports.default = {
     checkedInside: function checkedInside(v) {
       this.$emit('change', v);
     }
+  },
+  methods: {
+    mixinInputDoFocus: function mixinInputDoFocus() {
+      var target = this.$refs.input;
+      if (target && typeof target.focus === 'function') target.focus();
+    }
+  },
+  created: function created() {
+    this.valueInside = this.value;
+    this.disabledInside = !!this.disabled;
+    this.checkedInside = !!this.checked;
   }
 };
 
@@ -445,41 +471,18 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _input = __webpack_require__(1);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   name: 'BmuiFieldBtn',
+  mixins: [_input2.default],
   props: {
     title: {
-      type: String,
-      default: ''
-    },
-    value: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
       type: String,
       default: ''
     },
@@ -490,46 +493,33 @@ exports.default = {
     status: {
       type: String,
       default: ''
-    },
-    type: {
-      type: String,
-      default: ''
-    },
-    maxlength: {
-      type: [Number, String],
-      default: null
     }
   },
-  data: function data() {
-    return {
-      valueInside: ''
-    };
-  },
-
-  watch: {
-    value: function value(v) {
-      this.update();
-    },
-    valueInside: function valueInside(v) {
-      this.$emit('input', v);
-    }
-  },
-  created: function created() {
-    this.update();
-  },
-
   methods: {
-    update: function update() {
-      this.valueInside = this.value;
-    },
-    focus: function focus() {
-      this.$refs.input.focus();
-    },
     submit: function submit() {
       this.$emit('submit');
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 7 */
@@ -541,76 +531,40 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _input = __webpack_require__(1);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   name: 'BmuiFieldParagraph',
+  mixins: [_input2.default],
   props: {
     title: {
       type: String,
       default: ''
-    },
-    value: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    maxlength: {
-      type: [Number, String],
-      default: undefined
-    },
-    countHide: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data: function data() {
-    return {
-      valueInside: ''
-    };
-  },
-
-  watch: {
-    value: function value(v) {
-      this.update();
-    },
-    valueInside: function valueInside(v) {
-      this.$emit('input', v);
-    }
-  },
-  created: function created() {
-    this.update();
-  },
-
-  methods: {
-    update: function update() {
-      this.valueInside = this.value;
-    },
-    focus: function focus() {
-      this.$refs.input.focus();
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 8 */
@@ -622,68 +576,41 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _input = __webpack_require__(1);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   name: 'BmuiFieldText2',
+  mixins: [_input2.default],
   props: {
     title: {
       type: String,
       default: ''
-    },
-    value: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    }
-  },
-  data: function data() {
-    return {
-      valueInside: ''
-    };
-  },
-
-  watch: {
-    value: function value(v) {
-      this.update();
-    },
-    valueInside: function valueInside(v) {
-      this.$emit('input', v);
-    }
-  },
-  created: function created() {
-    this.update();
-  },
-
-  methods: {
-    update: function update() {
-      this.valueInside = this.value;
-    },
-    focus: function focus() {
-      this.$refs.input.focus();
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 9 */
@@ -695,66 +622,39 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _input = __webpack_require__(1);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   name: 'BmuiFieldText1',
+  mixins: [_input2.default],
   props: {
     title: {
       type: String,
       default: ''
-    },
-    value: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    }
-  },
-  data: function data() {
-    return {
-      valueInside: ''
-    };
-  },
-
-  watch: {
-    value: function value(v) {
-      this.update();
-    },
-    valueInside: function valueInside(v) {
-      this.$emit('input', v);
-    }
-  },
-  created: function created() {
-    this.update();
-  },
-
-  methods: {
-    update: function update() {
-      this.valueInside = this.value;
-    },
-    focus: function focus() {
-      this.$refs.input.focus();
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 10 */
@@ -766,20 +666,16 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _input = __webpack_require__(1);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   name: 'BmuiFieldArrow2',
+  mixins: [_input2.default],
   props: {
     title: {
       type: String,
@@ -790,7 +686,18 @@ exports.default = {
       default: ''
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 11 */
@@ -802,18 +709,16 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _input = __webpack_require__(1);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   name: 'BmuiFieldArrow1',
+  mixins: [_input2.default],
   props: {
     title: {
       type: String,
@@ -824,7 +729,16 @@ exports.default = {
       default: ''
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 12 */
@@ -1415,119 +1329,127 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bmui-field_btn", on: { click: _vm.focus } },
+    { staticClass: "bmui-field_btn", on: { click: _vm.mixinInputDoFocus } },
     [
       _c("p", { staticClass: "bmui-field_btn-title" }, [
         _vm._v(_vm._s(_vm.title || "TITLE"))
       ]),
       _vm._v(" "),
-      (_vm.type || "text") === "checkbox"
-        ? _c("input", {
-            directives: [
+      _vm.mixinInputProps.type === "checkbox"
+        ? _c(
+            "input",
+            _vm._b(
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.valueInside,
-                expression: "valueInside"
-              }
-            ],
-            ref: "input",
-            staticClass: "bmui-field_btn-content",
-            attrs: {
-              maxlength: _vm.maxlength,
-              placeholder: _vm.placeholder || "请输入",
-              type: "checkbox"
-            },
-            domProps: {
-              checked: Array.isArray(_vm.valueInside)
-                ? _vm._i(_vm.valueInside, null) > -1
-                : _vm.valueInside
-            },
-            on: {
-              change: [
-                function($event) {
-                  var $$a = _vm.valueInside,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = null,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.valueInside,
+                    expression: "valueInside"
+                  }
+                ],
+                ref: "input",
+                staticClass: "bmui-field_btn-content",
+                attrs: {
+                  placeholder: _vm.placeholder || "请输入",
+                  type: "checkbox"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.valueInside)
+                    ? _vm._i(_vm.valueInside, null) > -1
+                    : _vm.valueInside
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.valueInside,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.valueInside = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
                     } else {
-                      $$i > -1 &&
-                        (_vm.valueInside = $$a
-                          .slice(0, $$i)
-                          .concat($$a.slice($$i + 1)))
+                      _vm.valueInside = $$c
                     }
-                  } else {
-                    _vm.valueInside = $$c
                   }
-                },
-                function($event) {
-                  _vm.$emit("change", $event)
                 }
-              ]
-            }
-          })
-        : (_vm.type || "text") === "radio"
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.valueInside,
-                  expression: "valueInside"
-                }
-              ],
-              ref: "input",
-              staticClass: "bmui-field_btn-content",
-              attrs: {
-                maxlength: _vm.maxlength,
-                placeholder: _vm.placeholder || "请输入",
-                type: "radio"
               },
-              domProps: { checked: _vm._q(_vm.valueInside, null) },
-              on: {
-                change: [
-                  function($event) {
-                    _vm.valueInside = null
+              "input",
+              _vm.mixinInputProps,
+              false
+            )
+          )
+        : _vm.mixinInputProps.type === "radio"
+          ? _c(
+              "input",
+              _vm._b(
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
+                    }
+                  ],
+                  ref: "input",
+                  staticClass: "bmui-field_btn-content",
+                  attrs: {
+                    placeholder: _vm.placeholder || "请输入",
+                    type: "radio"
                   },
-                  function($event) {
-                    _vm.$emit("change", $event)
+                  domProps: { checked: _vm._q(_vm.valueInside, null) },
+                  on: {
+                    change: function($event) {
+                      _vm.valueInside = null
+                    }
                   }
-                ]
-              }
-            })
-          : _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.valueInside,
-                  expression: "valueInside"
-                }
-              ],
-              ref: "input",
-              staticClass: "bmui-field_btn-content",
-              attrs: {
-                maxlength: _vm.maxlength,
-                placeholder: _vm.placeholder || "请输入",
-                type: _vm.type || "text"
-              },
-              domProps: { value: _vm.valueInside },
-              on: {
-                change: function($event) {
-                  _vm.$emit("change", $event)
                 },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            )
+          : _c(
+              "input",
+              _vm._b(
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
+                    }
+                  ],
+                  ref: "input",
+                  staticClass: "bmui-field_btn-content",
+                  attrs: {
+                    placeholder: _vm.placeholder || "请输入",
+                    type: _vm.mixinInputProps.type
+                  },
+                  domProps: { value: _vm.valueInside },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.valueInside = $event.target.value
+                    }
                   }
-                  _vm.valueInside = $event.target.value
-                }
-              }
-            }),
+                },
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            ),
       _vm._v(" "),
       !_vm.status
         ? _c(
@@ -1569,14 +1491,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bmui-field_paragraph", on: { click: _vm.focus } },
+    {
+      staticClass: "bmui-field_paragraph",
+      on: { click: _vm.mixinInputDoFocus }
+    },
     [
       _c("div", { staticClass: "bmui-field_paragraph-wrap" }, [
         _c("p", { staticClass: "bmui-field_paragraph-title" }, [
           _vm._v(_vm._s(_vm.title || "TITLE"))
         ]),
         _vm._v(" "),
-        !_vm.countHide
+        _vm.maxlength
           ? _c("p", { staticClass: "bmui-field_paragraph-count" }, [
               _vm._v(
                 _vm._s(_vm.valueInside.length) + "/" + _vm._s(_vm.maxlength)
@@ -1585,31 +1510,36 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c("textarea", {
-        directives: [
+      _c(
+        "textarea",
+        _vm._b(
           {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.valueInside,
-            expression: "valueInside"
-          }
-        ],
-        ref: "input",
-        staticClass: "bmui-field_paragraph-input",
-        attrs: {
-          maxlength: _vm.maxlength || 50,
-          placeholder: _vm.placeholder || "请输入"
-        },
-        domProps: { value: _vm.valueInside },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.valueInside,
+                expression: "valueInside"
+              }
+            ],
+            ref: "input",
+            staticClass: "bmui-field_paragraph-input",
+            attrs: { placeholder: _vm.placeholder || "请输入" },
+            domProps: { value: _vm.valueInside },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.valueInside = $event.target.value
+              }
             }
-            _vm.valueInside = $event.target.value
-          }
-        }
-      })
+          },
+          "textarea",
+          _vm.mixinInputProps,
+          false
+        )
+      )
     ]
   )
 }
@@ -1631,35 +1561,128 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bmui-field_text2", on: { click: _vm.focus } },
+    { staticClass: "bmui-field_text2", on: { click: _vm.mixinInputDoFocus } },
     [
       _c("p", { staticClass: "bmui-field_text2-title" }, [
         _vm._v(_vm._s(_vm.title || "TITLE"))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "bmui-field_text2-wrap" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.valueInside,
-              expression: "valueInside"
-            }
-          ],
-          ref: "input",
-          staticClass: "bmui-field_text2-input",
-          attrs: { placeholder: _vm.placeholder || "请选择" },
-          domProps: { value: _vm.valueInside },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.valueInside = $event.target.value
-            }
-          }
-        }),
+        _vm.mixinInputProps.type === "checkbox"
+          ? _c(
+              "input",
+              _vm._b(
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
+                    }
+                  ],
+                  ref: "input",
+                  staticClass: "bmui-field_text2-input",
+                  attrs: {
+                    placeholder: _vm.placeholder || "请输入",
+                    type: "checkbox"
+                  },
+                  domProps: {
+                    checked: Array.isArray(_vm.valueInside)
+                      ? _vm._i(_vm.valueInside, null) > -1
+                      : _vm.valueInside
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.valueInside,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.valueInside = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.valueInside = $$c
+                      }
+                    }
+                  }
+                },
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            )
+          : _vm.mixinInputProps.type === "radio"
+            ? _c(
+                "input",
+                _vm._b(
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.valueInside,
+                        expression: "valueInside"
+                      }
+                    ],
+                    ref: "input",
+                    staticClass: "bmui-field_text2-input",
+                    attrs: {
+                      placeholder: _vm.placeholder || "请输入",
+                      type: "radio"
+                    },
+                    domProps: { checked: _vm._q(_vm.valueInside, null) },
+                    on: {
+                      change: function($event) {
+                        _vm.valueInside = null
+                      }
+                    }
+                  },
+                  "input",
+                  _vm.mixinInputProps,
+                  false
+                )
+              )
+            : _c(
+                "input",
+                _vm._b(
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.valueInside,
+                        expression: "valueInside"
+                      }
+                    ],
+                    ref: "input",
+                    staticClass: "bmui-field_text2-input",
+                    attrs: {
+                      placeholder: _vm.placeholder || "请输入",
+                      type: _vm.mixinInputProps.type
+                    },
+                    domProps: { value: _vm.valueInside },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.valueInside = $event.target.value
+                      }
+                    }
+                  },
+                  "input",
+                  _vm.mixinInputProps,
+                  false
+                )
+              ),
         _vm._v(" "),
         _vm.valueInside
           ? _c("button", {
@@ -1693,34 +1716,127 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bmui-field_text1", on: { click: _vm.focus } },
+    { staticClass: "bmui-field_text1", on: { click: _vm.mixinInputDoFocus } },
     [
       _c("p", { staticClass: "bmui-field_text1-title" }, [
         _vm._v(_vm._s(_vm.title || "TITLE"))
       ]),
       _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.valueInside,
-            expression: "valueInside"
-          }
-        ],
-        ref: "input",
-        staticClass: "bmui-field_text1-input",
-        attrs: { placeholder: _vm.placeholder || "请选择" },
-        domProps: { value: _vm.valueInside },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.valueInside = $event.target.value
-          }
-        }
-      }),
+      _vm.mixinInputProps.type === "checkbox"
+        ? _c(
+            "input",
+            _vm._b(
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.valueInside,
+                    expression: "valueInside"
+                  }
+                ],
+                ref: "input",
+                staticClass: "bmui-field_text1-input",
+                attrs: {
+                  placeholder: _vm.placeholder || "请选择",
+                  type: "checkbox"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.valueInside)
+                    ? _vm._i(_vm.valueInside, null) > -1
+                    : _vm.valueInside
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.valueInside,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = null,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.valueInside = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.valueInside = $$c
+                    }
+                  }
+                }
+              },
+              "input",
+              _vm.mixinInputProps,
+              false
+            )
+          )
+        : _vm.mixinInputProps.type === "radio"
+          ? _c(
+              "input",
+              _vm._b(
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
+                    }
+                  ],
+                  ref: "input",
+                  staticClass: "bmui-field_text1-input",
+                  attrs: {
+                    placeholder: _vm.placeholder || "请选择",
+                    type: "radio"
+                  },
+                  domProps: { checked: _vm._q(_vm.valueInside, null) },
+                  on: {
+                    change: function($event) {
+                      _vm.valueInside = null
+                    }
+                  }
+                },
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            )
+          : _c(
+              "input",
+              _vm._b(
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
+                    }
+                  ],
+                  ref: "input",
+                  staticClass: "bmui-field_text1-input",
+                  attrs: {
+                    placeholder: _vm.placeholder || "请选择",
+                    type: _vm.mixinInputProps.type
+                  },
+                  domProps: { value: _vm.valueInside },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.valueInside = $event.target.value
+                    }
+                  }
+                },
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            ),
       _vm._v(" "),
       _vm.valueInside
         ? _c("button", {
@@ -1759,11 +1875,16 @@ var render = function() {
     _c("div", { staticClass: "bmui-field_arrow2-wrap" }, [
       _c(
         "p",
-        {
-          staticClass: "bmui-field_arrow2-content",
-          class: { "bmui-field_arrow2-empty": !_vm.content }
-        },
-        [_vm._v(_vm._s(_vm.content || "请选择"))]
+        _vm._b(
+          {
+            staticClass: "bmui-field_arrow2-content",
+            class: { "bmui-field_arrow2-empty": !_vm.content }
+          },
+          "p",
+          _vm.mixinInputProps,
+          false
+        ),
+        [_vm._v(_vm._s(_vm.content || _vm.placeholder || "请选择"))]
       ),
       _vm._v(" "),
       _c("i", { staticClass: "bmui-field_arrow2-icon" })
@@ -1793,11 +1914,16 @@ var render = function() {
     _vm._v(" "),
     _c(
       "p",
-      {
-        staticClass: "bmui-field_arrow1-content",
-        class: { "bmui-field_arrow1-empty": !_vm.content }
-      },
-      [_vm._v(_vm._s(_vm.content || "请选择"))]
+      _vm._b(
+        {
+          staticClass: "bmui-field_arrow1-content",
+          class: { "bmui-field_arrow1-empty": !_vm.content }
+        },
+        "p",
+        _vm.mixinInputProps,
+        false
+      ),
+      [_vm._v(_vm._s(_vm.content || _vm.placeholder || "请选择"))]
     ),
     _vm._v(" "),
     _c("i", { staticClass: "bmui-field_arrow1-icon" })
@@ -3173,7 +3299,7 @@ function install(Vue) {
   Vue.component(_empty2.default.name, _empty2.default);
 }
 
-exports.default = install;
+exports.default = { install: install };
 
 /***/ })
 /******/ ]);

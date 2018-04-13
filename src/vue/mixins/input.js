@@ -1,26 +1,42 @@
 export default {
   data () {
     return {
-      valueInside: null,
+      valueInside: '',
       disabledInside: false,
       checkedInside: false
     }
   },
   props: {
     value: {
-      default: null
+      default: ''
     },
     disabled: {
       default: false
     },
     checked: {
       default: false
+    },
+    placeholder: {
+      default: ''
+    },
+    maxlength: {
+      default: undefined
+    },
+    type: {
+      default: undefined
     }
   },
-  created () {
-    this.valueInside = this.value
-    this.disabledInside = !!this.disabled
-    this.checkedInside = !!this.checked
+  computed: {
+    mixinInputProps () {
+      return {
+        // value: this.value,
+        disabled: this.disabled,
+        // checked: this.checked,
+        placeholder: this.placeholder,
+        maxlength: this.maxlength,
+        type: this.type
+      }
+    }
   },
   watch: {
     value (v) {
@@ -38,5 +54,16 @@ export default {
     checkedInside (v) {
       this.$emit('change', v)
     }
+  },
+  methods: {
+    mixinInputDoFocus () {
+      let target = this.$refs.input
+      if (target && typeof target.focus === 'function') target.focus()
+    }
+  },
+  created () {
+    this.valueInside = this.value
+    this.disabledInside = !!this.disabled
+    this.checkedInside = !!this.checked
   }
 }

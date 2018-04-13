@@ -40,4 +40,4 @@ export function install (Vue) {
   Vue.component(Empty.name, Empty)
 }
 
-export default install
+export default { install }

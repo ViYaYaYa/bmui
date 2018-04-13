@@ -1,25 +1,41 @@
 <script>
 import Readme from './readme.md'
 
-let template = Readme.replace(/<h2/g, '<h2 @click="setHash"')
-let tips = '请在1024宽度的窗口下获得更好的预览效果\nPlease view this page with at least 1024px width screen.'
-
 export default {
-  methods: {
-    setHash (ev) {
-      this.$router.replace(ev.target.id)
+  computed: {
+    anchor () {
+      return this.$route.path ? this.$route.path.slice(1) : ''
     }
   },
-  template: '<div>' + '<p>' + tips + '</p>' + template + '</div>'
+  watch: {
+    anchor (v) {
+      this.doUpdateScroll()
+    }
+  },
+  mounted () {
+    this.doUpdateScroll()
+  },
+  methods: {
+    doUpdateScroll () {
+      let id = this.$route.path.slice(1)
+      if (id) {
+        let target = this.$el.querySelector('#' + id)
+        if (target) {
+          this.$el.scrollTop = target.offsetTop - target.clientTop
+        }
+      }
+    }
+  },
+  template: '<div>' + Readme + '</div>'
 }
 </script>
 <style scoped>
   h2 {
-    cursor: pointer;
-    text-decoration: underline;
+    color: #1fb8ff;
+    font-weight: bold;
   }
-  h2:hover {
-    color: #00f;
+  h2:before {
+    content: "# ";
   }
   table {
     min-width: 50%;

@@ -4,16 +4,13 @@
   border-bottom: 1px solid $color_b1
   display: flex
   align-items: center
-  padding-left: 12px
-  padding-right: 8px
+  padding: 10px 12px
   &-title
-    $reset()
     flex-shrink: 0
     color: $color_t2
     font-size: $size6
     margin-right: 12px
   &-content
-    $reset()
     color: $color_t1
     font-size: $size4
     flex-grow: 1
@@ -28,24 +25,21 @@
     width: 30px
     height: 30px
     flex-shrink: 0
-    margin-left: 8px
+    margin: 0 -4px 0 8px
 
 .{$PREFIX}-field_arrow2
   min-height: 70px
   background-color: #fff
   border-bottom: 1px solid $color_b1
-  padding: 12px
+  padding: 10px 12px
   &-title
-    $reset()
     color: $color_t2
     font-size: $size6
     margin-bottom: 4px
   &-wrap
     display: flex
     align-items: center
-    margin-bottom: -4px
   &-content
-    $reset()
     color: $color_t1
     font-size: $size4
     flex-grow: 1
@@ -59,8 +53,7 @@
     width: 30px
     height: 30px
     flex-shrink: 0
-    margin-left: 8px
-    margin-right: -4px
+    margin: 0 -4px 0 8px
 
 .{$PREFIX}-field_text1
   min-height: 50px
@@ -68,17 +61,14 @@
   border-bottom: 1px solid $color_b1
   display: flex
   align-items: center
-  padding-left: 12px
-  padding-right: 12px
-  position: relative
+  padding: 10px 12px
   &-title
-    $reset()
     flex-shrink: 0
     color: $color_t2
     font-size: $size6
     margin-right: 12px
   &-input
-    $reset_ctrl()
+    min-height: 30px
     color: $color_t1
     font-size: $size4
     flex-grow: 1
@@ -86,14 +76,10 @@
     white-space: nowrap
     text-overflow: ellipsis
     text-align: right
-    &::placeholder
-      color: $color_t3
   &-del
-    $reset_ctrl()
     $icon("delete@3x")
     flex-shrink: 0
-    margin-left: 8px
-    margin-right: -4px
+    margin: 0 -4px 0 8px
     width: 30px
     height: 30px
 
@@ -103,7 +89,6 @@
   border-bottom: 1px solid $color_b1
   padding: 12px
   &-title
-    $reset()
     color: $color_t2
     font-size: $size6
     margin-bottom: 4px
@@ -113,16 +98,13 @@
     align-items: center
     margin-bottom: -4px
   &-input
-    $reset_ctrl()
     color: $color_t1
     font-size: $size4
     flex-grow: 1
   &-del
-    $reset_ctrl()
     $icon("delete@3x")
     flex-shrink: 0
-    margin-left: 8px
-    margin-right: -4px
+    margin: 0 -4px 0 8px
     width: 30px
     height: 30px
 
@@ -137,13 +119,10 @@
     font-size: $size6
     margin-bottom: 8px
   &-title
-    $reset()
     color: $color_t2
   &-count
-    $reset()
     color: $color_main2
   &-input
-    $reset_ctrl()
     height: 80px
     font-size: $size4
     color: $color_t1
@@ -157,28 +136,24 @@
   display: flex
   width: 100%
   align-items: center
+  padding: 12px
   &-title
     font-size: $size6
     color: $color_t2
     flex-shrink: 0
-    margin-left: 12px
+    margin-right: 12px
   &-content
-    $reset_ctrl()
     text-align: right
     flex-grow: 1
-    margin-left: 12px
-    margin-right: 8px
-    &::placeholder
-      color: $color_t3
-  &-btn
-    $reset_ctrl()
+    min-height: 30px
+  &-btn[class|=bmui]
     flex-shrink: 0
     align-self: stretch
     font-size: 12px
     color: $color_main1
     border-left: 1px solid $color_main1
     padding: 0 8px
-    margin: 8px 0
+    margin: 0 -12px 0 8px
     &:disabled, &-disabled
       color: $color_t3
       border-left-color: $color_t3
@@ -186,7 +161,7 @@
     flex-shrink: 0
     width: 30px
     height: 30px
-    margin-right: 8px
+    margin-left: 8px
   &-status-loading
     $icon('component_status_snake', '.svg')
     animation: convert($PREFIX + '-field-rotate') 1s infinite linear

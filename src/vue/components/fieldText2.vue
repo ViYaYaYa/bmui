@@ -1,60 +1,31 @@
 <template>
   <div
     class="bmui-field_text2"
-    @click="focus">
+    @click="mixinInputDoFocus">
     <p class="bmui-field_text2-title">{{ title || 'TITLE' }}</p>
     <div class="bmui-field_text2-wrap">
       <input
         class="bmui-field_text2-input"
-        ref="input"
-        :placeholder="placeholder || '请选择'"
-        v-model="valueInside">
+        v-bind="mixinInputProps"
+        v-model="valueInside"
+        :placeholder="placeholder || '请输入'"
+        ref="input">
       <button
         v-if="valueInside"
         class="bmui-field_text2-del"
-        @click="valueInside = ''" />
+        @click="valueInside = ''"/>
     </div>
   </div>
 </template>
 <script>
+import MixinInput from 'src/vue/mixins/input'
 export default {
   name: 'BmuiFieldText2',
+  mixins: [MixinInput],
   props: {
     title: {
       type: String,
       default: ''
-    },
-    value: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    }
-  },
-  data () {
-    return {
-      valueInside: ''
-    }
-  },
-  watch: {
-    value (v) {
-      this.update()
-    },
-    valueInside (v) {
-      this.$emit('input', v)
-    }
-  },
-  created () {
-    this.update()
-  },
-  methods: {
-    update () {
-      this.valueInside = this.value
-    },
-    focus () {
-      this.$refs.input.focus()
     }
   }
 }

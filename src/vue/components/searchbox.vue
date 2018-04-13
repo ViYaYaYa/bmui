@@ -17,7 +17,7 @@
         type="button"
         @click.stop
         v-if="valueInside"
-        @click="valueInside = ''" />
+        @click="valueInside = ''"/>
       <button
         class="bmui-searchbox-submit"
         type="submit"
