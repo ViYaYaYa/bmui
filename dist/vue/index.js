@@ -293,6 +293,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   name: 'BmuiEmpty',
   props: {
+    title: {
+      type: String,
+      default: ''
+    },
     btn: {
       type: String,
       default: ''
@@ -328,6 +332,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
 
 exports.default = {
   name: 'BmuiSegment',
@@ -343,10 +348,22 @@ exports.default = {
       default: null
     }
   },
-  methods: {
-    change: function change(index) {
-      this.$emit('change', index);
+  data: function data() {
+    return {
+      indexInside: null
+    };
+  },
+
+  watch: {
+    index: function index(v) {
+      this.indexInside = v;
+    },
+    indexInside: function indexInside(v) {
+      this.$emit('change', v);
     }
+  },
+  created: function created() {
+    this.indexInside = this.index;
   }
 };
 
@@ -384,82 +401,60 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+var _input = __webpack_require__(1);
+
+var _input2 = _interopRequireDefault(_input);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   name: 'BmuiSearchbox',
-  props: {
-    value: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    }
-  },
+  mixins: [_input2.default],
   data: function data() {
     return {
-      active: false,
-      valueInside: ''
+      active: false
     };
   },
 
-  watch: {
-    value: function value(v) {
-      this.update();
-    },
-    valueInside: function valueInside(v) {
-      this.$emit('input', v);
-    }
-  },
-  created: function created() {
-    this.update();
-  },
-
   methods: {
-    update: function update() {
-      this.valueInside = this.value;
-    },
-    focus: function focus() {
-      this.$refs.input.focus();
-    },
     submit: function submit() {
       this.$emit('submit', this.valueInside);
     }
   }
-};
+}; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 6 */
@@ -497,10 +492,11 @@ exports.default = {
   },
   methods: {
     submit: function submit() {
-      this.$emit('submit');
+      this.$emit('submit', this.valueInside);
     }
   }
 }; //
+//
 //
 //
 //
@@ -564,7 +560,6 @@ exports.default = {
 //
 //
 //
-//
 
 /***/ }),
 /* 8 */
@@ -593,6 +588,7 @@ exports.default = {
     }
   }
 }; //
+//
 //
 //
 //
@@ -655,6 +651,7 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
 /* 10 */
@@ -687,7 +684,6 @@ exports.default = {
     }
   }
 }; //
-//
 //
 //
 //
@@ -738,7 +734,6 @@ exports.default = {
 //
 //
 //
-//
 
 /***/ }),
 /* 12 */
@@ -774,7 +769,7 @@ exports.default = {
 
   watch: {
     value: function value(v) {
-      this.choiceCheckedInside = !!this.value;
+      this.choiceCheckedInside = !!v;
     },
     choiceCheckedInside: function choiceCheckedInside(v) {
       this.$emit('change', {
@@ -788,6 +783,8 @@ exports.default = {
     this.choiceCheckedInside = !!this.value;
   }
 }; //
+//
+//
 //
 //
 //
@@ -824,6 +821,7 @@ exports.default = {
     }
   }
 }; //
+//
 //
 //
 //
@@ -886,6 +884,7 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
 /* 15 */
@@ -916,6 +915,7 @@ exports.default = {
     }
   }
 }; //
+//
 //
 //
 //
@@ -965,6 +965,7 @@ exports.default = {
     }
   }
 }; //
+//
 //
 //
 //
@@ -1118,7 +1119,9 @@ var render = function() {
   return _c("aside", { staticClass: "bmui-empty" }, [
     _c("i", { staticClass: "bmui-empty-img" }),
     _vm._v(" "),
-    _c("p", { staticClass: "bmui-empty-text" }, [_vm._v("暂无数据")]),
+    _c("p", { staticClass: "bmui-empty-text" }, [
+      _vm._v(_vm._s(_vm.title || "暂无数据"))
+    ]),
     _vm._v(" "),
     _vm.btn
       ? _c(
@@ -1154,7 +1157,7 @@ var render = function() {
         {
           class: [
             "bmui-segment-item",
-            { "bmui-segment-active": _vm.index === i }
+            { "bmui-segment-active": _vm.indexInside === i }
           ]
         },
         [
@@ -1164,13 +1167,20 @@ var render = function() {
                 "button",
                 {
                   staticClass: "bmui-segment-text",
+                  attrs: { type: "button" },
                   on: {
                     click: function($event) {
-                      _vm.change(i)
+                      _vm.indexInside = i
                     }
                   }
                 },
-                [_vm._v(_vm._s(typeof item === "string" ? item : item.name))]
+                [
+                  _vm._v(
+                    _vm._s(
+                      (typeof item === "string" ? item : item.name) || "ITEM"
+                    )
+                  )
+                ]
               ),
               _vm._v(" "),
               typeof item.mark === "number"
@@ -1226,7 +1236,7 @@ var render = function() {
     {
       class: ["bmui-searchbox", { "bmui-searchbox-active": _vm.active }],
       on: {
-        click: _vm.focus,
+        click: _vm.mixinInputDoFocus,
         submit: function($event) {
           $event.preventDefault()
           return _vm.submit($event)
@@ -1237,45 +1247,51 @@ var render = function() {
       _c("div", { staticClass: "bmui-searchbox-wrap" }, [
         _c("i", { staticClass: "bmui-searchbox-icon" }),
         _vm._v(" "),
-        _c("input", {
-          directives: [
+        _c(
+          "input",
+          _vm._b(
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.valueInside,
-              expression: "valueInside"
-            }
-          ],
-          ref: "input",
-          staticClass: "bmui-searchbox-content",
-          attrs: { placeholder: _vm.placeholder, type: "text" },
-          domProps: { value: _vm.valueInside },
-          on: {
-            focus: function($event) {
-              _vm.active = true
-            },
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.valueInside,
+                  expression: "valueInside"
+                }
+              ],
+              ref: "input",
+              staticClass: "bmui-searchbox-content",
+              attrs: {
+                placeholder: _vm.placeholder || "请输入关键字",
+                type: "text"
+              },
+              domProps: { value: _vm.valueInside },
+              on: {
+                focus: function($event) {
+                  _vm.active = true
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.valueInside = $event.target.value
+                }
               }
-              _vm.valueInside = $event.target.value
-            }
-          }
-        }),
+            },
+            "input",
+            _vm.mixinInputProps,
+            false
+          )
+        ),
         _vm._v(" "),
         _vm.valueInside
           ? _c("button", {
               staticClass: "bmui-searchbox-del",
               attrs: { type: "button" },
               on: {
-                click: [
-                  function($event) {
-                    $event.stopPropagation()
-                  },
-                  function($event) {
-                    _vm.valueInside = ""
-                  }
-                ]
+                click: function($event) {
+                  _vm.valueInside = ""
+                }
               }
             })
           : _vm._e(),
@@ -1285,7 +1301,12 @@ var render = function() {
               "button",
               {
                 staticClass: "bmui-searchbox-submit",
-                attrs: { type: "submit" }
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                  }
+                }
               },
               [_vm._v("确 认")]
             )
@@ -1456,6 +1477,7 @@ var render = function() {
             "button",
             {
               staticClass: "bmui-field_btn-btn",
+              attrs: { type: "button" },
               on: {
                 click: function($event) {
                   $event.stopPropagation()
@@ -1501,13 +1523,11 @@ var render = function() {
           _vm._v(_vm._s(_vm.title || "TITLE"))
         ]),
         _vm._v(" "),
-        _vm.maxlength
-          ? _c("p", { staticClass: "bmui-field_paragraph-count" }, [
-              _vm._v(
-                _vm._s(_vm.valueInside.length) + "/" + _vm._s(_vm.maxlength)
-              )
-            ])
-          : _vm._e()
+        _c("p", { staticClass: "bmui-field_paragraph-count" }, [
+          _vm._v(
+            _vm._s(_vm.valueInside.length) + "/" + _vm._s(_vm.maxlength || 100)
+          )
+        ])
       ]),
       _vm._v(" "),
       _c(
@@ -1524,7 +1544,10 @@ var render = function() {
             ],
             ref: "input",
             staticClass: "bmui-field_paragraph-input",
-            attrs: { placeholder: _vm.placeholder || "请输入" },
+            attrs: {
+              placeholder: _vm.placeholder || "请输入",
+              maxlength: _vm.maxlength || 100
+            },
             domProps: { value: _vm.valueInside },
             on: {
               input: function($event) {
@@ -1687,6 +1710,7 @@ var render = function() {
         _vm.valueInside
           ? _c("button", {
               staticClass: "bmui-field_text2-del",
+              attrs: { type: "button" },
               on: {
                 click: function($event) {
                   _vm.valueInside = ""
@@ -1738,7 +1762,7 @@ var render = function() {
                 ref: "input",
                 staticClass: "bmui-field_text1-input",
                 attrs: {
-                  placeholder: _vm.placeholder || "请选择",
+                  placeholder: _vm.placeholder || "请输入",
                   type: "checkbox"
                 },
                 domProps: {
@@ -1789,7 +1813,7 @@ var render = function() {
                   ref: "input",
                   staticClass: "bmui-field_text1-input",
                   attrs: {
-                    placeholder: _vm.placeholder || "请选择",
+                    placeholder: _vm.placeholder || "请输入",
                     type: "radio"
                   },
                   domProps: { checked: _vm._q(_vm.valueInside, null) },
@@ -1819,7 +1843,7 @@ var render = function() {
                   ref: "input",
                   staticClass: "bmui-field_text1-input",
                   attrs: {
-                    placeholder: _vm.placeholder || "请选择",
+                    placeholder: _vm.placeholder || "请输入",
                     type: _vm.mixinInputProps.type
                   },
                   domProps: { value: _vm.valueInside },
@@ -1841,6 +1865,7 @@ var render = function() {
       _vm.valueInside
         ? _c("button", {
             staticClass: "bmui-field_text1-del",
+            attrs: { type: "button" },
             on: {
               click: function($event) {
                 _vm.valueInside = ""
@@ -1875,15 +1900,10 @@ var render = function() {
     _c("div", { staticClass: "bmui-field_arrow2-wrap" }, [
       _c(
         "p",
-        _vm._b(
-          {
-            staticClass: "bmui-field_arrow2-content",
-            class: { "bmui-field_arrow2-empty": !_vm.content }
-          },
-          "p",
-          _vm.mixinInputProps,
-          false
-        ),
+        {
+          staticClass: "bmui-field_arrow2-content",
+          class: { "bmui-field_arrow2-empty": !_vm.content }
+        },
         [_vm._v(_vm._s(_vm.content || _vm.placeholder || "请选择"))]
       ),
       _vm._v(" "),
@@ -1914,15 +1934,10 @@ var render = function() {
     _vm._v(" "),
     _c(
       "p",
-      _vm._b(
-        {
-          staticClass: "bmui-field_arrow1-content",
-          class: { "bmui-field_arrow1-empty": !_vm.content }
-        },
-        "p",
-        _vm.mixinInputProps,
-        false
-      ),
+      {
+        staticClass: "bmui-field_arrow1-content",
+        class: { "bmui-field_arrow1-empty": !_vm.content }
+      },
       [_vm._v(_vm._s(_vm.content || _vm.placeholder || "请选择"))]
     ),
     _vm._v(" "),
@@ -1947,23 +1962,28 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "button",
-    {
-      staticClass: "bmui-selector",
-      class: {
-        "bmui-selector-checked": _vm.choiceCheckedInside,
-        "bmui-selector-disabled": _vm.disabled
-      },
-      attrs: { disabled: _vm.disabled },
-      on: {
-        click: function($event) {
-          _vm.choiceCheckedInside = !_vm.choiceCheckedInside
+    _vm._b(
+      {
+        staticClass: "bmui-selector",
+        class: {
+          "bmui-selector-checked": _vm.choiceCheckedInside,
+          "bmui-selector-disabled": _vm.disabled
+        },
+        attrs: { type: "button", disabled: _vm.disabled },
+        on: {
+          click: function($event) {
+            _vm.choiceCheckedInside = !_vm.choiceCheckedInside
+          }
         }
-      }
-    },
+      },
+      "button",
+      _vm.mixinInputProps,
+      false
+    ),
     [
       _vm._v(
         _vm._s(
-          typeof _vm.item === "string" ? _vm.item : _vm.item.name || "ITEM"
+          (typeof _vm.item === "string" ? _vm.item : _vm.item.name) || "ITEM"
         )
       )
     ]
@@ -2003,48 +2023,56 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
+            _c(
+              "input",
+              _vm._b(
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.valueInside,
-                  expression: "valueInside"
-                }
-              ],
-              staticClass: "bmui-check_list-input",
-              attrs: { type: "checkbox", disabled: item.disabled },
-              domProps: {
-                value: typeof item === "string" ? item : item.value,
-                checked: Array.isArray(_vm.valueInside)
-                  ? _vm._i(
-                      _vm.valueInside,
-                      typeof item === "string" ? item : item.value
-                    ) > -1
-                  : _vm.valueInside
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.valueInside,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = typeof item === "string" ? item : item.value,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
-                    } else {
-                      $$i > -1 &&
-                        (_vm.valueInside = $$a
-                          .slice(0, $$i)
-                          .concat($$a.slice($$i + 1)))
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
                     }
-                  } else {
-                    _vm.valueInside = $$c
+                  ],
+                  staticClass: "bmui-check_list-input",
+                  attrs: { type: "checkbox", disabled: item.disabled },
+                  domProps: {
+                    value: typeof item === "string" ? item : item.value,
+                    checked: Array.isArray(_vm.valueInside)
+                      ? _vm._i(
+                          _vm.valueInside,
+                          typeof item === "string" ? item : item.value
+                        ) > -1
+                      : _vm.valueInside
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.valueInside,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = typeof item === "string" ? item : item.value,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.valueInside = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.valueInside = $$c
+                      }
+                    }
                   }
-                }
-              }
-            })
+                },
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            )
           ]
         )
       ])
@@ -2079,48 +2107,56 @@ var render = function() {
             class: { "bmui-check_list-disabled": item.disabled }
           },
           [
-            _c("input", {
-              directives: [
+            _c(
+              "input",
+              _vm._b(
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.valueInside,
-                  expression: "valueInside"
-                }
-              ],
-              staticClass: "bmui-check_list-input",
-              attrs: { type: "checkbox", disabled: item.disabled },
-              domProps: {
-                value: typeof item === "string" ? item : item.value,
-                checked: Array.isArray(_vm.valueInside)
-                  ? _vm._i(
-                      _vm.valueInside,
-                      typeof item === "string" ? item : item.value
-                    ) > -1
-                  : _vm.valueInside
-              },
-              on: {
-                change: function($event) {
-                  var $$a = _vm.valueInside,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = typeof item === "string" ? item : item.value,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
-                    } else {
-                      $$i > -1 &&
-                        (_vm.valueInside = $$a
-                          .slice(0, $$i)
-                          .concat($$a.slice($$i + 1)))
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
                     }
-                  } else {
-                    _vm.valueInside = $$c
+                  ],
+                  staticClass: "bmui-check_list-input",
+                  attrs: { type: "checkbox", disabled: item.disabled },
+                  domProps: {
+                    value: typeof item === "string" ? item : item.value,
+                    checked: Array.isArray(_vm.valueInside)
+                      ? _vm._i(
+                          _vm.valueInside,
+                          typeof item === "string" ? item : item.value
+                        ) > -1
+                      : _vm.valueInside
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$a = _vm.valueInside,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = typeof item === "string" ? item : item.value,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 && (_vm.valueInside = $$a.concat([$$v]))
+                        } else {
+                          $$i > -1 &&
+                            (_vm.valueInside = $$a
+                              .slice(0, $$i)
+                              .concat($$a.slice($$i + 1)))
+                        }
+                      } else {
+                        _vm.valueInside = $$c
+                      }
+                    }
                   }
-                }
-              }
-            }),
+                },
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            ),
             _vm._v(" "),
             _c("span", { staticClass: "bmui-check_list-text" }, [
               _vm._v(
@@ -2161,30 +2197,39 @@ var render = function() {
             class: { "bmui-radio_list-disabled": item.disabled }
           },
           [
-            _c("input", {
-              directives: [
+            _c(
+              "input",
+              _vm._b(
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.valueInside,
-                  expression: "valueInside"
-                }
-              ],
-              staticClass: "bmui-radio_list-input",
-              attrs: { type: "radio", disabled: item.disabled },
-              domProps: {
-                value: typeof item === "string" ? item : item.value,
-                checked: _vm._q(
-                  _vm.valueInside,
-                  typeof item === "string" ? item : item.value
-                )
-              },
-              on: {
-                change: function($event) {
-                  _vm.valueInside = typeof item === "string" ? item : item.value
-                }
-              }
-            }),
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
+                    }
+                  ],
+                  staticClass: "bmui-radio_list-input",
+                  attrs: { type: "radio", disabled: item.disabled },
+                  domProps: {
+                    value: typeof item === "string" ? item : item.value,
+                    checked: _vm._q(
+                      _vm.valueInside,
+                      typeof item === "string" ? item : item.value
+                    )
+                  },
+                  on: {
+                    change: function($event) {
+                      _vm.valueInside =
+                        typeof item === "string" ? item : item.value
+                    }
+                  }
+                },
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            ),
             _vm._v(
               _vm._s((typeof item === "string" ? item : item.name) || "ITEM") +
                 "\n    "
@@ -2227,30 +2272,39 @@ var render = function() {
             class: { "bmui-radio-disabled": item.disabled }
           },
           [
-            _c("input", {
-              directives: [
+            _c(
+              "input",
+              _vm._b(
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.valueInside,
-                  expression: "valueInside"
-                }
-              ],
-              staticClass: "bmui-radio-input",
-              attrs: { type: "radio", disabled: item.disabled },
-              domProps: {
-                value: typeof item === "string" ? item : item.value,
-                checked: _vm._q(
-                  _vm.valueInside,
-                  typeof item === "string" ? item : item.value
-                )
-              },
-              on: {
-                change: function($event) {
-                  _vm.valueInside = typeof item === "string" ? item : item.value
-                }
-              }
-            }),
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.valueInside,
+                      expression: "valueInside"
+                    }
+                  ],
+                  staticClass: "bmui-radio-input",
+                  attrs: { type: "radio", disabled: item.disabled },
+                  domProps: {
+                    value: typeof item === "string" ? item : item.value,
+                    checked: _vm._q(
+                      _vm.valueInside,
+                      typeof item === "string" ? item : item.value
+                    )
+                  },
+                  on: {
+                    change: function($event) {
+                      _vm.valueInside =
+                        typeof item === "string" ? item : item.value
+                    }
+                  }
+                },
+                "input",
+                _vm.mixinInputProps,
+                false
+              )
+            ),
             _vm._v(
               _vm._s((typeof item === "string" ? item : item.name) || "ITEM") +
                 "\n    "

@@ -611,6 +611,7 @@ textarea[class|="bmui"] {
   background-size: contain;
 }
 .bmui-searchbox {
+  background: #fff;
   font-size: 14px;
   color: #333;
   display: -webkit-box;
@@ -643,66 +644,11 @@ textarea[class|="bmui"] {
   height: 30px;
 }
 .bmui-searchbox-content {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-textarea.bmui-searchbox-content {
-  width: 100%;
-}
-.bmui-searchbox-content::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-content::-moz-placeholder {
-  color: #999;
-}
-.bmui-searchbox-content:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-content::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-content::placeholder {
-  color: #999;
-}
-.bmui-searchbox-content::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-content::-moz-placeholder {
-  color: #999;
-}
-.bmui-searchbox-content:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-content::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-content::placeholder {
-  color: #999;
-}
 .bmui-searchbox-del {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   width: 30px;
@@ -712,57 +658,10 @@ textarea.bmui-searchbox-content {
   background: url(./assets/component_textfield_delete@3x.png) center no-repeat;
   background-size: contain;
 }
-textarea.bmui-searchbox-del {
-  width: 100%;
-}
-.bmui-searchbox-del::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-del::-moz-placeholder {
-  color: #999;
-}
-.bmui-searchbox-del:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-del::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-del::placeholder {
-  color: #999;
-}
 .bmui-searchbox-submit {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   color: #1fb8ff;
-}
-textarea.bmui-searchbox-submit {
-  width: 100%;
-}
-.bmui-searchbox-submit::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-submit::-moz-placeholder {
-  color: #999;
-}
-.bmui-searchbox-submit:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-submit::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-searchbox-submit::placeholder {
-  color: #999;
 }
 .bmui-searchbox-active .bmui-searchbox-wrap {
   border-bottom-color: #1fb8ff;
@@ -777,7 +676,7 @@ textarea.bmui-searchbox-submit {
   color: #999;
   font-size: 14px;
   text-align: center;
-  background: url("/~src/assets/empty@3x.png") top no-repeat;
+  background: url(./assets/empty@3x.png) top no-repeat;
   background-size: 120px;
   padding-top: 128px;
   margin-top: 44px;
@@ -785,10 +684,11 @@ textarea.bmui-searchbox-submit {
 .bmui-segment {
   color: #a3e2ff;
   font-size: 15px;
-  height: 34px;
+  min-height: 34px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   overflow-x: auto;
   background-color: #1fb8ff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -797,6 +697,7 @@ textarea.bmui-searchbox-submit {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   min-width: 25%;
+  width: 25%;
   max-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -829,48 +730,20 @@ textarea.bmui-searchbox-submit {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  margin: 0 10px;
+  padding: 0 10px;
+  max-width: 100%;
 }
 .bmui-segment-box2 {
   position: relative;
+  width: 100%;
 }
 .bmui-segment-text {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   white-space: nowrap;
-  max-width: 100%;
+  width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-textarea.bmui-segment-text {
-  width: 100%;
-}
-.bmui-segment-text::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-segment-text::-moz-placeholder {
-  color: #999;
-}
-.bmui-segment-text:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-segment-text::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-segment-text::placeholder {
-  color: #999;
-}
 .bmui-segment-mark {
-  font-style: normal;
   font-size: 10px;
   color: #fff;
   background-color: #ff6c47;
@@ -891,8 +764,8 @@ textarea.bmui-segment-text {
   content: "";
   position: absolute;
   bottom: 2px;
-  left: 0;
-  right: 0;
+  left: 10px;
+  right: 10px;
   height: 2px;
   background-color: #fff;
 }
@@ -914,45 +787,14 @@ textarea.bmui-segment-text {
   margin: 0 auto;
 }
 .bmui-empty-text {
-  margin: 0;
-  padding: 0;
   margin-top: 15px;
   font-size: 15px;
   color: #999;
 }
 .bmui-empty-btn {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  border: none;
-  line-height: inherit;
-  background-color: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   margin-top: 10px;
   font-size: 14px;
   color: #1fb8ff;
-}
-textarea.bmui-empty-btn {
-  width: 100%;
-}
-.bmui-empty-btn::-webkit-input-placeholder {
-  color: #999;
-}
-.bmui-empty-btn::-moz-placeholder {
-  color: #999;
-}
-.bmui-empty-btn:-ms-input-placeholder {
-  color: #999;
-}
-.bmui-empty-btn::-ms-input-placeholder {
-  color: #999;
-}
-.bmui-empty-btn::placeholder {
-  color: #999;
 }
 /*# sourceMappingURL=src/bmui.css.map */
 /*# sourceMappingURL=bmui.css.map*/
