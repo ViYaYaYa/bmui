@@ -3,12 +3,12 @@
     <div class="m_category">
       <h2>组件目录</h2>
       <ul>
-        <li><button @click="$router.replace('cell')">cell</button></li>
-        <li><button @click="$router.replace('choice')">choice</button></li>
-        <li><button @click="$router.replace('field')">field</button></li>
-        <li><button @click="$router.replace('searchbox')">searchbox</button></li>
-        <li><button @click="$router.replace('segment')">segment</button></li>
-        <li><button @click="$router.replace('empty')">empty</button></li>
+        <li><button @click="$router.replace('cell')">Cell</button></li>
+        <li><button @click="$router.replace('choice')">Choice</button></li>
+        <li><button @click="$router.replace('field')">Field</button></li>
+        <li><button @click="$router.replace('searchbox')">Searchbox</button></li>
+        <li><button @click="$router.replace('segment')">Segment</button></li>
+        <li><button @click="$router.replace('empty')">Empty</button></li>
       </ul>
     </div>
     <readme class="m_readme"/>
@@ -56,7 +56,6 @@
         class="wrap"
         v-show="anchor === 'field'">
         <bmui-field-arrow1
-          @click="test"
           title="field-arrow1"
           content="已选择"/>
         <bmui-field-arrow2 title="field-arrow2"/>
@@ -83,7 +82,6 @@
         v-show="anchor === 'searchbox'">
         <bmui-searchbox
           v-model="searchbox"
-          placeholder="placeholder"
           @submit="searchboxEmpty = true"/>
         <bmui-searchbox-empty v-if="searchboxEmpty"/>
       </div>
@@ -91,14 +89,15 @@
         class="wrap"
         v-show="anchor === 'segment'">
         <bmui-segment
-          :items="segment"
-          :index="segmentIndex"
-          @change="segmentChange"/>
+          :items="[{ name: '选项1', value: '1', mark: 100 }, '选项2', '3', '4']"
+          :index="1"/>
       </div>
       <div
         class="wrap"
         v-show="anchor === 'empty'">
-        <bmui-empty btn="按钮要监听组件click.native事件"/>
+        <bmui-empty
+          title="空页面"
+          btn="按钮要监听组件click.native事件"/>
       </div>
     </div>
   </div>
@@ -123,9 +122,7 @@ export default {
       fieldBtn: '',
       fieldBtnStatus: '',
       searchbox: 'searchbox',
-      searchboxEmpty: false,
-      segment: ['标题1', { name: '标题2带值', value: '333', mark: 999 }, '标题3'],
-      segmentIndex: 2
+      searchboxEmpty: false
     }
   },
   computed: {
@@ -134,10 +131,6 @@ export default {
     }
   },
   methods: {
-    test (arg1, arg2) {
-      console.log(arg1)
-      console.log(arg2)
-    },
     selectorChange (res) {
       console.log(res)
     },
@@ -157,7 +150,7 @@ export default {
       }, 4000)
     },
     segmentChange (index) {
-      this.segmentIndex = index
+      console.log(index)
     }
   }
 }

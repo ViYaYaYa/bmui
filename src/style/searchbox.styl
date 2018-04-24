@@ -1,4 +1,5 @@
 .{$PREFIX}-searchbox
+  background: #fff
   font-size: $size4
   color: $color_t1
   display: flex
@@ -16,18 +17,13 @@
     width: 30px
     height: 30px
   &-content
-    $reset_ctrl()
     flex-grow: 1
-    &::placeholder
-      color: $color_t3
   &-del
-    $reset_ctrl()
     flex-shrink: 0
     width: 30px
     height: 30px
     $icon('component_textfield_delete@3x')
   &-submit
-    $reset_ctrl()
     flex-shrink: 0
     color: $color_main1
   &-active &-wrap
@@ -39,7 +35,7 @@
   color: $color_t3
   font-size: $size4
   text-align: center
-  background: url($get_asset('empty@3x')) top no-repeat;
+  background: convert('url(' + $get_asset('empty@3x') + ')') top no-repeat;
   background-size: 120px
   padding-top: 128px
   margin-top: 44px

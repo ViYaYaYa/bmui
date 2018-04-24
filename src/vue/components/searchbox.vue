@@ -1,13 +1,13 @@
 <template>
   <form
     :class="['bmui-searchbox', { 'bmui-searchbox-active': active }]"
-    @click="focus"
+    @click="mixinInputDoFocus"
     @submit.prevent="submit">
     <div class="bmui-searchbox-wrap">
       <i class="bmui-searchbox-icon"/>
       <input
         class="bmui-searchbox-content"
-        :placeholder="placeholder"
+        :placeholder="placeholder || '请输入关键字'"
         ref="input"
         type="text"
         @focus="active = true"
@@ -31,42 +31,16 @@
   </form>
 </template>
 <script>
+import MixinInput from 'src/vue/mixins/input'
 export default {
   name: 'BmuiSearchbox',
-  props: {
-    value: {
-      type: String,
-      default: ''
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    }
-  },
+  mixins: [MixinInput],
   data () {
     return {
-      active: false,
-      valueInside: ''
+      active: false
     }
-  },
-  watch: {
-    value (v) {
-      this.update()
-    },
-    valueInside (v) {
-      this.$emit('input', v)
-    }
-  },
-  created () {
-    this.update()
   },
   methods: {
-    update () {
-      this.valueInside = this.value
-    },
-    focus () {
-      this.$refs.input.focus()
-    },
     submit () {
       this.$emit('submit', this.valueInside)
     }

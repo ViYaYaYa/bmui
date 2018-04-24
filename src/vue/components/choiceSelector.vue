@@ -23,7 +23,7 @@ export default {
   },
   watch: {
     value (v) {
-      this.choiceCheckedInside = !!this.value
+      this.choiceCheckedInside = !!v
     },
     choiceCheckedInside (v) {
       this.$emit('change', {

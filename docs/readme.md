@@ -170,7 +170,7 @@ Please view this page with at least 1024px width screen.
   | | Type | Default | Remark |
   |:---:|:---:|:---:|:-------:|
   | item | String or Object | 'ITEM' | 如果item为Object，其格式应符合{ name, value }结构 |
-  | disabled | Any | undefined | 暂无 |
+  | disabled | Any | undefined | / |
   | v-model | Any | null | 绑定的目标值更新后为Bool |
 
 #### 行为
@@ -191,7 +191,7 @@ Please view this page with at least 1024px width screen.
 
 -------------------------
 
-## field
+## Field
 
 > 有交互的表单控件，该目录下的控件共享大部分input固有的属性，像maxlength，disable等，但一般不具备@change功能，只能通过v-model监听变化
 
@@ -335,4 +335,117 @@ Please view this page with at least 1024px width screen.
     v-model="绑定对象"
     @submit="回调事件"
     :status="loading"/>
+```
+
+-------------------------
+
+## Searchbox
+
+> 跟搜索有关的一些组件
+
+-------------------------
+
+### searchbox
+
+#### 布局方式：块
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | v-model | Any | null | / |
+  | placeholder | String | '请输入关键字' | / |
+
+#### 行为
+
+  | Event | Args | Remark |
+  |:---:  |:---: |:---:   |
+  | submit | String | / |
+
+#### 用法
+
+```html
+<bmui-searchbox
+  v-model="searchbox"
+  @submit="按确定的回调"/>
+```
+
+-------------------------
+
+### searchbox-empty
+
+#### 布局方式：块（距上一块约合44px）
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | title | String | '查找不到结果' | / |
+
+#### 用法
+
+```html
+<bmui-searchbox-empty/>
+```
+
+-------------------------
+
+## Segment
+
+> 1、每个项目宽度等分屏幕，最多等分4格，超出项宽度=25%屏幕
+> 2、项目格子达到最小内边距，字段过长需要显示“…”（建议每项中文字数2～6个）
+> 3、选中项目时，如能滑动，则自动把选中项滑动到屏幕中间（**尚未实现**）
+
+-------------------------
+
+### segment
+
+#### 布局方式：块（设计图默认高34px）
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | items | [String 或 Object] | [] | 如果item是Object，需满足{ name: String, value: Any, mark: Number }这种格式，name为空时默认'ITEM'，mark大于99时显示99+ |
+  | index | Number | null | / |
+
+#### 行为
+
+  | Event | Args | Remark |
+  |:---:  |:---: |:---:   |
+  | change | Index | 被选中的项数，之所以不用value，是因为value可能重复 |
+
+#### 用法
+
+```html
+<bmui-segment
+  :items="[{ name: '选项1', value: '1', mark: 999 }, '选项2']"
+  :index="1"/>
+```
+
+-------------------------
+
+## Empty
+
+> 公用的空页面
+
+-------------------------
+
+### empty
+
+#### 布局方式：绝对定位（距离上方20%）
+
+#### 参数
+
+  | | Type | Default | Remark |
+  |:---:|:---:|:---: |:---:   |
+  | title | String | '暂无数据' | / |
+  | btn | String | '' | 因为没有点击事件，所以要手动绑定@click.native进行监听 |
+
+#### 用法
+
+```html
+  <bmui-empty
+    title="空页面"
+    btn="按钮要监听组件click.native事件"/>
 ```
