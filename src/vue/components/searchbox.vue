@@ -7,6 +7,7 @@
       <i class="bmui-searchbox-icon"/>
       <input
         class="bmui-searchbox-content"
+        v-bind="mixinInputProps"
         :placeholder="placeholder || '请输入关键字'"
         ref="input"
         type="text"
@@ -15,12 +16,12 @@
       <button
         class="bmui-searchbox-del"
         type="button"
-        @click.stop
         v-if="valueInside"
         @click="valueInside = ''"/>
       <button
         class="bmui-searchbox-submit"
         type="submit"
+        @click.stop
         v-if="active && valueInside">确 认</button>
       <button
         class="bmui-searchbox-submit"

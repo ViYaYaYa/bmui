@@ -36,7 +36,7 @@
           :items="['111', { name: '选项2', value: '222' }, { name: '禁用选项', value: '333', disabled: true }, '444', '555']"
           v-model="radioModel"/>
         <bmui-radio-list
-          :items="['radio-list', { name: '选项', value: '222', disabled: true }, '选项很长很长很长很长很长很长很长很长很长很长很长很长很长']"
+          :items="['radio-list', { name: '选项', value: '222' }, '选项很长很长很长很长很长很长很长很长很长很长很长很长很长']"
           v-model="radioListModel"/>
         <bmui-check-list-left
           :items="['check-list-left', '222', { name: '选项名称', value: '333', disabled: true }]"
@@ -45,8 +45,8 @@
           :items="['check-list-right', '222', { name: '选项名称超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长', value: '333', disabled: true }]"
           v-model="checkListRightModel"/>
         <bmui-selector
-          :item="'选项1'"
           v-model="selector"
+          item="test"
           @change="selectorChange"/>
         <bmui-selector
           :item="{ name: '选项2的名称', value: '222' }"
@@ -68,7 +68,6 @@
           v-model="fieldText2Model"/>
         <bmui-field-paragraph
           title="field-paragraph"
-          maxlength="100"
           v-model="fieldParagraph"/>
         <bmui-field-btn
           title="field-btn"
@@ -129,6 +128,8 @@ export default {
     anchor () {
       return this.$route.path ? this.$route.path.slice(1) : ''
     }
+  },
+  created () {
   },
   methods: {
     selectorChange (res) {

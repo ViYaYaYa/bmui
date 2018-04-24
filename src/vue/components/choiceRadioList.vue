@@ -6,6 +6,7 @@
         :class="{ 'bmui-radio_list-disabled': item.disabled }">
         <input
           class="bmui-radio_list-input"
+          v-bind="mixinInputProps"
           type="radio"
           :value="typeof item === 'string' ? item : item.value"
           v-model="valueInside"

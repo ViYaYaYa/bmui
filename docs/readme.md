@@ -105,7 +105,7 @@ Please view this page with at least 1024px width screen.
   | | Type | Default | Remark |
   |:---:|:---:|:---:|:-------:|
   | title | String | "TITLE" | 暂无 |
-  | items | Array(String or Object) | ['ITEM'] | 如果items项为Object，其格式应符合{ name, value, disabled? }结构 |
+  | items | Array(String or Object) | [] | 如果items项为Object，其格式应符合{ name, value, disabled? }结构，name为空时默认'ITEM' |
   | v-model | Any | null | 如果items项为Object，返回其value |
 
 #### 用法
@@ -127,7 +127,7 @@ Please view this page with at least 1024px width screen.
 
   | | Type | Default | Remark |
   |:---:|:---:|:---:|:-------:|
-  | items | Array(String or Object) | ['ITEM'] | 如果items项为Object，其格式应符合{ name, value, disabled? }结构 |
+  | items | Array(String or Object) | [] | 如果items项为Object，其格式应符合{ name, value, disabled? }结构，name为空是默认'ITEM' |
   | v-model | Any | null | 如果items项为Object，返回其value |
 
 #### 用法
@@ -148,7 +148,7 @@ Please view this page with at least 1024px width screen.
 
   | | Type | Default | Remark |
   |:---:|:---:|:---:|:-------:|
-  | items | Array(String or Object) | ['ITEM'] | 如果items项为Object，其格式应符合{ name, value, disabled? }结构 |
+  | items | Array(String or Object) | [] | 如果items项为Object，其格式应符合{ name, value, disabled? }结构，name为空是默认'ITEM' |
   | v-model | [Any] | [] | 如果items项为Object，返回其value |
 
 #### 用法
@@ -177,7 +177,7 @@ Please view this page with at least 1024px width screen.
 
   | Event | Args | Remark |
   |:-----:|:-----:|:-----:|
-  | change | Object（点击的响应） | 返回结构为{ item, checked }，与v-model一起时慎用，因为有逻辑交集 |
+  | change | Object（点击的响应） | 返回结构为{ item, checked }，强烈不建议与v-model一起使用，因为有逻辑交集 |
 
 #### 用法
 
@@ -293,7 +293,7 @@ Please view this page with at least 1024px width screen.
   | | Type | Default | Remark |
   |:---:|:---:|:---: |:---:   |
   | title | String | 'TITLE' | / |
-  | maxlength | Number | null | / |
+  | maxlength | Number | 100 | / |
   | v-model | Any | null | / |
 
 #### 用法
@@ -449,3 +449,5 @@ Please view this page with at least 1024px width screen.
     title="空页面"
     btn="按钮要监听组件click.native事件"/>
 ```
+
+-------------------------

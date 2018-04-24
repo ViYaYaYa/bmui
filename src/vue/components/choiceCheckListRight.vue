@@ -7,6 +7,7 @@
         <span class="bmui-check_list-text">{{ (typeof item === 'string' ? item : item.name) || 'ITEM' }}</span>
         <input
           class="bmui-check_list-input"
+          v-bind="mixinInputProps"
           type="checkbox"
           :value="typeof item === 'string' ? item : item.value"
           v-model="valueInside"

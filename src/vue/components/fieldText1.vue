@@ -7,11 +7,12 @@
       class="bmui-field_text1-input"
       v-bind="mixinInputProps"
       v-model="valueInside"
-      :placeholder="placeholder || '请选择'"
+      :placeholder="placeholder || '请输入'"
       ref="input">
     <button
-      v-if="valueInside"
       class="bmui-field_text1-del"
+      type="button"
+      v-if="valueInside"
       @click="valueInside = ''"/>
   </div>
 </template>

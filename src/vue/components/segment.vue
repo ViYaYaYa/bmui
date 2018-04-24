@@ -7,7 +7,8 @@
         <div class="bmui-segment-box2">
           <button
             class="bmui-segment-text"
-            @click="indexInside = i">{{ typeof item === 'string' ? item : item.name || 'ITEM' }}</button>
+            type="button"
+            @click="indexInside = i">{{ (typeof item === 'string' ? item : item.name) || 'ITEM' }}</button>
           <i
             class="bmui-segment-mark"
             v-if="typeof item.mark === 'number'">{{ item.mark > 99 ? '99+' : item.mark }}</i>

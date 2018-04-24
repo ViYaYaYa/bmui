@@ -4,8 +4,7 @@
     <div class="bmui-field_arrow2-wrap">
       <p
         class="bmui-field_arrow2-content"
-        :class="{ 'bmui-field_arrow2-empty': !content }"
-        v-bind="mixinInputProps">{{ content || placeholder || '请选择' }}</p>
+        :class="{ 'bmui-field_arrow2-empty': !content }">{{ content || placeholder || '请选择' }}</p>
       <i class="bmui-field_arrow2-icon"/>
     </div>
   </div>

@@ -11,6 +11,7 @@
       ref="input">
     <button
       class="bmui-field_btn-btn"
+      type="button"
       v-if="!status"
       @click.stop="submit">{{ btn || 'BUTTON' }}</button>
     <i
@@ -39,7 +40,7 @@ export default {
   },
   methods: {
     submit () {
-      this.$emit('submit')
+      this.$emit('submit', this.valueInside)
     }
   }
 }

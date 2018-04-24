@@ -11,8 +11,9 @@
         :placeholder="placeholder || '请输入'"
         ref="input">
       <button
-        v-if="valueInside"
         class="bmui-field_text2-del"
+        type="button"
+        v-if="valueInside"
         @click="valueInside = ''"/>
     </div>
   </div>

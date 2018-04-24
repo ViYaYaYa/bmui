@@ -2,8 +2,10 @@
   <button
     class="bmui-selector"
     :class="{ 'bmui-selector-checked': choiceCheckedInside, 'bmui-selector-disabled': disabled }"
+    type="button"
+    v-bind="mixinInputProps"
     @click="choiceCheckedInside = !choiceCheckedInside"
-    :disabled="disabled">{{ typeof item === 'string' ? item : item.name || 'ITEM' }}</button>
+    :disabled="disabled">{{ (typeof item === 'string' ? item : item.name) || 'ITEM' }}</button>
 </template>
 <script>
 import MixinInput from 'src/vue/mixins/input'
