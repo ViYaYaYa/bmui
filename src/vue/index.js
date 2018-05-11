@@ -18,6 +18,8 @@ import SearchboxEmpty from 'src/vue/components/searchboxEmpty.vue'
 import Segment from 'src/vue/components/segment.vue'
 import Empty from 'src/vue/components/empty.vue'
 
+import Picker from 'src/vue/plugins/picker'
+
 export function install (Vue) {
   Vue.component(Segment.name, Segment)
   Vue.component(CellArrow1.name, CellArrow1)
@@ -38,6 +40,8 @@ export function install (Vue) {
   Vue.component(Searchbox.name, Searchbox)
   Vue.component(SearchboxEmpty.name, SearchboxEmpty)
   Vue.component(Empty.name, Empty)
+
+  Vue.$bmuiPicker = Vue.prototype.$bmuiPicker = Picker
 }
 
 export default { install }

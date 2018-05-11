@@ -9,6 +9,7 @@
         <li><button @click="$router.replace('searchbox')">Searchbox</button></li>
         <li><button @click="$router.replace('segment')">Segment</button></li>
         <li><button @click="$router.replace('empty')">Empty</button></li>
+        <li><button @click="$router.replace('picker')">Picker</button></li>
       </ul>
     </div>
     <readme class="m_readme"/>
@@ -98,6 +99,12 @@
           title="空页面"
           btn="按钮要监听组件click.native事件"/>
       </div>
+      <div
+        class="wrap"
+        v-show="anchor === 'picker'"
+        ref="picker">
+        <button @click="pickerOpen">点击打开picker</button>
+      </div>
     </div>
   </div>
 </template>
@@ -152,6 +159,9 @@ export default {
     },
     segmentChange (index) {
       console.log(index)
+    },
+    pickerOpen () {
+      this.$bmuiPicker.open([['a', { name: 1234, value: 4321, sub: ['b', 'bb', 'bbb'] }, 'c']], undefined, { container: this.$refs.picker, type: 'TIME' })
     }
   }
 }
