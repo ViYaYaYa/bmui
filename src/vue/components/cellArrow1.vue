@@ -1,7 +1,12 @@
 <template>
   <div class="bmui-cell_arrow1">
     <p class="bmui-cell_arrow1-title">{{ title || 'TITLE' }}</p>
-    <p class="bmui-cell_arrow1-content">{{ content }}</p>
+    <div
+      class="bmui-cell_arrow1-content"
+      v-if="$slots.default"><slot /></div>
+    <p
+      class="bmui-cell_arrow1-content"
+      v-else>{{ content }}</p>
     <i class="bmui-cell_arrow1-icon"/>
   </div>
 </template>

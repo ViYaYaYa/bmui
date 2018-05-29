@@ -4,7 +4,7 @@ Please view this page with at least 1024px width screen.
 
 ## Cell
 
-> 仅具备展示功能，文本展示区域没有状态改变
+> 仅具备展示功能，文本展示区域没有状态改变，大部分的Cell都具有slot的功能，即放置自定义元素充当content
 
 -------------------------
 
