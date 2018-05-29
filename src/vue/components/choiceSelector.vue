@@ -1,10 +1,10 @@
 <template>
   <button
     class="bmui-selector"
-    :class="{ 'bmui-selector-checked': choiceCheckedInside, 'bmui-selector-disabled': disabled }"
+    :class="{ 'bmui-selector-checked': checkedInside, 'bmui-selector-disabled': disabled }"
+    @click="click"
     type="button"
     v-bind="mixinInputProps"
-    @click="choiceCheckedInside = !choiceCheckedInside"
     :disabled="disabled">{{ (typeof item === 'string' ? item : item.name) || 'ITEM' }}</button>
 </template>
 <script>
@@ -18,25 +18,13 @@ export default {
       default: ''
     }
   },
-  data () {
-    return {
-      choiceCheckedInside: false
-    }
-  },
-  watch: {
-    value (v) {
-      this.choiceCheckedInside = !!v
-    },
-    choiceCheckedInside (v) {
-      this.$emit('change', {
+  methods: {
+    click () {
+      this.$emit('click', {
         item: typeof this.item === 'string' ? this.item : this.item.value,
-        checked: v
+        checked: !this.checkedInside
       })
-      this.$emit('input', v)
     }
-  },
-  created () {
-    this.choiceCheckedInside = !!this.value
   }
 }
 </script>

@@ -46,9 +46,9 @@
           :items="['check-list-right', '222', { name: '选项名称超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长', value: '333', disabled: true }]"
           v-model="checkListRightModel"/>
         <bmui-selector
-          v-model="selector"
           item="test"
-          @change="selectorChange"/>
+          :checked="selectorChecked"
+          @click="selectorClick"/>
         <bmui-selector
           :item="{ name: '选项2的名称', value: '222' }"
           :disabled="true"/>
@@ -121,7 +121,7 @@ export default {
       radioListModel: '',
       checkListLeftModel: [],
       checkListRightModel: [],
-      selector: '',
+      selectorChecked: false,
       fieldText1Model: '',
       fieldText2Model: '',
       fieldParagraph: '',
@@ -139,8 +139,8 @@ export default {
   created () {
   },
   methods: {
-    selectorChange (res) {
-      console.log(res)
+    selectorClick (res) {
+      this.selectorChecked = res.checked
     },
     fieldBtnSubmit () {
       this.fieldBtnStatus = 'loading'
@@ -161,7 +161,20 @@ export default {
       console.log(index)
     },
     pickerOpen () {
-      this.$bmuiPicker.open([['a', { name: 1234, value: 4321, sub: ['b', 'bb', 'bbb'] }, 'c']], undefined, { container: this.$refs.picker, type: 'TIME' })
+      this.$bmuiPicker.open(
+        [
+          [
+            'a',
+            { name: 1234, value: 4321, sub: ['b', 'bb', 'bbb'] },
+            'c'
+          ]
+        ],
+        undefined,
+        {
+          container: this.$refs.picker,
+          type: 'TIME'
+        }
+      )
     }
   }
 }

@@ -171,13 +171,13 @@ Please view this page with at least 1024px width screen.
   |:---:|:---:|:---:|:-------:|
   | item | String or Object | 'ITEM' | 如果item为Object，其格式应符合{ name, value }结构 |
   | disabled | Any | undefined | / |
-  | v-model | Any | null | 绑定的目标值更新后为Bool |
+  | checked | Any | false | / |
 
 #### 行为
 
   | Event | Args | Remark |
   |:-----:|:-----:|:-----:|
-  | change | Object（点击的响应） | 返回结构为{ item, checked }，强烈不建议与v-model一起使用，因为有逻辑交集 |
+  | click | Object（点击的响应） | 返回结构为{ item, checked } |
 
 #### 用法
 
@@ -186,7 +186,7 @@ Please view this page with at least 1024px width screen.
     :item="{ name: '选项名称', value: '选项值' }"
     :checked="selector === '选项值'"
     :disabled="true"
-    @change="selectorChange"/>
+    @click="selectorChange"/>
 ```
 
 -------------------------
