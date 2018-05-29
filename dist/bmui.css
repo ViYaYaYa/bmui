@@ -796,5 +796,78 @@ textarea[class|="bmui"] {
   font-size: 14px;
   color: #1fb8ff;
 }
+.bmui-picker {
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.3);
+}
+.bmui-picker-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.bmui-picker-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 44px;
+  font-size: 14px;
+  color: #0a85cc;
+  border-bottom: 1px solid #e5e5e5;
+}
+.bmui-picker-btn {
+  width: 96px;
+}
+.bmui-picker-content {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 150px;
+  overflow: hidden;
+  text-align: center;
+}
+.bmui-picker-list {
+  width: 100%;
+  overflow: hidden;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  position: relative;
+}
+.bmui-picker-wrap {
+  position: relative;
+  top: 45%;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  transition: -webkit-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+}
+.bmui-picker-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 2px;
+  color: #999;
+  font-size: 14px;
+}
+.bmui-picker-active {
+  font-size: 17px;
+  color: #333;
+}
+.bmui-picker-colon {
+  width: 25px;
+}
 /*# sourceMappingURL=src/bmui.css.map */
 /*# sourceMappingURL=bmui.css.map*/
