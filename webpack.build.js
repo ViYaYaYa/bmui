@@ -91,7 +91,12 @@ module.exports = [
     },
     devtool: 'source-map',
     externals: {
-      'vue': 'Vue',
+      'vue': {
+        root: 'Vue',
+        amd: 'vue',
+        commonjs: 'vue',
+        commonjs2: 'vue'
+      },
     },
     optimization: {
       minimize: false
