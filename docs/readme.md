@@ -249,6 +249,7 @@ Please view this page with at least 1024px width screen.
   |:---:|:---:|:---: |:---:   |
   | title | String | 'TITLE' | / |
   | v-model | Any | null | / |
+  | selectable | Boolean | false | / |
   | placeholder | String | '请输入' | / |
 
 #### 用法
@@ -272,6 +273,7 @@ Please view this page with at least 1024px width screen.
   |:---:|:---:|:---: |:---:   |
   | title | String | 'TITLE' | / |
   | v-model | Any | null | / |
+  | selectable | Boolean | false | / |
   | placeholder | String | '请输入' | / |
 
 #### 用法

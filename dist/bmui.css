@@ -429,7 +429,7 @@ textarea[class|="bmui"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 12px;
+  padding: 5px 12px;
 }
 .bmui-field_text1-title {
   -ms-flex-negative: 0;
@@ -439,7 +439,6 @@ textarea[class|="bmui"] {
   margin-right: 12px;
 }
 .bmui-field_text1-input {
-  min-height: 30px;
   color: #333;
   font-size: 14px;
   -webkit-box-flex: 1;
@@ -449,6 +448,9 @@ textarea[class|="bmui"] {
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: right;
+}
+.bmui-field_text1-empty {
+  color: #999;
 }
 .bmui-field_text1-del {
   display: inline-block;
@@ -460,6 +462,17 @@ textarea[class|="bmui"] {
   margin: 0 -4px 0 8px;
   width: 30px;
   height: 30px;
+}
+.bmui-field_text1-arrow {
+  display: inline-block;
+  vertical-align: middle;
+  background: url(./assets/component_arrow_right@3x.png) center no-repeat;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin: 0 -4px 0 8px;
 }
 .bmui-field_text2 {
   min-height: 70px;
@@ -489,6 +502,9 @@ textarea[class|="bmui"] {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
+.bmui-field_text2-empty {
+  color: #999;
+}
 .bmui-field_text2-del {
   display: inline-block;
   vertical-align: middle;
@@ -499,6 +515,17 @@ textarea[class|="bmui"] {
   margin: 0 -4px 0 8px;
   width: 30px;
   height: 30px;
+}
+.bmui-field_text2-arrow {
+  display: inline-block;
+  vertical-align: middle;
+  background: url(./assets/component_arrow_right@3x.png) center no-repeat;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin: 0 -4px 0 8px;
 }
 .bmui-field_paragraph {
   background-color: #fff;

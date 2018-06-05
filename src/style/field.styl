@@ -61,14 +61,13 @@
   border-bottom: 1px solid $color_b1
   display: flex
   align-items: center
-  padding: 10px 12px
+  padding: 5px 12px
   &-title
     flex-shrink: 0
     color: $color_t2
     font-size: $size6
     margin-right: 12px
   &-input
-    min-height: 30px
     color: $color_t1
     font-size: $size4
     flex-grow: 1
@@ -76,12 +75,20 @@
     white-space: nowrap
     text-overflow: ellipsis
     text-align: right
+  &-empty
+    color: $color_t3
   &-del
     $icon("delete@3x")
     flex-shrink: 0
     margin: 0 -4px 0 8px
     width: 30px
     height: 30px
+  &-arrow
+    $icon("component_arrow_right@3x")
+    width: 30px
+    height: 30px
+    flex-shrink: 0
+    margin: 0 -4px 0 8px
 
 .{$PREFIX}-field_text2
   min-height: 70px
@@ -101,12 +108,20 @@
     color: $color_t1
     font-size: $size4
     flex-grow: 1
+  &-empty
+    color: $color_t3
   &-del
     $icon("delete@3x")
     flex-shrink: 0
     margin: 0 -4px 0 8px
     width: 30px
     height: 30px
+  &-arrow
+    $icon("component_arrow_right@3x")
+    width: 30px
+    height: 30px
+    flex-shrink: 0
+    margin: 0 -4px 0 8px
 
 .{$PREFIX}-field_paragraph
   background-color: #fff

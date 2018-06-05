@@ -64,8 +64,22 @@
           title="field-text1"
           placeholder="自定义占位符"
           v-model="fieldText1Model"/>
+        <bmui-field-text1
+          title="field-text1-selectable"
+          placeholder="自定义占位符"
+          selectable
+          v-model="fieldText1Model"/>
+        <bmui-field-text1
+          title="field-text1-with-slot"
+          v-model="fieldText1Model">
+          <div>i'm a slot</div>
+        </bmui-field-text1>
         <bmui-field-text2
           title="field-text2"
+          v-model="fieldText2Model"/>
+        <bmui-field-text2
+          title="field-text2-selectable"
+          selectable
           v-model="fieldText2Model"/>
         <bmui-field-paragraph
           title="field-paragraph"

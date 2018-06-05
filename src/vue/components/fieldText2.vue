@@ -4,8 +4,14 @@
     @click="mixinInputDoFocus">
     <p class="bmui-field_text2-title">{{ title || 'TITLE' }}</p>
     <div class="bmui-field_text2-wrap">
+      <div
+        class="bmui-field_text2-input"
+        :class="{ 'bmui-field_text2-empty': !valueInside }"
+        v-if="$slots.default"><slot /></div>
       <input
         class="bmui-field_text2-input"
+        :class="{ 'bmui-field_text1-empty': !valueInside }"
+        v-else
         v-bind="mixinInputProps"
         v-model="valueInside"
         :placeholder="placeholder || '请输入'"
@@ -14,7 +20,10 @@
         class="bmui-field_text2-del"
         type="button"
         v-if="valueInside"
-        @click="valueInside = ''"/>
+        @click.stop="valueInside = ''"/>
+      <i
+        class="bmui-field_text2-arrow"
+        v-show="selectable && !valueInside"/>
     </div>
   </div>
 </template>
@@ -27,6 +36,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    selectable: {
+      type: Boolean,
+      default: false
     }
   }
 }
