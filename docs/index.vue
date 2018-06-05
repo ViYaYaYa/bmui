@@ -65,6 +65,11 @@
           placeholder="自定义占位符"
           v-model="fieldText1Model"/>
         <bmui-field-text1
+          title="field-text1-readonly"
+          readonly
+          placeholder="自定义占位符"
+          v-model="fieldText1Model"/>
+        <bmui-field-text1
           title="field-text1-selectable"
           placeholder="自定义占位符"
           selectable

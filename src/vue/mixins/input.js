@@ -24,6 +24,9 @@ export default {
     },
     type: {
       default: undefined
+    },
+    readonly: {
+      default: undefined
     }
   },
   computed: {
@@ -34,7 +37,8 @@ export default {
         // checked: this.checked,
         placeholder: this.placeholder,
         maxlength: this.maxlength,
-        type: this.type
+        type: this.type,
+        readonly: this.readonly
       }
     }
   },

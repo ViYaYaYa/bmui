@@ -240,6 +240,9 @@ exports.default = {
     },
     type: {
       default: undefined
+    },
+    readonly: {
+      default: undefined
     }
   },
   computed: {
@@ -250,7 +253,8 @@ exports.default = {
         // checked: this.checked,
         placeholder: this.placeholder,
         maxlength: this.maxlength,
-        type: this.type
+        type: this.type,
+        readonly: this.readonly
       };
     }
   },
