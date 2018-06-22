@@ -96,7 +96,8 @@ module.exports = {
     }
   },
   devServer: {
-    overlay: true
+    overlay: true,
+    host: '0.0.0.0'
   },
   plugins: [
     new HtmlWebpackPlugin({
