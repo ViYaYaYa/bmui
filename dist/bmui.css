@@ -671,6 +671,10 @@ textarea[class|="bmui"] {
   height: 30px;
 }
 .bmui-searchbox-content {
+  width: auto;
+  min-width: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
